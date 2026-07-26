@@ -4,238 +4,416 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Crypto Dashboard</title>
+<title>CryptoScreen</title>
 
 <style>
-* {
-    box-sizing: border-box;
+*{
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    background: #0b0e13;
-    color: #f1f3f5;
-    font-family: Arial, Helvetica, sans-serif;
+html{
+    scroll-behavior:smooth;
 }
 
-header {
-    height: 64px;
-    background: #11151c;
-    border-bottom: 1px solid #252b35;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 22px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
+body{
+    margin:0;
+    background:#080b10;
+    color:#f5f7fa;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
 }
 
-.logo {
-    font-size: 21px;
-    font-weight: 800;
+button,input{
+    font:inherit;
 }
 
-.logo span {
-    color: #3b82f6;
+button{
+    cursor:pointer;
 }
 
-nav {
-    display: flex;
-    gap: 22px;
+header{
+    height:66px;
+    background:rgba(12,16,23,.94);
+    border-bottom:1px solid #252c37;
+    display:flex;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:100;
+    backdrop-filter:blur(15px);
 }
 
-nav a {
-    color: #9ca3af;
-    text-decoration: none;
-    font-size: 14px;
+.nav{
+    width:min(1400px,94%);
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
 }
 
-nav a:hover {
-    color: white;
+.logo{
+    font-weight:900;
+    font-size:21px;
+    white-space:nowrap;
 }
 
-.bookmark {
-    border: 1px solid #303846;
-    background: #181e27;
-    color: #fff;
-    border-radius: 8px;
-    padding: 9px 13px;
-    cursor: pointer;
+.logo span{
+    color:#3b82f6;
 }
 
-.bookmark:hover {
-    background: #222a36;
+nav{
+    display:flex;
+    gap:25px;
 }
 
-.container {
-    max-width: 1400px;
-    margin: auto;
-    padding: 25px;
+nav a{
+    color:#8e98a8;
+    text-decoration:none;
+    font-size:14px;
 }
 
-.top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+nav a:hover{
+    color:white;
 }
 
-h1 {
-    margin: 0;
-    font-size: 25px;
+.nav-right{
+    display:flex;
+    gap:8px;
+    align-items:center;
 }
 
-.search {
-    background: #121720;
-    border: 1px solid #2a313d;
-    border-radius: 8px;
-    padding: 12px 15px;
-    color: white;
-    width: 280px;
-    outline: none;
+.btn{
+    border:1px solid #303846;
+    background:#151b24;
+    color:white;
+    border-radius:9px;
+    padding:10px 14px;
+    font-weight:700;
 }
 
-.search:focus {
-    border-color: #3b82f6;
+.btn:hover{
+    background:#202936;
 }
 
-.layout {
-    display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 18px;
+.wallet-btn{
+    border:0;
+    background:#3b82f6;
+    color:white;
+    border-radius:9px;
+    padding:11px 15px;
+    font-weight:800;
 }
 
-.panel {
-    background: #11151c;
-    border: 1px solid #252c37;
-    border-radius: 10px;
-    overflow: hidden;
+.wallet-btn:hover{
+    background:#2563eb;
 }
 
-.panel-title {
-    padding: 16px;
-    border-bottom: 1px solid #252c37;
-    font-weight: 700;
+.wallet-btn.connected{
+    background:#168a50;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.container{
+    width:min(1400px,94%);
+    margin:auto;
 }
 
-th {
-    color: #7f8896;
-    font-size: 12px;
-    text-align: left;
-    padding: 13px 16px;
-    background: #0e1218;
+.hero{
+    padding:30px 0 22px;
 }
 
-td {
-    padding: 15px 16px;
-    border-top: 1px solid #202631;
-    font-size: 14px;
+.hero-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+    gap:20px;
 }
 
-tr:hover {
-    background: #171c24;
+h1{
+    margin:0;
+    font-size:30px;
 }
 
-.token {
-    font-weight: 700;
+.subtitle{
+    color:#7e8999;
+    margin-top:6px;
 }
 
-.symbol {
-    color: #737d8c;
-    font-size: 12px;
-    margin-left: 5px;
+.search{
+    width:290px;
+    background:#111720;
+    color:white;
+    border:1px solid #303846;
+    border-radius:9px;
+    padding:12px 14px;
+    outline:none;
 }
 
-.green {
-    color: #22c55e;
+.search:focus{
+    border-color:#3b82f6;
 }
 
-.red {
-    color: #ef4444;
+.dashboard{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 320px;
+    gap:16px;
 }
 
-.side-card {
-    padding: 18px;
+.panel{
+    background:#10151d;
+    border:1px solid #252c37;
+    border-radius:12px;
+    overflow:hidden;
 }
 
-.side-card h3 {
-    margin-top: 0;
+.panel-title{
+    padding:16px 18px;
+    border-bottom:1px solid #252c37;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.stat {
-    display: flex;
-    justify-content: space-between;
-    padding: 12px 0;
-    border-bottom: 1px solid #252c37;
+.panel-title strong{
+    font-size:15px;
 }
 
-.stat:last-child {
-    border-bottom: none;
+.live{
+    color:#22c55e;
+    font-size:12px;
+    font-weight:800;
 }
 
-.mini-chart {
-    height: 130px;
-    margin-top: 18px;
-    display: flex;
-    align-items: end;
-    gap: 5px;
+.table-wrap{
+    overflow-x:auto;
 }
 
-.bar {
-    flex: 1;
-    background: #2563eb;
-    border-radius: 3px 3px 0 0;
-    opacity: .75;
+table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:750px;
 }
 
-.footer {
-    text-align: center;
-    color: #697383;
-    padding: 40px 0;
-    font-size: 13px;
+th{
+    text-align:left;
+    padding:13px 15px;
+    background:#0d1117;
+    color:#727d8d;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
 }
 
-@media(max-width: 850px) {
+td{
+    padding:15px;
+    border-top:1px solid #202631;
+    font-size:14px;
+}
 
-    header {
-        padding: 0 12px;
+tr:hover{
+    background:#171d26;
+}
+
+.pair{
+    font-weight:800;
+}
+
+.symbol{
+    color:#6f7a8b;
+    margin-left:5px;
+    font-size:12px;
+}
+
+.green{
+    color:#22c55e;
+}
+
+.red{
+    color:#ef5368;
+}
+
+.muted{
+    color:#7f8998;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+.stat{
+    padding:18px;
+    border-bottom:1px solid #252c37;
+}
+
+.stat:nth-child(odd){
+    border-right:1px solid #252c37;
+}
+
+.stat-label{
+    color:#707b8c;
+    font-size:11px;
+    text-transform:uppercase;
+}
+
+.stat-value{
+    margin-top:6px;
+    font-size:20px;
+    font-weight:850;
+}
+
+.chart{
+    height:260px;
+    padding:15px;
+}
+
+.chart svg{
+    width:100%;
+    height:100%;
+}
+
+.activity{
+    padding:16px;
+}
+
+.activity-row{
+    display:flex;
+    justify-content:space-between;
+    padding:11px 0;
+    border-bottom:1px solid #202631;
+    font-size:13px;
+}
+
+.activity-row:last-child{
+    border-bottom:0;
+}
+
+.wallet-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.7);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    z-index:500;
+    padding:20px;
+}
+
+.wallet-modal.show{
+    display:flex;
+}
+
+.wallet-box{
+    width:min(400px,100%);
+    background:#111720;
+    border:1px solid #303846;
+    border-radius:17px;
+    padding:20px;
+    box-shadow:0 25px 80px #000;
+}
+
+.wallet-box h2{
+    margin:0 0 5px;
+}
+
+.wallet-description{
+    color:#7f8998;
+    font-size:14px;
+    margin-bottom:18px;
+}
+
+.wallet-option{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px;
+    margin-top:9px;
+    border:1px solid #29313d;
+    background:#151c26;
+    color:white;
+    border-radius:11px;
+    text-align:left;
+}
+
+.wallet-option:hover{
+    background:#1d2632;
+}
+
+.wallet-icon{
+    width:35px;
+    height:35px;
+    border-radius:9px;
+    display:grid;
+    place-items:center;
+    background:#242d3a;
+    font-size:19px;
+}
+
+.close{
+    float:right;
+    border:0;
+    background:transparent;
+    color:#8d98a8;
+    font-size:22px;
+}
+
+.address-box{
+    margin-top:15px;
+    background:#090d13;
+    border:1px solid #29313d;
+    border-radius:9px;
+    padding:12px;
+    word-break:break-all;
+    font-size:12px;
+    color:#aeb8c7;
+}
+
+footer{
+    text-align:center;
+    color:#687383;
+    padding:45px 0 70px;
+    font-size:13px;
+}
+
+@media(max-width:850px){
+
+    nav{
+        display:none;
     }
 
-    nav {
-        display: none;
+    .nav{
+        width:94%;
     }
 
-    .container {
-        padding: 14px;
+    .dashboard{
+        grid-template-columns:1fr;
     }
 
-    .top {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 15px;
+    .hero-top{
+        flex-direction:column;
+        align-items:stretch;
     }
 
-    .search {
-        width: 100%;
+    .search{
+        width:100%;
     }
 
-    .layout {
-        grid-template-columns: 1fr;
+}
+
+@media(max-width:500px){
+
+    .logo{
+        font-size:18px;
     }
 
-    .panel {
-        overflow-x: auto;
+    .bookmark{
+        display:none;
     }
 
-    table {
-        min-width: 700px;
+    h1{
+        font-size:25px;
     }
+
 }
 </style>
 </head>
@@ -244,209 +422,429 @@ tr:hover {
 
 <header>
 
+<div class="nav">
+
     <div class="logo">
         <span>Crypto</span>Screen
     </div>
 
     <nav>
-        <a href="#">Discover</a>
-        <a href="#">Trending</a>
-        <a href="#">New Pairs</a>
-        <a href="#">Watchlist</a>
+        <a href="#markets">Markets</a>
+        <a href="#trending">Trending</a>
+        <a href="#activity">Activity</a>
     </nav>
 
-   <div style="display:flex; gap:8px;">
-    <button class="bookmark" onclick="bookmarkSite()">
-        ☆ Bookmark
-    </button>
+    <div class="nav-right">
 
-    <button class="wallet-btn" id="walletButton" onclick="connectWallet()">
-        Connect Wallet
-    </button>
+        <button class="btn" onclick="bookmarkSite()">
+            ☆
+        </button>
+
+        <button
+            class="wallet-btn"
+            id="walletButton"
+            onclick="openWalletModal()">
+            Connect Wallet
+        </button>
+
+    </div>
+
 </div>
 
 </header>
 
 
-<div class="container">
+<main class="container">
 
-    <div class="top">
+<section class="hero">
+
+    <div class="hero-top">
 
         <div>
+
             <h1>Token Markets</h1>
-            <p style="color:#7f8896;">
-                Market overview & live-style pair tracking
-            </p>
+
+            <div class="subtitle">
+                Track pairs, liquidity, volume and market activity
+            </div>
+
         </div>
 
         <input
-            class="search"
             id="search"
-            placeholder="Search token..."
-            onkeyup="searchTokens()"
+            class="search"
+            type="text"
+            placeholder="Search token or symbol..."
+            oninput="searchTokens()"
         >
 
     </div>
 
+</section>
 
-    <div class="layout">
 
-        <div class="panel">
+<section class="dashboard" id="markets">
 
-            <div class="panel-title">
-                Trending Pairs
-            </div>
 
-            <table>
+<div class="panel">
 
-                <thead>
-                    <tr>
-                        <th>Pair</th>
-                        <th>Price</th>
-                        <th>24h</th>
-                        <th>Liquidity</th>
-                        <th>Volume 24h</th>
-                        <th>Market Cap</th>
-                    </tr>
-                </thead>
+    <div class="panel-title">
 
-                <tbody id="tokenTable">
+        <strong>🔥 Trending Pairs</strong>
 
-                    <tr>
-                        <td>
-                            <span class="token">Bitcoin</span>
-                            <span class="symbol">BTC</span>
-                        </td>
-                        <td>$67,421</td>
-                        <td class="green">+2.41%</td>
-                        <td>$1.42B</td>
-                        <td>$31.2B</td>
-                        <td>$1.33T</td>
-                    </tr>
+        <span class="live">
+            ● LIVE
+        </span>
 
-                    <tr>
-                        <td>
-                            <span class="token">Ethereum</span>
-                            <span class="symbol">ETH</span>
-                        </td>
-                        <td>$3,842</td>
-                        <td class="green">+1.86%</td>
-                        <td>$892M</td>
-                        <td>$18.4B</td>
-                        <td>$462B</td>
-                    </tr>
+    </div>
 
-                    <tr>
-                        <td>
-                            <span class="token">Solana</span>
-                            <span class="symbol">SOL</span>
-                        </td>
-                        <td>$168.42</td>
-                        <td class="green">+5.72%</td>
-                        <td>$512M</td>
-                        <td>$7.8B</td>
-                        <td>$78B</td>
-                    </tr>
 
-                    <tr>
-                        <td>
-                            <span class="token">Dogecoin</span>
-                            <span class="symbol">DOGE</span>
-                        </td>
-                        <td>$0.184</td>
-                        <td class="red">-1.24%</td>
-                        <td>$241M</td>
-                        <td>$2.9B</td>
-                        <td>$26B</td>
-                    </tr>
+    <div class="table-wrap">
 
-                    <tr>
-                        <td>
-                            <span class="token">Pepe</span>
-                            <span class="symbol">PEPE</span>
-                        </td>
-                        <td>$0.000012</td>
-                        <td class="green">+8.21%</td>
-                        <td>$185M</td>
-                        <td>$1.7B</td>
-                        <td>$5.2B</td>
-                    </tr>
+    <table>
 
-                    <tr>
-                        <td>
-                            <span class="token">Shiba Inu</span>
-                            <span class="symbol">SHIB</span>
-                        </td>
-                        <td>$0.000018</td>
-                        <td class="red">-0.74%</td>
-                        <td>$133M</td>
-                        <td>$1.1B</td>
-                        <td>$10.6B</td>
-                    </tr>
+        <thead>
 
-                </tbody>
+        <tr>
+            <th>Pair</th>
+            <th>Price</th>
+            <th>24h</th>
+            <th>Liquidity</th>
+            <th>Volume</th>
+            <th>Market Cap</th>
+        </tr>
 
-            </table>
+        </thead>
 
+
+        <tbody id="tokenTable">
+
+
+        <tr>
+
+            <td>
+                <span class="pair">Bitcoin</span>
+                <span class="symbol">BTC</span>
+            </td>
+
+            <td>$67,421</td>
+
+            <td class="green">+2.41%</td>
+
+            <td>$1.42B</td>
+
+            <td>$31.2B</td>
+
+            <td>$1.33T</td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                <span class="pair">Ethereum</span>
+                <span class="symbol">ETH</span>
+            </td>
+
+            <td>$3,842</td>
+
+            <td class="green">+1.86%</td>
+
+            <td>$892M</td>
+
+            <td>$18.4B</td>
+
+            <td>$462B</td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                <span class="pair">Solana</span>
+                <span class="symbol">SOL</span>
+            </td>
+
+            <td>$168.42</td>
+
+            <td class="green">+5.72%</td>
+
+            <td>$512M</td>
+
+            <td>$7.8B</td>
+
+            <td>$78B</td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                <span class="pair">Dogecoin</span>
+                <span class="symbol">DOGE</span>
+            </td>
+
+            <td>$0.184</td>
+
+            <td class="red">-1.24%</td>
+
+            <td>$241M</td>
+
+            <td>$2.9B</td>
+
+            <td>$26B</td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                <span class="pair">Pepe</span>
+                <span class="symbol">PEPE</span>
+            </td>
+
+            <td>$0.000012</td>
+
+            <td class="green">+8.21%</td>
+
+            <td>$185M</td>
+
+            <td>$1.7B</td>
+
+            <td>$5.2B</td>
+
+        </tr>
+
+
+        <tr>
+
+            <td>
+                <span class="pair">Shiba Inu</span>
+                <span class="symbol">SHIB</span>
+            </td>
+
+            <td>$0.000018</td>
+
+            <td class="red">-0.74%</td>
+
+            <td>$133M</td>
+
+            <td>$1.1B</td>
+
+            <td>$10.6B</td>
+
+        </tr>
+
+
+        </tbody>
+
+    </table>
+
+    </div>
+
+</div>
+
+
+<div class="panel">
+
+    <div class="panel-title">
+
+        <strong>Market Overview</strong>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+            <div class="stat-label">Market Cap</div>
+            <div class="stat-value">$2.41T</div>
         </div>
 
+        <div class="stat">
+            <div class="stat-label">24h Volume</div>
+            <div class="stat-value">$86.2B</div>
+        </div>
 
-        <div class="panel">
+        <div class="stat">
+            <div class="stat-label">BTC Dominance</div>
+            <div class="stat-value">54.2%</div>
+        </div>
 
-            <div class="panel-title">
-                Market Overview
-            </div>
-
-            <div class="side-card">
-
-                <div class="stat">
-                    <span>Market Cap</span>
-                    <strong>$2.41T</strong>
-                </div>
-
-                <div class="stat">
-                    <span>24h Volume</span>
-                    <strong>$86.2B</strong>
-                </div>
-
-                <div class="stat">
-                    <span>BTC Dominance</span>
-                    <strong>54.2%</strong>
-                </div>
-
-                <div class="stat">
-                    <span>Pairs Tracked</span>
-                    <strong>12,482</strong>
-                </div>
-
-                <h3 style="margin-top:25px;">
-                    Market Activity
-                </h3>
-
-                <div class="mini-chart">
-
-                    <div class="bar" style="height:35%"></div>
-                    <div class="bar" style="height:52%"></div>
-                    <div class="bar" style="height:42%"></div>
-                    <div class="bar" style="height:68%"></div>
-                    <div class="bar" style="height:55%"></div>
-                    <div class="bar" style="height:82%"></div>
-                    <div class="bar" style="height:71%"></div>
-                    <div class="bar" style="height:94%"></div>
-                    <div class="bar" style="height:77%"></div>
-                    <div class="bar" style="height:88%"></div>
-
-                </div>
-
-            </div>
-
+        <div class="stat">
+            <div class="stat-label">Pairs</div>
+            <div class="stat-value">12,482</div>
         </div>
 
     </div>
 
 
-    <div class="footer">
-        CryptoScreen • Market dashboard
+    <div class="panel-title" id="trending">
+
+        <strong>Price Chart</strong>
+
+    </div>
+
+
+    <div class="chart">
+
+        <svg viewBox="0 0 900 260" preserveAspectRatio="none">
+
+            <defs>
+
+                <linearGradient
+                    id="chartGradient"
+                    x1="0"
+                    x2="0"
+                    y1="0"
+                    y2="1">
+
+                    <stop
+                        offset="0%"
+                        stop-color="#3b82f6"
+                        stop-opacity=".35"/>
+
+                    <stop
+                        offset="100%"
+                        stop-color="#3b82f6"
+                        stop-opacity="0"/>
+
+                </linearGradient>
+
+            </defs>
+
+
+            <path
+                d="M0 220
+                C70 205 95 230 145 185
+                S220 205 270 160
+                S340 180 395 125
+                S460 150 520 105
+                S600 135 655 82
+                S720 105 770 62
+                S835 80 900 25
+                L900 260
+                L0 260 Z"
+                fill="url(#chartGradient)"
+            />
+
+
+            <path
+                d="M0 220
+                C70 205 95 230 145 185
+                S220 205 270 160
+                S340 180 395 125
+                S460 150 520 105
+                S600 135 655 82
+                S720 105 770 62
+                S835 80 900 25"
+                fill="none"
+                stroke="#3b82f6"
+                stroke-width="4"
+            />
+
+        </svg>
+
+    </div>
+
+
+    <div
+        class="panel-title"
+        id="activity">
+
+        <strong>Recent Activity</strong>
+
+    </div>
+
+
+    <div class="activity">
+
+        <div class="activity-row">
+            <span>8xK...92P</span>
+            <span class="green">BUY</span>
+        </div>
+
+        <div class="activity-row">
+            <span>4mQ...81A</span>
+            <span class="green">BUY</span>
+        </div>
+
+        <div class="activity-row">
+            <span>7zT...33B</span>
+            <span class="red">SELL</span>
+        </div>
+
+        <div class="activity-row">
+            <span>2aN...77K</span>
+            <span class="green">BUY</span>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    CryptoScreen • Solana market dashboard
+
+</footer>
+
+
+<!-- WALLET MODAL -->
+
+<div
+    class="wallet-modal"
+    id="walletModal"
+    onclick="closeWalletOutside(event)">
+
+    <div
+        class="wallet-box"
+        onclick="event.stopPropagation()">
+
+        <button
+            class="close"
+            onclick="closeWalletModal()">
+            ×
+        </button>
+
+        <h2>Connect Wallet</h2>
+
+        <div class="wallet-description">
+            Select a Solana wallet to continue.
+        </div>
+
+        <div id="walletOptions"></div>
+
+        <div
+            id="connectedInfo"
+            style="display:none">
+
+            <div class="address-box">
+                <strong>Connected address</strong>
+                <br><br>
+                <span id="walletAddress"></span>
+            </div>
+
+            <button
+                class="btn"
+                style="width:100%;margin-top:10px"
+                onclick="disconnectWallet()">
+
+                Disconnect
+
+            </button>
+
+        </div>
+
     </div>
 
 </div>
@@ -454,44 +852,36 @@ tr:hover {
 
 <script>
 
-function bookmarkSite() {
+/* =========================
+   BOOKMARK
+========================= */
 
-    const title = "CryptoScreen";
+function bookmarkSite(){
 
-    if (window.sidebar && window.sidebar.addPanel) {
+    alert(
+        "On iPhone: tap Share → Add to Favorites to bookmark this website."
+    );
 
-        window.sidebar.addPanel(
-            title,
-            window.location.href,
-            ""
-        );
-
-    } else if (window.external && ("AddFavorite" in window.external)) {
-
-        window.external.AddFavorite(
-            window.location.href,
-            title
-        );
-
-    } else {
-
-        alert(
-            "To bookmark this page, use your browser's Share menu and choose 'Add Bookmark'."
-        );
-
-    }
 }
 
 
-function searchTokens() {
+/* =========================
+   SEARCH
+========================= */
 
-    const input =
-        document.getElementById("search")
+function searchTokens(){
+
+    const query =
+        document
+        .getElementById("search")
         .value
-        .toLowerCase();
+        .toLowerCase()
+        .trim();
 
     const rows =
-        document.querySelectorAll("#tokenTable tr");
+        document.querySelectorAll(
+            "#tokenTable tr"
+        );
 
     rows.forEach(row => {
 
@@ -499,13 +889,370 @@ function searchTokens() {
             row.innerText.toLowerCase();
 
         row.style.display =
-            text.includes(input)
+            text.includes(query)
             ? ""
             : "none";
 
     });
 
 }
+
+
+/* =========================
+   WALLET
+========================= */
+
+let selectedWallet = null;
+let selectedAccount = null;
+
+
+function getWallets(){
+
+    const wallets =
+        window.navigator.wallets;
+
+    if(!wallets){
+        return [];
+    }
+
+    return Array.from(wallets).filter(wallet => {
+
+        const chains =
+            wallet.chains || [];
+
+        const hasSolana =
+            chains.some(chain =>
+                String(chain)
+                .toLowerCase()
+                .includes("solana")
+            );
+
+        const features =
+            wallet.features || {};
+
+        const canConnect =
+            !!features["standard:connect"];
+
+        return hasSolana && canConnect;
+
+    });
+
+}
+
+
+function openWalletModal(){
+
+    const modal =
+        document.getElementById(
+            "walletModal"
+        );
+
+    modal.classList.add("show");
+
+    renderWallets();
+
+}
+
+
+function closeWalletModal(){
+
+    document
+        .getElementById("walletModal")
+        .classList.remove("show");
+
+}
+
+
+function closeWalletOutside(event){
+
+    if(
+        event.target.id ===
+        "walletModal"
+    ){
+        closeWalletModal();
+    }
+
+}
+
+
+function renderWallets(){
+
+    const list =
+        document.getElementById(
+            "walletOptions"
+        );
+
+    const wallets =
+        getWallets();
+
+    list.innerHTML = "";
+
+
+    if(wallets.length === 0){
+
+        list.innerHTML = `
+
+            <div class="address-box">
+
+                No compatible Solana wallet
+                was detected.
+
+                <br><br>
+
+                Open this page inside your
+                wallet's browser or install a
+                Wallet Standard compatible wallet.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    wallets.forEach(wallet => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "wallet-option";
+
+
+        const icon =
+            document.createElement("div");
+
+        icon.className =
+            "wallet-icon";
+
+        icon.textContent =
+            wallet.name
+            .toLowerCase()
+            .includes("phantom")
+            ? "👻"
+            : "◎";
+
+
+        const name =
+            document.createElement("strong");
+
+        name.textContent =
+            wallet.name;
+
+
+        button.appendChild(icon);
+        button.appendChild(name);
+
+
+        button.onclick = () =>
+            connectWallet(wallet);
+
+
+        list.appendChild(button);
+
+    });
+
+}
+
+
+async function connectWallet(wallet){
+
+    try{
+
+        const connectFeature =
+            wallet.features[
+                "standard:connect"
+            ];
+
+
+        if(!connectFeature){
+
+            throw new Error(
+                "Wallet does not support connection."
+            );
+
+        }
+
+
+        const result =
+            await connectFeature.connect();
+
+
+        if(
+            !result ||
+            !result.accounts ||
+            !result.accounts.length
+        ){
+
+            throw new Error(
+                "No wallet account returned."
+            );
+
+        }
+
+
+        selectedWallet =
+            wallet;
+
+        selectedAccount =
+            result.accounts[0];
+
+
+        updateWalletUI();
+
+    }
+    catch(error){
+
+        console.error(
+            "Wallet connection failed:",
+            error
+        );
+
+        alert(
+            "Wallet connection was cancelled or failed."
+        );
+
+    }
+
+}
+
+
+function updateWalletUI(){
+
+    const address =
+        selectedAccount.address;
+
+
+    const shortAddress =
+        address.slice(0,5)
+        + "..."
+        + address.slice(-5);
+
+
+    const button =
+        document.getElementById(
+            "walletButton"
+        );
+
+
+    button.textContent =
+        "● " + shortAddress;
+
+    button.classList.add(
+        "connected"
+    );
+
+
+    document.getElementById(
+        "walletOptions"
+    ).style.display =
+        "none";
+
+
+    document.getElementById(
+        "connectedInfo"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "walletAddress"
+    ).textContent =
+        address;
+
+}
+
+
+async function disconnectWallet(){
+
+    try{
+
+        if(
+            selectedWallet &&
+            selectedWallet.features &&
+            selectedWallet.features[
+                "standard:disconnect"
+            ]
+        ){
+
+            await selectedWallet
+                .features[
+                    "standard:disconnect"
+                ]
+                .disconnect();
+
+        }
+
+    }
+    catch(error){
+
+        console.log(
+            "Disconnect error:",
+            error
+        );
+
+    }
+
+
+    selectedWallet = null;
+    selectedAccount = null;
+
+
+    const button =
+        document.getElementById(
+            "walletButton"
+        );
+
+
+    button.textContent =
+        "Connect Wallet";
+
+
+    button.classList.remove(
+        "connected"
+    );
+
+
+    document.getElementById(
+        "walletOptions"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "connectedInfo"
+    ).style.display =
+        "none";
+
+
+    renderWallets();
+
+}
+
+
+/* =========================
+   WALLET DETECTION
+========================= */
+
+window.addEventListener(
+    "load",
+    () => {
+
+        /*
+        Wallet Standard wallets can register
+        themselves after page load.
+        Re-render when the page is opened.
+        */
+
+        setTimeout(
+            renderWallets,
+            1000
+        );
+
+    }
+);
 
 </script>
 
