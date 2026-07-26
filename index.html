@@ -1,55 +1,2056 @@
-CryptoScreen
-Connect Wallet
-WELCOME TO LUNA
-A community-first crypto dashboard built for discovering markets, tracking activity and having fun on the way to the moon.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-🚀
+<title>Welcome to Luna</title>
 
-Explore Markets
-Connect Phantom
-📊 Market Overview
-Demo interface — token not launched yet
+<style>
 
-☆ Bookmark
+* {
+    box-sizing: border-box;
+}
 
-TOKEN
-PRICE
-24H
-VOLUME
-₿ Bitcoin BTC
-$104,250
-+2.31%
-$42.1B
-Ξ Ethereum ETH
-$3,820
-+1.74%
-$18.4B
-◎ Solana SOL
-$188.20
-+5.12%
-$6.7B
-Market Stats
-Market Cap
-$3.42T
-24h Volume
-$128.6B
-BTC Dominance
-61.2%
-Fear & Greed
-72 • Greed
-🌙 Luna Run
-Jump over the rocks
-LUNA RUN
-Score: 0
+body {
+    margin: 0;
+    background: #070a12;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-JUMP
-🏆 Leaderboard
-🥇 MoonWalker
-1280
-🥈 LunaFan
-940
-🥉 AstroCat
-720
-4. You
-0
-Your best score is saved in this browser. A global leaderboard needs a database.
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    height: 68px;
+    background: #0c111b;
+    border-bottom: 1px solid #252d3b;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.logo span {
+    color: #9b7cff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: #8994a6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.wallet-button {
+    background: #3b82f6;
+    border: 0;
+    color: white;
+    padding: 11px 17px;
+    border-radius: 10px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.wallet-button:hover {
+    background: #2563eb;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            #26385e,
+            #070a12 65%
+        );
+}
+
+.stars {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(#ffffff 1px, transparent 1px);
+
+    background-size: 100px 100px;
+
+    opacity: .12;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 1100px;
+
+    padding: 40px 20px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 12vw, 145px);
+
+    line-height: .82;
+
+    margin: 0;
+
+    letter-spacing: -7px;
+
+    font-weight: 1000;
+
+    background:
+        linear-gradient(
+            180deg,
+            white,
+            #b9a7ff,
+            #6347d7
+        );
+
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero-text {
+    max-width: 700px;
+
+    margin: 30px auto;
+
+    color: #a9b4c5;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+}
+
+/* Moon */
+
+.moon {
+    width: 155px;
+    height: 155px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #ffffff,
+            #d9dee7 55%,
+            #9ca5b4
+        );
+
+    box-shadow:
+        0 0 80px rgba(220,230,255,.5);
+
+    position: absolute;
+
+    right: 13%;
+    top: 20px;
+}
+
+/* Rocket */
+
+.rocket {
+    position: absolute;
+
+    right: 29%;
+    top: 130px;
+
+    font-size: 42px;
+
+    transform: rotate(-30deg);
+
+    animation:
+        rocketMove 3s infinite ease-in-out;
+}
+
+@keyframes rocketMove {
+
+    50% {
+        transform:
+            translate(-12px,-20px)
+            rotate(-30deg);
+    }
+
+}
+
+/* Mountains */
+
+.mountains {
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    height: 180px;
+
+    background: #131b2a;
+
+    clip-path:
+        polygon(
+            0 100%,
+            0 70%,
+            12% 45%,
+            25% 75%,
+            40% 30%,
+            53% 75%,
+            66% 40%,
+            79% 78%,
+            90% 48%,
+            100% 70%,
+            100% 100%
+        );
+}
+
+.hero-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-top: 25px;
+}
+
+.main-button {
+    background: #35e58a;
+
+    color: #06120b;
+
+    border: 0;
+
+    padding: 14px 22px;
+
+    border-radius: 11px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+.secondary-button {
+    background: #182231;
+
+    color: white;
+
+    border: 1px solid #36445a;
+
+    padding: 14px 22px;
+
+    border-radius: 11px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+.container {
+    width: min(1200px, 92%);
+
+    margin: 60px auto 100px;
+}
+
+.section-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+.section-title h2 {
+    margin: 0;
+}
+
+.muted {
+    color: #8995a7;
+}
+
+/* =========================
+   MARKET
+========================= */
+
+.market-grid {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(260px, .7fr);
+
+    gap: 15px;
+}
+
+.panel {
+    background: #0e141d;
+
+    border: 1px solid #222c3a;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+}
+
+.toolbar {
+    padding: 15px;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.search {
+    flex: 1;
+
+    background: #080d14;
+
+    color: white;
+
+    border: 1px solid #303c4e;
+
+    border-radius: 9px;
+
+    padding: 12px;
+}
+
+.bookmark {
+    background: #151e2b;
+
+    color: white;
+
+    border: 1px solid #39465a;
+
+    border-radius: 9px;
+
+    padding: 10px 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+.chart {
+    height: 250px;
+
+    padding: 15px;
+}
+
+.chart svg {
+    width: 100%;
+    height: 100%;
+}
+
+.table {
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 15px;
+
+    border-top: 1px solid #202a38;
+
+    text-align: left;
+}
+
+.table th {
+    color: #748095;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+}
+
+.green {
+    color: #35e58a;
+}
+
+.stats {
+    padding: 20px;
+}
+
+.stat {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #222c3a;
+}
+
+/* =========================
+   LUNA PIXEL GAME
+========================= */
+
+.game-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.5fr)
+        minmax(250px, .7fr);
+
+    gap: 15px;
+}
+
+.game {
+    height: 360px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            #0a1322,
+            #101b2d 65%,
+            #0b1018
+        );
+
+    border: 1px solid #26344a;
+}
+
+/* Game stars */
+
+.game-stars {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(
+            white 1px,
+            transparent 1px
+        );
+
+    background-size: 75px 75px;
+
+    opacity: .1;
+}
+
+/* Game title */
+
+.game-title {
+    position: absolute;
+
+    top: 15px;
+    left: 18px;
+
+    font-weight: 900;
+
+    z-index: 10;
+}
+
+.score {
+    position: absolute;
+
+    right: 18px;
+    top: 15px;
+
+    color: #ffd76a;
+
+    font-weight: 900;
+
+    z-index: 10;
+}
+
+/* Ground */
+
+.ground {
+    position: absolute;
+
+    bottom: 0;
+
+    left: 0;
+    right: 0;
+
+    height: 70px;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #182131 0 25px,
+            #121a27 25px 50px
+        );
+
+    border-top: 2px solid #29364a;
+}
+
+/* =========================
+   PIXEL CAT
+========================= */
+
+.pixel-cat {
+    position: absolute;
+
+    left: 90px;
+
+    bottom: 70px;
+
+    width: 56px;
+    height: 56px;
+
+    background: #f1a35c;
+
+    image-rendering: pixelated;
+
+    z-index: 5;
+
+    box-shadow:
+        8px 0 #f1a35c,
+        -8px 0 #f1a35c;
+}
+
+/* ears */
+
+.pixel-cat::before {
+    content: "";
+
+    position: absolute;
+
+    left: 5px;
+    top: -12px;
+
+    width: 17px;
+    height: 17px;
+
+    background: #f1a35c;
+
+    clip-path:
+        polygon(
+            0 100%,
+            0 0,
+            100% 100%
+        );
+
+    box-shadow:
+        29px 0 #f1a35c;
+}
+
+/* face */
+
+.pixel-cat::after {
+    content: "•  •";
+
+    position: absolute;
+
+    top: 16px;
+    left: 9px;
+
+    color: #17120d;
+
+    font-size: 14px;
+
+    letter-spacing: 6px;
+
+    white-space: nowrap;
+}
+
+/* Tail */
+
+.pixel-tail {
+    position: absolute;
+
+    left: 65px;
+
+    bottom: 86px;
+
+    width: 22px;
+    height: 10px;
+
+    background: #f1a35c;
+
+    z-index: 4;
+}
+
+/* Pixel rock */
+
+.pixel-rock {
+    position: absolute;
+
+    width: 38px;
+    height: 38px;
+
+    bottom: 70px;
+
+    background: #7e8795;
+
+    z-index: 4;
+
+    clip-path:
+        polygon(
+            20% 100%,
+            0 55%,
+            20% 20%,
+            55% 0,
+            100% 30%,
+            90% 100%
+        );
+}
+
+/* Jump button */
+
+.jump-button {
+    position: absolute;
+
+    right: 16px;
+    bottom: 15px;
+
+    width: 68px;
+    height: 68px;
+
+    border-radius: 50%;
+
+    border: 0;
+
+    background: #8d6cff;
+
+    color: white;
+
+    font-weight: 900;
+
+    z-index: 20;
+
+    box-shadow:
+        0 0 30px rgba(141,108,255,.35);
+}
+
+/* Game help */
+
+.game-help {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 15px;
+
+    transform:
+        translateX(-50%);
+
+    color: #9ca8ba;
+
+    font-size: 12px;
+
+    z-index: 10;
+
+    white-space: nowrap;
+}
+
+/* =========================
+   LEADERBOARD
+========================= */
+
+.leaderboard {
+    padding: 20px;
+}
+
+.rank {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 13px 0;
+
+    border-bottom: 1px solid #222c3a;
+}
+
+/* =========================
+   WALLET MODAL
+========================= */
+
+.wallet-modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.75);
+
+    z-index: 500;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.wallet-modal.show {
+    display: flex;
+}
+
+.wallet-box {
+    width: min(390px,100%);
+
+    background: #111823;
+
+    border: 1px solid #344157;
+
+    border-radius: 16px;
+
+    padding: 20px;
+}
+
+.wallet-option {
+    width: 100%;
+
+    padding: 15px;
+
+    margin-top: 10px;
+
+    background: #182231;
+
+    color: white;
+
+    border: 1px solid #344157;
+
+    border-radius: 10px;
+
+    text-align: left;
+
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+.close {
+    float: right;
+
+    background: none;
+
+    color: #aaa;
+
+    border: 0;
+
+    font-size: 25px;
+
+    cursor: pointer;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .market-grid,
+    .game-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        letter-spacing: -4px;
+    }
+
+    .moon {
+        right: 2%;
+        width: 120px;
+        height: 120px;
+    }
+
+    .rocket {
+        right: 22%;
+    }
+
+    .game-help {
+        display: none;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Crypto<span>Screen</span>
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#markets">
+            Markets
+        </a>
+
+        <a href="#game">
+            Luna Run
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+    </div>
+
+    <button
+        class="wallet-button"
+        id="walletButton">
+
+        Connect Wallet
+
+    </button>
+
+</nav>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+    <div class="stars"></div>
+
+    <div class="hero-content">
+
+        <h1>
+            WELCOME<br>
+            TO LUNA
+        </h1>
+
+        <p class="hero-text">
+
+            A community-first crypto dashboard
+            built for discovering markets,
+            tracking activity and having fun
+            on the way to the moon.
+
+        </p>
+
+
+        <div
+            style="
+            height:260px;
+            position:relative;
+            max-width:900px;
+            margin:30px auto;
+            "
+        >
+
+            <div class="moon"></div>
+
+            <div class="rocket">
+                🚀
+            </div>
+
+            <div class="mountains"></div>
+
+        </div>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#markets"
+                class="main-button"
+                style="text-decoration:none">
+
+                Explore Markets
+
+            </a>
+
+            <button
+                class="secondary-button"
+                id="heroWallet">
+
+                Connect Phantom
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+
+<!-- MARKET -->
+
+<section id="markets">
+
+    <div class="section-title">
+
+        <h2>
+            📊 Market Overview
+        </h2>
+
+        <span class="muted">
+            Demo interface
+        </span>
+
+    </div>
+
+
+    <div class="market-grid">
+
+
+        <div class="panel">
+
+
+            <div class="toolbar">
+
+                <input
+                    class="search"
+                    id="search"
+                    placeholder="Search token or symbol..."
+                >
+
+                <button
+                    class="bookmark"
+                    id="bookmark">
+
+                    ☆ Bookmark
+
+                </button>
+
+            </div>
+
+
+            <!-- CHART -->
+
+            <div class="chart">
+
+                <svg
+                    viewBox="0 0 800 250"
+                    preserveAspectRatio="none"
+                >
+
+                    <path
+                        d="
+                        M0 210
+                        C60 180 80 215 140 165
+                        S210 185 270 135
+                        S340 160 400 105
+                        S470 145 530 90
+                        S600 120 660 65
+                        S730 95 800 30
+                        "
+                        fill="none"
+                        stroke="#35e58a"
+                        stroke-width="4"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <table class="table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Token
+                        </th>
+
+                        <th>
+                            Price
+                        </th>
+
+                        <th>
+                            24h
+                        </th>
+
+                        <th>
+                            Volume
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="marketRows">
+
+
+                    <tr>
+
+                        <td>
+                            ₿ Bitcoin
+                            <span class="muted">
+                                BTC
+                            </span>
+                        </td>
+
+                        <td>
+                            $104,250
+                        </td>
+
+                        <td class="green">
+                            +2.31%
+                        </td>
+
+                        <td>
+                            $42.1B
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            Ξ Ethereum
+                            <span class="muted">
+                                ETH
+                            </span>
+                        </td>
+
+                        <td>
+                            $3,820
+                        </td>
+
+                        <td class="green">
+                            +1.74%
+                        </td>
+
+                        <td>
+                            $18.4B
+                        </td>
+
+                    </tr>
+
+
+                    <tr>
+
+                        <td>
+                            ◎ Solana
+                            <span class="muted">
+                                SOL
+                            </span>
+                        </td>
+
+                        <td>
+                            $188.20
+                        </td>
+
+                        <td class="green">
+                            +5.12%
+                        </td>
+
+                        <td>
+                            $6.7B
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+
+        <!-- STATS -->
+
+        <div class="panel stats">
+
+            <h3>
+                Market Stats
+            </h3>
+
+
+            <div class="stat">
+
+                <span class="muted">
+                    Market Cap
+                </span>
+
+                <b>
+                    $3.42T
+                </b>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span class="muted">
+                    24h Volume
+                </span>
+
+                <b>
+                    $128.6B
+                </b>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span class="muted">
+                    BTC Dominance
+                </span>
+
+                <b>
+                    61.2%
+                </b>
+
+            </div>
+
+
+            <div class="stat">
+
+                <span class="muted">
+                    Fear & Greed
+                </span>
+
+                <b class="green">
+                    72 • Greed
+                </b>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     GAME
+========================= -->
+
+<section id="game">
+
+    <div class="section-title">
+
+        <h2>
+            🌙 Luna Run
+        </h2>
+
+        <span class="muted">
+            Jump over the rocks
+        </span>
+
+    </div>
+
+
+    <div class="game-layout">
+
+
+        <!-- GAME -->
+
+        <div class="game" id="gameArea">
+
+            <div class="game-stars"></div>
+
+
+            <div class="game-title">
+                LUNA RUN
+            </div>
+
+
+            <div class="score">
+
+                Score:
+                <span id="score">
+                    0
+                </span>
+
+            </div>
+
+
+            <!-- PIXEL CAT -->
+
+            <div
+                class="pixel-cat"
+                id="pixelCat"
+            ></div>
+
+            <div
+                class="pixel-tail"
+                id="pixelTail"
+            ></div>
+
+
+            <div class="ground"></div>
+
+
+            <button
+                class="jump-button"
+                id="jumpButton">
+
+                JUMP
+
+            </button>
+
+
+            <div class="game-help">
+
+                SPACE / ↑ / JUMP
+
+            </div>
+
+        </div>
+
+
+
+        <!-- LEADERBOARD -->
+
+        <div class="panel leaderboard">
+
+            <h3>
+                🏆 Leaderboard
+            </h3>
+
+
+            <div class="rank">
+
+                <span>
+                    🥇 MoonWalker
+                </span>
+
+                <b>
+                    1280
+                </b>
+
+            </div>
+
+
+            <div class="rank">
+
+                <span>
+                    🥈 LunaFan
+                </span>
+
+                <b>
+                    940
+                </b>
+
+            </div>
+
+
+            <div class="rank">
+
+                <span>
+                    🥉 AstroCat
+                </span>
+
+                <b>
+                    720
+                </b>
+
+            </div>
+
+
+            <div class="rank">
+
+                <span>
+                    4. You
+                </span>
+
+                <b id="bestScore">
+                    0
+                </b>
+
+            </div>
+
+
+            <p class="muted">
+
+                Your best score is saved
+                in this browser.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="section-title">
+
+        <h2>
+            🚀 Built for the Moon
+        </h2>
+
+    </div>
+
+
+    <div
+        class="panel"
+        style="padding:25px"
+    >
+
+        <p class="muted">
+
+            Welcome to Luna. This is a
+            community-focused crypto
+            interface and game.
+
+        </p>
+
+        <p class="muted">
+
+            The market values above are
+            demo values for now.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =========================
+     WALLET MODAL
+========================= -->
+
+<div
+    class="wallet-modal"
+    id="walletModal"
+>
+
+
+    <div class="wallet-box">
+
+
+        <button
+            class="close"
+            id="closeWallet">
+
+            ×
+
+        </button>
+
+
+        <h2>
+            Connect Wallet
+        </h2>
+
+
+        <p class="muted">
+
+            Select your Solana wallet.
+
+        </p>
+
+
+        <button
+            class="wallet-option"
+            id="phantomButton">
+
+            👻 Phantom
+
+        </button>
+
+
+        <button
+            class="wallet-option"
+            onclick="alert('Open this page in your Solana wallet browser.')">
+
+            ◎ Other Solana Wallet
+
+        </button>
+
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   WALLET
+========================= */
+
+const walletModal =
+    document.getElementById(
+        "walletModal"
+    );
+
+
+function openWallet() {
+
+    walletModal.classList.add(
+        "show"
+    );
+
+}
+
+
+function closeWallet() {
+
+    walletModal.classList.remove(
+        "show"
+    );
+
+}
+
+
+document.getElementById(
+    "walletButton"
+).onclick = openWallet;
+
+
+document.getElementById(
+    "heroWallet"
+).onclick = openWallet;
+
+
+document.getElementById(
+    "closeWallet"
+).onclick = closeWallet;
+
+
+
+document.getElementById(
+    "phantomButton"
+).onclick =
+async function() {
+
+    const provider =
+        window.phantom?.solana ||
+        window.solana;
+
+
+    if (!provider) {
+
+        alert(
+            "Phantom was not detected. Open this website in Phantom's browser or install Phantom."
+        );
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await provider.connect();
+
+
+        const address =
+            response.publicKey.toString();
+
+
+        document.getElementById(
+            "walletButton"
+        ).textContent =
+            address.slice(0,5)
+            + "..."
+            + address.slice(-4);
+
+
+        document.getElementById(
+            "heroWallet"
+        ).textContent =
+            "✓ Phantom Connected";
+
+
+        closeWallet();
+
+
+        alert(
+            "Wallet connected!"
+        );
+
+
+    } catch(error) {
+
+        alert(
+            "Wallet connection cancelled."
+        );
+
+    }
+
+};
+
+
+
+/* =========================
+   BOOKMARK
+========================= */
+
+const bookmark =
+    document.getElementById(
+        "bookmark"
+    );
+
+
+let bookmarked =
+    localStorage.getItem(
+        "lunaBookmark"
+    ) === "true";
+
+
+function updateBookmark() {
+
+    bookmark.textContent =
+        bookmarked
+        ? "★ Bookmarked"
+        : "☆ Bookmark";
+
+}
+
+
+updateBookmark();
+
+
+bookmark.onclick =
+function() {
+
+    bookmarked =
+        !bookmarked;
+
+
+    localStorage.setItem(
+        "lunaBookmark",
+        bookmarked
+    );
+
+
+    updateBookmark();
+
+};
+
+
+
+/* =========================
+   SEARCH
+========================= */
+
+document.getElementById(
+    "search"
+).addEventListener(
+    "input",
+    function() {
+
+        const search =
+            this.value.toLowerCase();
+
+
+        document.querySelectorAll(
+            "#marketRows tr"
+        ).forEach(
+            function(row) {
+
+                row.style.display =
+                    row.textContent
+                    .toLowerCase()
+                    .includes(search)
+                    ? ""
+                    : "none";
+
+            }
+        );
+
+    }
+);
+
+
+
+/* =========================
+   LUNA RUN
+========================= */
+
+const game =
+    document.getElementById(
+        "gameArea"
+    );
+
+
+const cat =
+    document.getElementById(
+        "pixelCat"
+    );
+
+
+const tail =
+    document.getElementById(
+        "pixelTail"
+    );
+
+
+const scoreText =
+    document.getElementById(
+        "score"
+    );
+
+
+const bestText =
+    document.getElementById(
+        "bestScore"
+    );
+
+
+let score = 0;
+
+let best =
+    Number(
+        localStorage.getItem(
+            "lunaBestScore"
+        ) || 0
+    );
+
+
+let jumping = false;
+
+let gameOver = false;
+
+let rocks = [];
+
+let lastTime = 0;
+
+let rockTimer = 0;
+
+
+bestText.textContent =
+    best;
+
+
+
+/* JUMP */
+
+function jump() {
+
+    if (gameOver) {
+
+        restartGame();
+
+        return;
+
+    }
+
+
+    if (jumping) {
+
+        return;
+
+    }
+
+
+    jumping = true;
+
+
+    cat.animate(
+
+        [
+
+            {
+                transform:
+                    "translateY(0)"
+            },
+
+            {
+                transform:
+                    "translateY(-135px)"
+            },
+
+            {
+                transform:
+                    "translateY(0)"
+            }
+
+        ],
+
+        {
+
+            duration: 620,
+
+            easing:
+                "ease-out"
+
+        }
+
+    ).finished.then(
+        function() {
+
+            jumping = false;
+
+        }
+    );
+
+
+
+    tail.animate(
+
+        [
+
+            {
+                transform:
+                    "translateY(0)"
+            },
+
+            {
+                transform:
+                    "translateY(-135px)"
+            },
+
+            {
+                transform:
+                    "translateY(0)"
+            }
+
+        ],
+
+        {
+
+            duration: 620,
+
+            easing:
+                "ease-out"
+
+        }
+
+    );
+
+}
+
+
+
+/* CREATE ROCK */
+
+function createRock() {
+
+    const rock =
+        document.createElement(
+            "div"
+        );
+
+
+    rock.className =
+        "pixel-rock";
+
+
+    game.appendChild(
+        rock
+    );
+
+
+    rocks.push({
+
+        element: rock,
+
+        x:
+            game.clientWidth + 20
+
+    });
+
+}
+
+
+
+/* START */
+
+function restartGame() {
+
+    rocks.forEach(
+        function(rock) {
+
+            rock.element.remove();
+
+        }
+    );
+
+
+    rocks = [];
+
+
+    score = 0;
+
+
+    scoreText.textContent =
+        score;
+
+
+    gameOver = false;
+
+
+    lastTime =
+        performance.now();
+
+
+    rockTimer = 0;
+
+
+    requestAnimationFrame(
+        gameLoop
+    );
+
+}
+
+
+
+/* GAME LOOP */
+
+function gameLoop(time) {
+
+    if (gameOver) {
+
+        return;
+
+    }
+
+
+    const delta =
+        Math.min(
+            40,
+            time - lastTime
+        );
+
+
+    lastTime =
+        time;
+
+
+    rockTimer +=
+        delta;
+
+
+    if (
+        rockTimer > 1100
+    ) {
+
+        rockTimer = 0;
+
+        createRock();
+
+    }
+
+
+
+    const catRect =
+        cat.getBoundingClientRect();
+
+
+
+    rocks.forEach(
+        function(rock) {
+
+            rock.x -=
+                delta * 0.34;
+
+
+            rock.element.style.left =
+                rock.x + "px";
+
+
+            const rockRect =
+                rock.element
+                .getBoundingClientRect();
+
+
+
+            /* SCORE */
+
+            if (
+                rockRect.right < 0
+            ) {
+
+                rock.element.remove();
+
+                rock.dead = true;
+
+                score++;
+
+                scoreText.textContent =
+                    score;
+
+            }
+
+
+
+            /* COLLISION */
+
+            const collision =
+                rockRect.left <
+                    catRect.right &&
+
+                rockRect.right >
+                    catRect.left &&
+
+                rockRect.top <
+                    catRect.bottom &&
+
+                rockRect.bottom >
+                    catRect.top;
+
+
+            if (
+                collision &&
+                !jumping
+            ) {
+
+                gameOver = true;
+
+
+                if (
+                    score > best
+                ) {
+
+                    best =
+                        score;
+
+
+                    bestText.textContent =
+                        best;
+
+
+                    localStorage.setItem(
+                        "lunaBestScore",
+                        best
+                    );
+
+                }
+
+
+                alert(
+                    "Luna hit a rock! Press JUMP to try again."
+                );
+
+            }
+
+        }
+    );
+
+
+    rocks =
+        rocks.filter(
+            function(rock) {
+
+                return !rock.dead;
+
+            }
+        );
+
+
+    requestAnimationFrame(
+        gameLoop
+    );
+
+}
+
+
+
+/* BUTTON */
+
+document.getElementById(
+    "jumpButton"
+).onclick = jump;
+
+
+
+/* KEYBOARD */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.code === "Space" ||
+            event.code === "ArrowUp"
+        ) {
+
+            event.preventDefault();
+
+            jump();
+
+        }
+
+    }
+);
+
+
+
+/* START GAME */
+
+restartGame();
+
+</script>
+
+</body>
+</html>
