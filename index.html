@@ -24,8 +24,12 @@ body{
   font-family:Arial,Helvetica,sans-serif;
 }
 
-button{
+button,
+input{
   font-family:inherit;
+}
+
+button{
   cursor:pointer;
 }
 
@@ -535,7 +539,7 @@ th{
   font-size:11px;
 }
 
-/* ================= LUNA ================= */
+/* ================= PIXEL LUNA ================= */
 
 .luna{
   position:absolute;
@@ -704,14 +708,7 @@ th{
 
   z-index:15;
 
-  background:
-    linear-gradient(
-      135deg,
-      #9ba5b3,
-      #626d7c
-    );
-
-  border-radius:5px;
+  background:#778292;
 
   clip-path:
     polygon(
@@ -724,9 +721,6 @@ th{
     );
 
   will-change:left;
-
-  box-shadow:
-    0 5px 0 #3d4653;
 }
 
 .rock:after{
@@ -740,21 +734,12 @@ th{
   width:11px;
   height:7px;
 
-  background:#c2cad4;
-
-  opacity:.75;
-
-  transform:rotate(-15deg);
+  background:#aab3bf;
 }
 
 .smallRock{
   width:31px;
   height:29px;
-}
-
-.bigRock{
-  width:58px;
-  height:52px;
 }
 
 /* ================= START SCREEN ================= */
@@ -791,8 +776,43 @@ th{
   color:#8793a7;
 }
 
+.nameInput{
+  width:min(320px,85%);
+  margin-top:12px;
+
+  padding:14px 15px;
+
+  background:#0b111b;
+  color:#fff;
+
+  border:1px solid #354257;
+  border-radius:10px;
+
+  outline:none;
+
+  text-align:center;
+
+  font-size:16px;
+  font-weight:700;
+}
+
+.nameInput:focus{
+  border-color:#8b6cf5;
+  box-shadow:0 0 0 3px #8b6cf522;
+}
+
+.nameError{
+  min-height:20px;
+  margin-top:8px;
+
+  color:#ff6574;
+
+  font-size:12px;
+  font-weight:700;
+}
+
 .startButton{
-  margin-top:15px;
+  margin-top:8px;
 
   padding:15px 30px;
 
@@ -895,6 +915,67 @@ th{
   transform:scale(.93);
 }
 
+/* ================= LEADERBOARD ================= */
+
+.leaderboard{
+  margin-top:65px;
+}
+
+.leaderboardBox{
+  background:#0c1119;
+  border:1px solid #222c3a;
+  border-radius:15px;
+  overflow:hidden;
+}
+
+.leaderboardHeader{
+  display:grid;
+  grid-template-columns:70px 1fr 100px;
+  padding:13px 18px;
+
+  color:#727e91;
+  font-size:11px;
+  font-weight:900;
+
+  text-transform:uppercase;
+
+  border-bottom:1px solid #202938;
+}
+
+.leaderRow{
+  display:grid;
+  grid-template-columns:70px 1fr 100px;
+
+  padding:15px 18px;
+
+  border-bottom:1px solid #1d2633;
+}
+
+.leaderRow:last-child{
+  border-bottom:0;
+}
+
+.rank{
+  color:#a795ff;
+  font-weight:1000;
+}
+
+.playerName{
+  font-weight:900;
+}
+
+.playerScore{
+  text-align:right;
+  font-family:monospace;
+  font-weight:900;
+}
+
+.emptyLeaderboard{
+  padding:30px;
+  text-align:center;
+  color:#7f8b9e;
+}
+
 /* ================= MOBILE ================= */
 
 @media(max-width:650px){
@@ -948,6 +1029,11 @@ th{
     height:43px;
   }
 
+  .leaderboardHeader,
+  .leaderRow{
+    grid-template-columns:55px 1fr 80px;
+  }
+
 }
 
 </style>
@@ -955,17 +1041,25 @@ th{
 
 <body>
 
+<!-- ================= NAV ================= -->
+
 <nav class="nav">
 
   <div class="logo">
     LUNA<span>SCREEN</span>
   </div>
 
-  <button class="wallet" id="walletButton">
+  <button
+    class="wallet"
+    id="walletButton"
+  >
     Connect Wallet
   </button>
 
 </nav>
+
+
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -999,7 +1093,11 @@ th{
 
 </section>
 
+
 <main class="container">
+
+
+<!-- ================= MARKET ================= -->
 
 <section id="markets">
 
@@ -1009,11 +1107,15 @@ th{
       📊 Live Crypto Markets
     </h2>
 
-    <span class="muted" id="updated">
+    <span
+      class="muted"
+      id="updated"
+    >
       Connecting...
     </span>
 
   </div>
+
 
   <div class="market">
 
@@ -1025,23 +1127,38 @@ th{
         placeholder="Search BTC, ETH or SOL..."
       >
 
-      <button class="refresh" id="refresh">
+      <button
+        class="refresh"
+        id="refresh"
+      >
         REFRESH
       </button>
 
-      <button class="bookmark" id="bookmark">
+      <button
+        class="bookmark"
+        id="bookmark"
+      >
         ☆ BOOKMARK
       </button>
 
     </div>
 
-    <div class="bookmarkInfo" id="bookmarkInfo">
+
+    <div
+      class="bookmarkInfo"
+      id="bookmarkInfo"
+    >
       ⭐ This page is bookmarked in this browser.
     </div>
 
-    <div class="status" id="status">
+
+    <div
+      class="status"
+      id="status"
+    >
       Loading live market data...
     </div>
+
 
     <div class="tableWrap">
 
@@ -1050,6 +1167,7 @@ th{
         <thead>
 
           <tr>
+
             <th>Token</th>
             <th>Price</th>
             <th>24H</th>
@@ -1058,6 +1176,7 @@ th{
             <th>Market Cap</th>
             <th>DEX</th>
             <th></th>
+
           </tr>
 
         </thead>
@@ -1072,8 +1191,11 @@ th{
 
 </section>
 
+
+<!-- ================= GAME ================= -->
+
 <section
-  id="luna-run"
+  id="gameSection"
   style="margin-top:65px"
 >
 
@@ -1089,7 +1211,11 @@ th{
 
   </div>
 
-  <div class="game" id="game">
+
+  <div
+    class="game"
+    id="game"
+  >
 
     <div class="gameStars"></div>
 
@@ -1101,29 +1227,56 @@ th{
 
     <div class="ground"></div>
 
+
     <div class="gameTitle">
       LUNA RUN
     </div>
 
+
     <div class="score">
       SCORE:
-      <span id="score">0</span>
+      <span id="score">
+        0
+      </span>
     </div>
+
 
     <div class="best">
       BEST:
-      <span id="best">0</span>
+      <span id="best">
+        0
+      </span>
     </div>
 
-    <div class="startScreen" id="startScreen">
+
+    <!-- ================= START SCREEN ================= -->
+
+    <div
+      class="startScreen"
+      id="startScreen"
+    >
 
       <h2>
         LUNA RUN 🌙
       </h2>
 
       <p>
-        Help Luna reach the moon!
+        Enter your name to play!
       </p>
+
+      <input
+        id="playerName"
+        class="nameInput"
+        type="text"
+        maxlength="16"
+        autocomplete="off"
+        placeholder="Type your name"
+      >
+
+      <div
+        class="nameError"
+        id="nameError"
+      ></div>
 
       <button
         class="startButton"
@@ -1134,7 +1287,13 @@ th{
 
     </div>
 
-    <div class="luna" id="luna">
+
+    <!-- ================= LUNA ================= -->
+
+    <div
+      class="luna"
+      id="luna"
+    >
 
       <div class="body"></div>
 
@@ -1157,7 +1316,13 @@ th{
 
     </div>
 
-    <div class="gameOver" id="gameOver">
+
+    <!-- ================= GAME OVER ================= -->
+
+    <div
+      class="gameOver"
+      id="gameOver"
+    >
 
       <h2>
         OH NOU! 😿
@@ -1168,8 +1333,17 @@ th{
       </p>
 
       <p>
+        PLAYER:
+        <strong id="finalName">
+          -
+        </strong>
+      </p>
+
+      <p>
         SCORE:
-        <strong id="finalScore">0</strong>
+        <strong id="finalScore">
+          0
+        </strong>
       </p>
 
       <button
@@ -1180,6 +1354,9 @@ th{
       </button>
 
     </div>
+
+
+    <!-- ================= JUMP ================= -->
 
     <button
       class="jumpButton"
@@ -1192,7 +1369,54 @@ th{
 
 </section>
 
-<section style="margin-top:65px">
+
+<!-- ================= LEADERBOARD ================= -->
+
+<section class="leaderboard">
+
+  <div class="heading">
+
+    <h2>
+      🏆 Luna Run Leaderboard
+    </h2>
+
+    <span class="muted">
+      Top scores on this browser
+    </span>
+
+  </div>
+
+
+  <div class="leaderboardBox">
+
+    <div class="leaderboardHeader">
+
+      <div>
+        #
+      </div>
+
+      <div>
+        PLAYER
+      </div>
+
+      <div style="text-align:right">
+        SCORE
+      </div>
+
+    </div>
+
+    <div id="leaderboardRows"></div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section
+  style="margin-top:65px"
+>
 
   <div
     style="
@@ -1216,7 +1440,9 @@ th{
 
 </section>
 
+
 </main>
+
 
 <script>
 
@@ -1237,6 +1463,7 @@ const search =
   document.getElementById("search");
 
 let currentPairs = [];
+
 
 function money(value){
 
@@ -1278,6 +1505,7 @@ function money(value){
 
 }
 
+
 function price(value){
 
   if(!value){
@@ -1308,6 +1536,7 @@ function price(value){
 
 }
 
+
 function change(value){
 
   if(value === null || value === undefined){
@@ -1325,6 +1554,7 @@ function change(value){
 
 }
 
+
 function escapeHtml(value){
 
   return String(value)
@@ -1335,6 +1565,7 @@ function escapeHtml(value){
     .replaceAll("'","&#039;");
 
 }
+
 
 function safeUrl(value){
 
@@ -1358,10 +1589,12 @@ function safeUrl(value){
 
 }
 
+
 async function loadMarkets(){
 
   status.textContent =
     "Loading live market data...";
+
 
   try{
 
@@ -1387,6 +1620,7 @@ async function loadMarkets(){
 
     ];
 
+
     const results =
       await Promise.all(
 
@@ -1399,14 +1633,17 @@ async function loadMarkets(){
                 encodeURIComponent(asset.query)
               );
 
+
             if(!response.ok){
               throw new Error(
                 "Market API error"
               );
             }
 
+
             const data =
               await response.json();
+
 
             const pairs =
               (data.pairs || [])
@@ -1426,6 +1663,7 @@ async function loadMarkets(){
                   )
               );
 
+
             return pairs[0] || null;
 
           }
@@ -1433,10 +1671,13 @@ async function loadMarkets(){
 
       );
 
+
     currentPairs =
       results.filter(Boolean);
 
+
     renderMarkets();
+
 
     updated.textContent =
       "Live • " +
@@ -1444,8 +1685,10 @@ async function loadMarkets(){
         "fi-FI"
       );
 
+
     status.textContent =
       "LIVE • BTC • ETH • SOL";
+
 
   }catch(error){
 
@@ -1471,12 +1714,14 @@ async function loadMarkets(){
 
 }
 
+
 function renderMarkets(){
 
   const query =
     search.value
       .trim()
       .toLowerCase();
+
 
   const filtered =
     currentPairs.filter(
@@ -1499,6 +1744,7 @@ function renderMarkets(){
       }
     );
 
+
   if(!filtered.length){
 
     rows.innerHTML = `
@@ -1518,11 +1764,13 @@ function renderMarkets(){
 
   }
 
+
   rows.innerHTML =
     filtered.map(pair => {
 
       const token =
         pair.baseToken || {};
+
 
       return `
 
@@ -1544,9 +1792,11 @@ function renderMarkets(){
 
           </td>
 
+
           <td>
             ${price(pair.priceUsd)}
           </td>
+
 
           <td>
             ${change(
@@ -1554,11 +1804,13 @@ function renderMarkets(){
             )}
           </td>
 
+
           <td>
             ${money(
               pair.volume?.h24
             )}
           </td>
+
 
           <td>
             ${money(
@@ -1566,12 +1818,14 @@ function renderMarkets(){
             )}
           </td>
 
+
           <td>
             ${money(
               pair.marketCap ||
               pair.fdv
             )}
           </td>
+
 
           <td>
 
@@ -1582,6 +1836,7 @@ function renderMarkets(){
             </span>
 
           </td>
+
 
           <td>
 
@@ -1604,22 +1859,27 @@ function renderMarkets(){
 
 }
 
+
 document
   .getElementById("refresh")
   .onclick =
   loadMarkets;
+
 
 search.addEventListener(
   "input",
   renderMarkets
 );
 
+
 loadMarkets();
+
 
 setInterval(
   loadMarkets,
   15000
 );
+
 
 /* =========================================================
    BOOKMARK
@@ -1633,10 +1893,12 @@ const bookmarkInfo =
     "bookmarkInfo"
   );
 
+
 let bookmarked =
   localStorage.getItem(
     "lunaBookmark"
   ) === "true";
+
 
 function updateBookmark(){
 
@@ -1670,7 +1932,9 @@ function updateBookmark(){
 
 }
 
+
 updateBookmark();
+
 
 bookmark.onclick =
   function(){
@@ -1678,14 +1942,17 @@ bookmark.onclick =
     bookmarked =
       !bookmarked;
 
+
     localStorage.setItem(
       "lunaBookmark",
       bookmarked
     );
 
+
     updateBookmark();
 
   };
+
 
 /* =========================================================
    PHANTOM WALLET
@@ -1696,6 +1963,7 @@ async function connectWallet(){
   const provider =
     window.phantom?.solana ||
     window.solana;
+
 
   if(!provider){
 
@@ -1708,13 +1976,16 @@ async function connectWallet(){
 
   }
 
+
   try{
 
     const response =
       await provider.connect();
 
+
     const address =
       response.publicKey.toString();
+
 
     document
       .getElementById(
@@ -1724,6 +1995,7 @@ async function connectWallet(){
         address.slice(0,5) +
         "..." +
         address.slice(-4);
+
 
   }catch(error){
 
@@ -1735,12 +2007,14 @@ async function connectWallet(){
 
 }
 
+
 document
   .getElementById(
     "walletButton"
   )
   .onclick =
   connectWallet;
+
 
 /* =========================================================
    LUNA RUN
@@ -1778,10 +2052,31 @@ const finalScoreElement =
     "finalScore"
   );
 
+const finalNameElement =
+  document.getElementById(
+    "finalName"
+  );
+
 const playAgain =
   document.getElementById(
     "playAgain"
   );
+
+const playerNameInput =
+  document.getElementById(
+    "playerName"
+  );
+
+const nameError =
+  document.getElementById(
+    "nameError"
+  );
+
+const leaderboardRows =
+  document.getElementById(
+    "leaderboardRows"
+  );
+
 
 /* =========================
    GAME STATE
@@ -1796,6 +2091,8 @@ let lastTime =
 
 let score = 0;
 
+let playerName = "";
+
 let best =
   Number(
     localStorage.getItem(
@@ -1803,25 +2100,18 @@ let best =
     ) || 0
   );
 
-/*
-  Slightly faster than before.
-*/
 
-let speed = 210;
+let speed = 245;
 
 let obstacleTimer = 0;
 
-/*
-  First rock:
-  around 3.5 seconds.
-*/
-
-let nextObstacle = 3500;
+let nextObstacle = 2300;
 
 let obstacles = [];
 
+
 /* =========================
-   PHYSICS
+   LUNA PHYSICS
 ========================= */
 
 let lunaX = 90;
@@ -1832,12 +2122,231 @@ let velocityY = 0;
 
 let jumping = false;
 
+
 const gravity = 1750;
 
 const jumpPower = 680;
 
+
+/* =========================
+   BEST SCORE
+========================= */
+
 bestElement.textContent =
   best;
+
+
+/* =========================================================
+   BAD WORD FILTER
+========================================================= */
+
+const bannedWords = [
+
+  "fuck",
+  "fucking",
+  "shit",
+  "sh1t",
+  "bitch",
+  "b1tch",
+  "asshole",
+  "dick",
+  "d1ck",
+  "pussy",
+  "cunt",
+  "nigger",
+  "n1gger",
+  "faggot",
+  "f4ggot",
+  "whore",
+  "slut",
+  "rape",
+  "kill",
+  "nazi",
+  "porn"
+
+];
+
+
+function cleanName(name){
+
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g,"");
+
+}
+
+
+function isNameAllowed(name){
+
+  const cleaned =
+    cleanName(name);
+
+
+  if(cleaned.length < 2){
+    return false;
+  }
+
+
+  if(cleaned.length > 16){
+    return false;
+  }
+
+
+  for(
+    const word of bannedWords
+  ){
+
+    if(
+      cleaned.includes(
+        cleanName(word)
+      )
+    ){
+
+      return false;
+
+    }
+
+  }
+
+
+  return true;
+
+}
+
+
+/* =========================================================
+   LEADERBOARD
+========================================================= */
+
+function getLeaderboard(){
+
+  try{
+
+    return JSON.parse(
+      localStorage.getItem(
+        "lunaLeaderboard"
+      ) || "[]"
+    );
+
+  }catch(error){
+
+    return [];
+
+  }
+
+}
+
+
+function saveLeaderboard(){
+
+  localStorage.setItem(
+    "lunaLeaderboard",
+    JSON.stringify(
+      getLeaderboard()
+    )
+  );
+
+}
+
+
+function addScoreToLeaderboard(
+  name,
+  finalScore
+){
+
+  const leaderboard =
+    getLeaderboard();
+
+
+  leaderboard.push({
+
+    name:name,
+
+    score:finalScore,
+
+    date:Date.now()
+
+  });
+
+
+  leaderboard.sort(
+    (a,b) =>
+      b.score - a.score
+  );
+
+
+  const top =
+    leaderboard.slice(
+      0,
+      50
+    );
+
+
+  localStorage.setItem(
+    "lunaLeaderboard",
+    JSON.stringify(top)
+  );
+
+
+  renderLeaderboard();
+
+}
+
+
+function renderLeaderboard(){
+
+  const leaderboard =
+    getLeaderboard();
+
+
+  if(!leaderboard.length){
+
+    leaderboardRows.innerHTML = `
+      <div class="emptyLeaderboard">
+        No scores yet. Be the first Luna runner! 🌙
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  leaderboardRows.innerHTML =
+    leaderboard
+      .slice(0,20)
+      .map(
+        (entry,index) => `
+
+          <div class="leaderRow">
+
+            <div class="rank">
+              #${index + 1}
+            </div>
+
+            <div class="playerName">
+              ${escapeHtml(
+                entry.name
+              )}
+            </div>
+
+            <div class="playerScore">
+              ${Number(
+                entry.score
+              )}
+            </div>
+
+          </div>
+
+        `
+      )
+      .join("");
+
+}
+
+
+renderLeaderboard();
+
 
 /* =========================================================
    START GAME
@@ -1845,33 +2354,50 @@ bestElement.textContent =
 
 function startGame(){
 
+  const enteredName =
+    playerNameInput.value
+      .trim();
+
+
+  if(!isNameAllowed(enteredName)){
+
+    nameError.textContent =
+      "Please enter a valid name. No inappropriate words.";
+
+    playerNameInput.focus();
+
+    return;
+
+  }
+
+
+  nameError.textContent = "";
+
+  playerName =
+    enteredName;
+
+
+  /*
+  Remove old rocks.
+  */
+
   obstacles.forEach(
-    obstacle => {
-
-      if(obstacle.element){
-        obstacle.element.remove();
-      }
-
-    }
+    obstacle =>
+      obstacle.element.remove()
   );
+
 
   obstacles = [];
 
+
   score = 0;
 
-  /*
-    Start speed.
-  */
-
-  speed = 210;
+  speed = 245;
 
   obstacleTimer = 0;
 
-  /*
-    First rock appears sooner.
-  */
+  nextObstacle = 2300;
 
-  nextObstacle = 3500;
 
   lunaX = 90;
 
@@ -1885,26 +2411,33 @@ function startGame(){
 
   gameStarted = true;
 
+
   scoreElement.textContent =
     "0";
+
 
   luna.style.left =
     lunaX + "px";
 
+
   luna.style.bottom =
     "70px";
 
+
   startScreen.style.display =
     "none";
+
 
   gameOverElement.classList.remove(
     "show"
   );
 
+
   lastTime =
     performance.now();
 
 }
+
 
 /* =========================================================
    JUMP
@@ -1924,12 +2457,14 @@ function jump(){
     return;
   }
 
+
   jumping = true;
 
   velocityY =
     jumpPower;
 
 }
+
 
 /* =========================================================
    KEYBOARD
@@ -1944,7 +2479,20 @@ document.addEventListener(
       event.code === "ArrowUp"
     ){
 
+      if(
+        document.activeElement ===
+        playerNameInput
+      ){
+
+        if(event.code === "Space"){
+          return;
+        }
+
+      }
+
+
       event.preventDefault();
+
 
       if(!gameStarted){
 
@@ -1954,6 +2502,7 @@ document.addEventListener(
 
       }
 
+
       jump();
 
     }
@@ -1961,8 +2510,9 @@ document.addEventListener(
   }
 );
 
+
 /* =========================================================
-   MOBILE JUMP
+   JUMP BUTTON
 ========================================================= */
 
 document
@@ -1977,16 +2527,16 @@ document
 
       if(!gameStarted){
 
-        startGame();
-
         return;
 
       }
+
 
       jump();
 
     }
   );
+
 
 /* =========================================================
    START BUTTON
@@ -1999,6 +2549,29 @@ startButton.onclick =
 
   };
 
+
+/* =========================================================
+   ENTER KEY FOR NAME
+========================================================= */
+
+playerNameInput.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.key === "Enter"
+    ){
+
+      event.preventDefault();
+
+      startGame();
+
+    }
+
+  }
+);
+
+
 /* =========================================================
    PLAY AGAIN
 ========================================================= */
@@ -2006,9 +2579,14 @@ startButton.onclick =
 playAgain.onclick =
   function(){
 
+    /*
+    Keep the same player's name.
+    */
+
     startGame();
 
   };
+
 
 /* =========================================================
    CREATE ROCK
@@ -2021,35 +2599,25 @@ function createObstacle(){
       "div"
     );
 
-  const random =
-    Math.random();
 
-  if(random > 0.88){
+  rock.className =
+    Math.random() > .7
+      ? "rock smallRock"
+      : "rock";
 
-    rock.className =
-      "rock bigRock";
-
-  }else if(random > 0.68){
-
-    rock.className =
-      "rock smallRock";
-
-  }else{
-
-    rock.className =
-      "rock";
-
-  }
 
   const startX =
-    game.clientWidth + 40;
+    game.clientWidth + 60;
+
 
   rock.style.left =
     startX + "px";
 
+
   game.appendChild(
     rock
   );
+
 
   return {
 
@@ -2063,15 +2631,17 @@ function createObstacle(){
 
 }
 
+
 /* =========================================================
    COLLISION
 ========================================================= */
 
 function collision(a,b){
 
-  const paddingX = 13;
+  const paddingX = 10;
 
-  const paddingY = 10;
+  const paddingY = 9;
+
 
   return (
 
@@ -2091,6 +2661,7 @@ function collision(a,b){
 
 }
 
+
 /* =========================================================
    GAME OVER
 ========================================================= */
@@ -2101,34 +2672,55 @@ function endGame(){
     return;
   }
 
+
   dead = true;
 
-  finalScoreElement.textContent =
+
+  const final =
     Math.floor(score);
 
-  if(
-    Math.floor(score) >
-    best
-  ){
 
-    best =
-      Math.floor(score);
+  finalScoreElement.textContent =
+    final;
+
+
+  finalNameElement.textContent =
+    playerName;
+
+
+  if(final > best){
+
+    best = final;
+
 
     localStorage.setItem(
       "lunaBest",
       best
     );
 
+
     bestElement.textContent =
       best;
 
   }
+
+
+  /*
+  Add score to leaderboard.
+  */
+
+  addScoreToLeaderboard(
+    playerName,
+    final
+  );
+
 
   gameOverElement.classList.add(
     "show"
   );
 
 }
+
 
 /* =========================================================
    DIFFICULTY
@@ -2137,25 +2729,29 @@ function endGame(){
 function updateDifficulty(){
 
   /*
-    Slowly accelerates.
-
-    Early game is easy.
-    Later it gets faster.
+  Slow acceleration.
+  The beginning remains easy.
   */
 
   const extra =
     Math.min(
-      270,
-      Math.max(
-        0,
-        (score - 150) * 0.30
-      )
+      285,
+      score * 0.035
     );
 
+
   speed =
-    210 + extra;
+    245 + extra;
+
+
+  if(speed > 530){
+
+    speed = 530;
+
+  }
 
 }
+
 
 /* =========================================================
    OBSTACLE DISTANCE
@@ -2164,38 +2760,37 @@ function updateDifficulty(){
 function getObstacleTime(){
 
   /*
-    Rocks arrive a little faster
-    than in the previous version.
+  Rocks appear a little faster
+  than the previous version.
   */
 
   const difficulty =
     Math.min(
       1,
-      Math.max(
-        0,
-        (score - 100) / 1100
-      )
+      score / 1000
     );
 
+
   const minimum =
-    1600;
+    1250;
 
   const maximum =
-    3300;
+    2300;
 
-  const base =
+
+  return (
+
     maximum -
     (
       maximum -
       minimum
-    ) * difficulty;
+    ) * difficulty
 
-  return (
-    base +
-    Math.random() * 1000
-  );
+  ) +
+  Math.random() * 450;
 
 }
+
 
 /* =========================================================
    MAIN LOOP
@@ -2209,38 +2804,56 @@ function loop(time){
       0.035
     );
 
+
   lastTime =
     time;
+
 
   if(
     gameStarted &&
     !dead
   ){
 
-    /* SCORE */
+    /* =====================
+       SCORE
+    ===================== */
 
     score +=
       delta * 10;
 
+
     scoreElement.textContent =
       Math.floor(score);
 
-    /* DIFFICULTY */
+
+    /* =====================
+       DIFFICULTY
+    ===================== */
 
     updateDifficulty();
 
-    /* JUMP */
+
+    /* =====================
+       JUMP PHYSICS
+    ===================== */
 
     if(jumping){
 
       velocityY -=
         gravity * delta;
 
+
       lunaY +=
         velocityY * delta;
 
+
+      /*
+      Small forward movement.
+      */
+
       lunaX +=
         38 * delta;
+
 
       if(lunaY <= 0){
 
@@ -2254,22 +2867,29 @@ function loop(time){
 
     }
 
+
     lunaX =
       Math.min(
         lunaX,
         145
       );
 
+
     luna.style.left =
       lunaX + "px";
+
 
     luna.style.bottom =
       (70 + lunaY) + "px";
 
-    /* SPAWN ROCK */
+
+    /* =====================
+       SPAWN ROCK
+    ===================== */
 
     obstacleTimer +=
       delta * 1000;
+
 
     if(
       obstacleTimer >=
@@ -2281,16 +2901,21 @@ function loop(time){
       nextObstacle =
         getObstacleTime();
 
+
       obstacles.push(
         createObstacle()
       );
 
     }
 
-    /* MOVE ROCKS */
+
+    /* =====================
+       ROCKS
+    ===================== */
 
     const lunaRect =
       luna.getBoundingClientRect();
+
 
     obstacles.forEach(
       obstacle => {
@@ -2298,14 +2923,20 @@ function loop(time){
         obstacle.x -=
           speed * delta;
 
+
         obstacle.element.style.left =
           obstacle.x + "px";
+
 
         const rockRect =
           obstacle.element
             .getBoundingClientRect();
 
-        /* SCORE FOR PASSING */
+
+        /*
+        Bonus points for passing
+        a rock.
+        */
 
         if(
           !obstacle.counted &&
@@ -2319,7 +2950,10 @@ function loop(time){
 
         }
 
-        /* COLLISION */
+
+        /*
+        Collision.
+        */
 
         if(
           collision(
@@ -2335,15 +2969,18 @@ function loop(time){
       }
     );
 
-    /* DELETE OLD ROCKS */
+
+    /*
+    Delete rocks that
+    left the screen.
+    */
 
     obstacles =
       obstacles.filter(
         obstacle => {
 
           if(
-            obstacle.x <
-            -120
+            obstacle.x < -100
           ){
 
             obstacle.element.remove();
@@ -2359,11 +2996,13 @@ function loop(time){
 
   }
 
+
   requestAnimationFrame(
     loop
   );
 
 }
+
 
 /* =========================================================
    START LOOP
