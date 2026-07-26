@@ -1,2745 +1,2377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<title>Welcome to Luna</title>
-
+<title>LUNA SCREEN</title>
 
 <style>
 
-/* =========================================
-   BASIC
-========================================= */
-
-* {
-    box-sizing: border-box;
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+  scroll-behavior:smooth;
 }
 
-body {
-
-    margin: 0;
-
-    background: #070a12;
-
-    color: white;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+body{
+  margin:0;
+  background:#05070d;
+  color:#fff;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
-
-/* =========================================
-   NAVBAR
-========================================= */
-
-.navbar {
-
-    height: 68px;
-
-    background: #0b1019;
-
-    border-bottom:
-        1px solid #222b39;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    padding: 0 5%;
-
-    position: sticky;
-
-    top: 0;
-
-    z-index: 100;
+button{
+  font-family:inherit;
+  cursor:pointer;
 }
 
+/* ================= NAV ================= */
 
-.logo {
-
-    font-size: 22px;
-
-    font-weight: 900;
-
-    letter-spacing: -1px;
+.nav{
+  height:68px;
+  padding:0 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  background:#080b12;
+  border-bottom:1px solid #202938;
+  position:sticky;
+  top:0;
+  z-index:200;
 }
 
-
-.logo span {
-
-    color: #9b7cff;
-
+.logo{
+  font-size:21px;
+  font-weight:1000;
+  letter-spacing:-1px;
 }
 
-
-.nav-links {
-
-    display: flex;
-
-    gap: 28px;
-
+.logo span{
+  color:#9a7cff;
 }
 
-
-.nav-links a {
-
-    color: #8995a7;
-
-    text-decoration: none;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
+.wallet{
+  border:0;
+  background:#7659ed;
+  color:white;
+  padding:11px 16px;
+  border-radius:9px;
+  font-weight:900;
 }
 
+/* ================= HERO ================= */
 
-.nav-links a:hover {
+.hero{
+  min-height:570px;
+  text-align:center;
+  padding:70px 20px 30px;
+  overflow:hidden;
+  position:relative;
 
-    color: white;
-
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      #293d68,
+      #0b1220 43%,
+      #05070d 82%
+    );
 }
 
-
-.wallet-button {
-
-    border: 0;
-
-    background: #3b82f6;
-
-    color: white;
-
-    padding: 11px 17px;
-
-    border-radius: 10px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-}
-
-
-.wallet-button:hover {
-
-    background: #2563eb;
-
-}
-
-
-/* =========================================
-   HERO
-========================================= */
-
-.hero {
-
-    min-height: 680px;
-
-    position: relative;
-
-    overflow: hidden;
-
-    display: flex;
-
-    justify-content: center;
-
-    text-align: center;
-
-    background:
-
-        radial-gradient(
-            circle at 50% 0%,
-            #293b63,
-            #070a12 65%
-        );
-
-}
-
-
-.stars {
-
-    position: absolute;
-
-    inset: 0;
-
-    opacity: .15;
-
-    background-image:
-
-        radial-gradient(
-            white 1px,
-            transparent 1px
-        );
-
-    background-size: 90px 90px;
-
-}
-
-
-.hero-content {
-
-    width: 100%;
-
-    max-width: 1150px;
-
-    padding: 70px 20px 0;
-
-    position: relative;
-
-    z-index: 2;
-
-}
-
-
-.hero h1 {
-
-    margin: 0;
-
-    font-size:
-        clamp(
-            55px,
-            12vw,
-            150px
-        );
-
-    line-height: .83;
-
-    letter-spacing: -8px;
-
-    font-weight: 1000;
-
-    background:
-
-        linear-gradient(
-            180deg,
-            #ffffff,
-            #c7baff 55%,
-            #7457e9
-        );
-
-    -webkit-background-clip: text;
-
-    color: transparent;
-
-}
-
-
-.hero-description {
-
-    max-width: 720px;
-
-    margin: 30px auto;
-
-    color: #aab5c6;
-
-    font-size: 18px;
-
-    line-height: 1.6;
-
-}
-
-
-/* =========================================
-   HERO SCENE
-========================================= */
-
-.scene {
-
-    height: 270px;
-
-    max-width: 950px;
-
-    margin: 25px auto;
-
-    position: relative;
-
-}
-
-
-.moon {
-
-    position: absolute;
-
-    width: 155px;
-
-    height: 155px;
-
-    border-radius: 50%;
-
-    right: 14%;
-
-    top: 5px;
-
-    background:
-
-        radial-gradient(
-            circle at 35% 30%,
-            #ffffff,
-            #dce1e9 55%,
-            #9ea7b5
-        );
-
-    box-shadow:
-
-        0 0 80px
-        rgba(225,235,255,.5);
-
-}
-
-
-.rocket {
-
-    position: absolute;
-
-    right: 29%;
-
-    top: 125px;
-
-    font-size: 43px;
-
-    transform: rotate(-30deg);
-
-    animation:
-        rocketFly 3s
-        infinite
-        ease-in-out;
-
-}
-
-
-@keyframes rocketFly {
-
-    50% {
-
-        transform:
-            translate(-12px,-20px)
-            rotate(-30deg);
-
-    }
-
-}
-
-
-.mountains {
-
-    position: absolute;
-
-    bottom: 0;
-
-    left: 0;
-
-    right: 0;
-
-    height: 170px;
-
-    background: #121b2a;
-
-    clip-path:
-
-        polygon(
-
-            0 100%,
-
-            0 70%,
-
-            12% 48%,
-
-            24% 78%,
-
-            40% 28%,
-
-            53% 75%,
-
-            66% 40%,
-
-            79% 78%,
-
-            90% 48%,
-
-            100% 70%,
-
-            100% 100%
-
-        );
-
-}
-
-
-/* =========================================
-   HERO BUTTONS
-========================================= */
-
-.hero-buttons {
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    flex-wrap: wrap;
-
-}
-
-
-.main-button {
-
-    background: #35e58a;
-
-    color: #06120b;
-
-    border: 0;
-
-    border-radius: 10px;
-
-    padding: 14px 22px;
-
-    font-weight: 900;
-
-    text-decoration: none;
-
-    cursor: pointer;
-
-}
-
-
-.secondary-button {
-
-    background: #182231;
-
-    color: white;
-
-    border: 1px solid #36445a;
-
-    border-radius: 10px;
-
-    padding: 14px 22px;
-
-    font-weight: 900;
-
-    cursor: pointer;
-
-}
-
-
-/* =========================================
-   CONTAINER
-========================================= */
-
-.container {
-
-    width: min(
-        1200px,
-        92%
+.stars{
+  position:absolute;
+  inset:0;
+  opacity:.3;
+
+  background-image:
+    radial-gradient(
+      white 1px,
+      transparent 1px
     );
 
-    margin: 65px auto 100px;
-
+  background-size:68px 68px;
 }
 
-
-.section-title {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 15px;
-
-    margin-bottom: 15px;
-
+.heroContent{
+  position:relative;
+  z-index:2;
 }
 
+.hero h1{
+  margin:0;
 
-.section-title h2 {
+  font-size:
+    clamp(58px,12vw,135px);
 
-    margin: 0;
+  line-height:.83;
+  letter-spacing:-7px;
+  font-weight:1000;
 
+  background:
+    linear-gradient(
+      white,
+      #ddd8ff,
+      #7658e5
+    );
+
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
+.hero p{
+  max-width:650px;
+  margin:30px auto;
 
-.muted {
-
-    color: #8995a7;
-
+  color:#a3aec0;
+  line-height:1.6;
+  font-size:17px;
 }
 
-
-/* =========================================
-   MARKET
-========================================= */
-
-.market-layout {
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(0,1.5fr)
-        minmax(260px,.7fr);
-
-    gap: 15px;
-
+.scene{
+  height:160px;
+  max-width:950px;
+  margin:auto;
+  position:relative;
 }
 
+.heroMoon{
+  position:absolute;
+  right:16%;
+  top:0;
 
-.panel {
+  width:130px;
+  height:130px;
 
-    background: #0e141d;
+  border-radius:50%;
 
-    border: 1px solid #222c3a;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #fff,
+      #dce1e9 60%,
+      #929aa7
+    );
 
-    border-radius: 15px;
-
-    overflow: hidden;
-
+  box-shadow:
+    0 0 80px #dfe8ff66;
 }
 
+.rocket{
+  position:absolute;
+  right:31%;
+  top:85px;
 
-.toolbar {
+  font-size:38px;
 
-    padding: 15px;
+  transform:rotate(-28deg);
 
-    display: flex;
-
-    gap: 10px;
-
+  animation:
+    flyRocket 3s ease-in-out infinite;
 }
 
+@keyframes flyRocket{
 
-.search {
-
-    flex: 1;
-
-    min-width: 0;
-
-    background: #080d14;
-
-    color: white;
-
-    border: 1px solid #303c4e;
-
-    border-radius: 9px;
-
-    padding: 12px;
-
-    outline: none;
-
-}
-
-
-.search:focus {
-
-    border-color: #7059dd;
-
-}
-
-
-.bookmark {
-
-    background: #151e2b;
-
-    color: white;
-
-    border: 1px solid #39465a;
-
-    border-radius: 9px;
-
-    padding: 10px 14px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-}
-
-
-.chart {
-
-    height: 240px;
-
-    padding: 15px;
-
-}
-
-
-.chart svg {
-
-    width: 100%;
-
-    height: 100%;
-
-}
-
-
-.table {
-
-    width: 100%;
-
-    border-collapse: collapse;
-
-}
-
-
-.table th,
-.table td {
-
-    padding: 15px;
-
-    border-top:
-        1px solid #202a38;
-
-    text-align: left;
-
-}
-
-
-.table th {
-
-    color: #748095;
-
-    font-size: 11px;
-
-    text-transform: uppercase;
-
-}
-
-
-.green {
-
-    color: #35e58a;
-
-}
-
-
-.stats {
-
-    padding: 20px;
-
-}
-
-
-.stat {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 15px 0;
-
-    border-bottom:
-        1px solid #222c3a;
-
-}
-
-
-/* =========================================
-   GAME
-========================================= */
-
-.game-layout {
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(0,1.5fr)
-        minmax(250px,.7fr);
-
-    gap: 15px;
-
-}
-
-
-.game {
-
-    height: 370px;
-
-    position: relative;
-
-    overflow: hidden;
-
-    background:
-
-        linear-gradient(
-            #091322,
-            #111d2e 65%,
-            #0b1018
-        );
-
-    border: 1px solid #29364a;
-
-    border-radius: 15px;
-
-}
-
-
-/* GAME STARS */
-
-.game-stars {
-
-    position: absolute;
-
-    inset: 0;
-
-    opacity: .12;
-
-    background-image:
-
-        radial-gradient(
-            white 1px,
-            transparent 1px
-        );
-
-    background-size: 75px 75px;
-
-}
-
-
-/* GAME TITLE */
-
-.game-title {
-
-    position: absolute;
-
-    left: 18px;
-
-    top: 15px;
-
-    font-weight: 900;
-
-    z-index: 20;
-
-}
-
-
-.score {
-
-    position: absolute;
-
-    right: 18px;
-
-    top: 15px;
-
-    color: #ffd76a;
-
-    font-weight: 900;
-
-    z-index: 20;
-
-}
-
-
-/* =========================================
-   GROUND
-========================================= */
-
-.ground {
-
-    position: absolute;
-
-    left: 0;
-
-    right: 0;
-
-    bottom: 0;
-
-    height: 70px;
-
-    background:
-
-        repeating-linear-gradient(
-            135deg,
-            #182131 0 25px,
-            #121a27 25px 50px
-        );
-
-    border-top:
-        2px solid #29364a;
-
-}
-
-
-/* =========================================
-   PIXEL CAT
-========================================= */
-
-.pixel-cat {
-
-    position: absolute;
-
-    left: 90px;
-
-    bottom: 70px;
-
-    width: 55px;
-
-    height: 55px;
-
-    background: #f1a35c;
-
-    z-index: 10;
-
-    box-shadow:
-
-        7px 0 #f1a35c,
-        -7px 0 #f1a35c;
-
-}
-
-
-/* ears */
-
-.pixel-cat::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 17px;
-
-    height: 17px;
-
-    top: -12px;
-
-    left: 5px;
-
-    background: #f1a35c;
-
-    clip-path:
-
-        polygon(
-            0 100%,
-            0 0,
-            100% 100%
-        );
-
-    box-shadow:
-        28px 0 #f1a35c;
-
-}
-
-
-/* eyes */
-
-.pixel-cat::after {
-
-    content: "•  •";
-
-    position: absolute;
-
-    top: 15px;
-
-    left: 8px;
-
-    color: #16120e;
-
-    font-size: 14px;
-
-    font-weight: 900;
-
-    letter-spacing: 5px;
-
-    white-space: nowrap;
-
-}
-
-
-/* tail */
-
-.pixel-tail {
-
-    position: absolute;
-
-    left: 64px;
-
-    bottom: 86px;
-
-    width: 22px;
-
-    height: 10px;
-
-    background: #f1a35c;
-
-    z-index: 8;
-
-}
-
-
-/* =========================================
-   ROCK
-========================================= */
-
-.pixel-rock {
-
-    position: absolute;
-
-    bottom: 70px;
-
-    width: 38px;
-
-    height: 38px;
-
-    background: #7d8796;
-
-    z-index: 9;
-
-    clip-path:
-
-        polygon(
-
-            20% 100%,
-
-            0 55%,
-
-            20% 20%,
-
-            55% 0,
-
-            100% 30%,
-
-            90% 100%
-
-        );
-
-}
-
-
-/* =========================================
-   JUMP
-========================================= */
-
-.jump-button {
-
-    position: absolute;
-
-    right: 16px;
-
-    bottom: 15px;
-
-    width: 70px;
-
-    height: 70px;
-
-    border-radius: 50%;
-
-    border: 0;
-
-    background: #8d6cff;
-
-    color: white;
-
-    font-weight: 900;
-
-    cursor: pointer;
-
-    z-index: 100;
-
-    box-shadow:
-        0 0 30px
-        rgba(141,108,255,.35);
-
-}
-
-
-.jump-button:active {
-
-    transform: scale(.94);
-
-}
-
-
-.game-help {
-
-    position: absolute;
-
-    bottom: 20px;
-
-    left: 50%;
-
+  50%{
     transform:
-        translateX(-50%);
-
-    color: #8995a7;
-
-    font-size: 12px;
-
-    z-index: 20;
+      translate(-15px,-18px)
+      rotate(-28deg);
+  }
 
 }
 
+.heroMountains{
+  position:absolute;
+  left:-5%;
+  right:-5%;
+  bottom:0;
+  height:120px;
 
-/* =========================================
-   GAME OVER
-========================================= */
+  background:#111a29;
 
-.game-over {
-
-    display: none;
-
-    position: absolute;
-
-    inset: 0;
-
-    background:
-        rgba(5,8,15,.88);
-
-    z-index: 80;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex-direction: column;
-
-    text-align: center;
-
-    padding: 20px;
-
+  clip-path:
+    polygon(
+      0 100%,
+      8% 65%,
+      19% 82%,
+      31% 32%,
+      43% 76%,
+      55% 20%,
+      68% 70%,
+      80% 38%,
+      92% 78%,
+      100% 53%,
+      100% 100%
+    );
 }
 
+/* ================= MAIN ================= */
 
-.game-over.show {
-
-    display: flex;
-
+.container{
+  width:min(1200px,94%);
+  margin:55px auto 100px;
 }
 
-
-.oh-no {
-
-    font-size:
-        clamp(38px,8vw,65px);
-
-    font-weight: 1000;
-
-    color: white;
-
+.heading{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  margin-bottom:15px;
 }
 
-
-.game-over-sub {
-
-    color: #aab5c6;
-
-    margin-top: 8px;
-
+.heading h2{
+  margin:0;
 }
 
-
-.play-again {
-
-    margin-top: 22px;
-
-    padding: 14px 24px;
-
-    background: #8d6cff;
-
-    border: 0;
-
-    color: white;
-
-    border-radius: 10px;
-
-    font-weight: 900;
-
-    cursor: pointer;
-
+.muted{
+  color:#7f8b9e;
 }
 
+/* ================= MARKET ================= */
 
-/* =========================================
-   LEADERBOARD
-========================================= */
-
-.leaderboard {
-
-    padding: 20px;
-
+.market{
+  background:#0c1119;
+  border:1px solid #222c3a;
+  border-radius:15px;
+  overflow:hidden;
 }
 
-
-.rank {
-
-    display: flex;
-
-    justify-content: space-between;
-
-    padding: 13px 0;
-
-    border-bottom:
-        1px solid #222c3a;
-
+.marketTop{
+  display:flex;
+  gap:10px;
+  padding:15px;
+  border-bottom:1px solid #202938;
 }
 
+.search{
+  flex:1;
+  min-width:0;
 
-/* =========================================
-   WALLET MODAL
-========================================= */
+  background:#070b11;
+  color:#fff;
 
-.wallet-modal {
+  border:1px solid #303b4c;
+  border-radius:9px;
 
-    display: none;
-
-    position: fixed;
-
-    inset: 0;
-
-    background:
-        rgba(0,0,0,.75);
-
-    z-index: 500;
-
-    align-items: center;
-
-    justify-content: center;
-
-    padding: 20px;
-
+  padding:12px;
+  outline:none;
 }
 
-
-.wallet-modal.show {
-
-    display: flex;
-
+.refresh,
+.bookmark{
+  border-radius:9px;
+  padding:0 15px;
+  font-weight:900;
 }
 
-
-.wallet-box {
-
-    width:
-        min(390px,100%);
-
-    background: #111823;
-
-    border: 1px solid #344157;
-
-    border-radius: 16px;
-
-    padding: 20px;
-
+.refresh{
+  background:#35e58a;
+  color:#041109;
+  border:0;
 }
 
-
-.wallet-option {
-
-    width: 100%;
-
-    padding: 15px;
-
-    margin-top: 10px;
-
-    background: #182231;
-
-    color: white;
-
-    border: 1px solid #344157;
-
-    border-radius: 10px;
-
-    text-align: left;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
+.bookmark{
+  background:#151e2c;
+  color:#fff;
+  border:1px solid #354257;
 }
 
-
-.close-wallet {
-
-    float: right;
-
-    background: none;
-
-    border: 0;
-
-    color: #aaa;
-
-    font-size: 25px;
-
-    cursor: pointer;
-
+.bookmark.active{
+  color:#ffd76a;
+  border-color:#ffd76a;
 }
 
+.bookmarkInfo{
+  display:none;
+  margin:15px;
+  padding:13px;
 
-/* =========================================
-   MOBILE
-========================================= */
+  background:#111a27;
+  border:1px solid #2d394b;
+  border-radius:10px;
 
-@media (max-width: 800px) {
-
-    .nav-links {
-
-        display: none;
-
-    }
-
-
-    .market-layout,
-    .game-layout {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
-    .hero h1 {
-
-        letter-spacing: -4px;
-
-    }
-
-
-    .moon {
-
-        width: 120px;
-
-        height: 120px;
-
-        right: 2%;
-
-    }
-
-
-    .rocket {
-
-        right: 21%;
-
-    }
-
-
-    .game-help {
-
-        display: none;
-
-    }
-
+  color:#b7c0cf;
+  font-size:13px;
 }
 
+.bookmarkInfo.show{
+  display:block;
+}
 
-@media (max-width: 500px) {
+.status{
+  padding:10px 15px;
+  color:#7f8b9e;
+  font-size:12px;
+  border-bottom:1px solid #202938;
+}
 
-    .toolbar {
+.tableWrap{
+  overflow-x:auto;
+}
 
-        flex-direction: column;
+table{
+  width:100%;
+  min-width:850px;
+  border-collapse:collapse;
+}
 
-    }
+th,
+td{
+  padding:14px 15px;
+  text-align:left;
+  border-bottom:1px solid #1d2633;
+}
 
+th{
+  color:#727e91;
+  font-size:11px;
+  text-transform:uppercase;
+}
 
-    .table {
+.token{
+  font-weight:900;
+}
 
-        font-size: 12px;
+.symbol{
+  color:#7e8a9c;
+  font-size:12px;
+}
 
-    }
+.green{
+  color:#35e58a;
+}
 
+.red{
+  color:#ff6574;
+}
 
-    .table th,
-    .table td {
+.dex{
+  padding:5px 8px;
+  border-radius:7px;
+  background:#151f2d;
+  border:1px solid #334156;
+  color:#b9c3d1;
+  font-size:11px;
+}
 
-        padding: 10px 7px;
+.view{
+  color:#a28cff;
+  text-decoration:none;
+  font-weight:900;
+}
 
-    }
+/* ================= GAME ================= */
 
+.game{
+  width:100%;
+  height:430px;
 
-    .hero-content {
+  position:relative;
+  overflow:hidden;
 
-        padding-top: 50px;
+  border-radius:18px;
+  border:1px solid #29364a;
 
-    }
+  background:
+    linear-gradient(
+      #07101e 0%,
+      #0c192a 65%,
+      #101a27 100%
+    );
+
+  user-select:none;
+  touch-action:manipulation;
+}
+
+.gameStars{
+  position:absolute;
+  inset:0;
+
+  opacity:.32;
+
+  background-image:
+    radial-gradient(
+      white 1px,
+      transparent 1px
+    );
+
+  background-size:64px 64px;
+}
+
+.gameMoon{
+  position:absolute;
+
+  right:8%;
+  top:45px;
+
+  width:88px;
+  height:88px;
+
+  border-radius:50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #fff,
+      #dce1e9 60%,
+      #969eaa
+    );
+
+  box-shadow:
+    0 0 55px #e2eaff55;
+}
+
+.mountainBack{
+  position:absolute;
+
+  left:-10%;
+  bottom:70px;
+
+  width:120%;
+  height:180px;
+
+  background:#121c2c;
+
+  clip-path:
+    polygon(
+      0 100%,
+      9% 60%,
+      19% 80%,
+      31% 35%,
+      41% 73%,
+      53% 22%,
+      66% 70%,
+      78% 39%,
+      91% 76%,
+      100% 50%,
+      100% 100%
+    );
+}
+
+.mountainFront{
+  position:absolute;
+
+  left:-10%;
+  bottom:70px;
+
+  width:120%;
+  height:120px;
+
+  background:#0d1623;
+
+  clip-path:
+    polygon(
+      0 100%,
+      12% 55%,
+      23% 83%,
+      38% 30%,
+      52% 72%,
+      67% 42%,
+      81% 80%,
+      94% 51%,
+      100% 70%,
+      100% 100%
+    );
+}
+
+.ground{
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:70px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #182231 0 35px,
+      #111925 35px 70px
+    );
+
+  border-top:2px solid #344153;
+}
+
+/* ================= GAME UI ================= */
+
+.gameTitle{
+  position:absolute;
+  top:17px;
+  left:20px;
+
+  z-index:30;
+
+  color:#a795ff;
+  font-size:14px;
+  font-weight:1000;
+}
+
+.score{
+  position:absolute;
+
+  top:17px;
+  right:20px;
+
+  z-index:30;
+
+  color:#dce3ef;
+  font-family:monospace;
+  font-weight:900;
+}
+
+.best{
+  position:absolute;
+
+  top:42px;
+  right:20px;
+
+  z-index:30;
+
+  color:#768398;
+  font-size:11px;
+}
+
+/* ================= LUNA ================= */
+
+.luna{
+  position:absolute;
+
+  left:90px;
+  bottom:70px;
+
+  width:72px;
+  height:65px;
+
+  z-index:20;
+
+  image-rendering:pixelated;
+
+  will-change:
+    left,
+    bottom,
+    transform;
+}
+
+.body{
+  position:absolute;
+
+  left:8px;
+  top:23px;
+
+  width:43px;
+  height:28px;
+
+  background:#e99a59;
+
+  border-radius:8px;
+
+  box-shadow:
+    inset -5px -5px #bf703d;
+}
+
+.head{
+  position:absolute;
+
+  left:34px;
+  top:5px;
+
+  width:35px;
+  height:34px;
+
+  background:#f0a15f;
+
+  border-radius:9px;
+
+  box-shadow:
+    inset -4px -4px #c67640;
+}
+
+.ear{
+  position:absolute;
+
+  top:-9px;
+
+  width:15px;
+  height:15px;
+
+  background:#f0a15f;
+
+  clip-path:
+    polygon(
+      0 100%,
+      30% 0,
+      100% 100%
+    );
+}
+
+.ear.one{
+  left:3px;
+}
+
+.ear.two{
+  right:3px;
+}
+
+.eye{
+  position:absolute;
+
+  top:12px;
+
+  width:5px;
+  height:6px;
+
+  background:#17120f;
+
+  border-radius:2px;
+}
+
+.eye.one{
+  left:8px;
+}
+
+.eye.two{
+  right:8px;
+}
+
+.nose{
+  position:absolute;
+
+  left:15px;
+  bottom:6px;
+
+  width:5px;
+  height:4px;
+
+  background:#682f2f;
+}
+
+.leg{
+  position:absolute;
+
+  bottom:-9px;
+
+  width:10px;
+  height:15px;
+
+  background:#cc7941;
+
+  border-radius:3px;
+}
+
+.leg.one{
+  left:12px;
+}
+
+.leg.two{
+  left:38px;
+}
+
+.tail{
+  position:absolute;
+
+  left:-12px;
+  top:20px;
+
+  width:26px;
+  height:18px;
+
+  border:
+    6px solid #ee9e5d;
+
+  border-right:0;
+  border-bottom:0;
+
+  border-radius:20px 0 0 0;
+
+  transform:rotate(-20deg);
+}
+
+/* ================= ROCK ================= */
+
+.rock{
+  position:absolute;
+
+  left:100%;
+
+  bottom:70px;
+
+  width:45px;
+  height:42px;
+
+  z-index:15;
+
+  background:
+    linear-gradient(
+      135deg,
+      #9ba5b3,
+      #626d7c
+    );
+
+  border-radius:5px;
+
+  clip-path:
+    polygon(
+      20% 100%,
+      0 57%,
+      18% 20%,
+      55% 0,
+      100% 30%,
+      90% 100%
+    );
+
+  will-change:left;
+
+  box-shadow:
+    0 5px 0 #3d4653;
+}
+
+.rock:after{
+  content:"";
+
+  position:absolute;
+
+  left:16px;
+  top:9px;
+
+  width:11px;
+  height:7px;
+
+  background:#c2cad4;
+
+  opacity:.75;
+
+  transform:rotate(-15deg);
+}
+
+.smallRock{
+  width:31px;
+  height:29px;
+}
+
+.bigRock{
+  width:58px;
+  height:52px;
+}
+
+/* ================= START SCREEN ================= */
+
+.startScreen{
+  position:absolute;
+
+  inset:0;
+
+  z-index:90;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  flex-direction:column;
+
+  text-align:center;
+
+  background:#04060bed;
+}
+
+.startScreen h2{
+  margin:0;
+
+  font-size:
+    clamp(45px,8vw,75px);
+
+  letter-spacing:-3px;
+}
+
+.startScreen p{
+  color:#8793a7;
+}
+
+.startButton{
+  margin-top:15px;
+
+  padding:15px 30px;
+
+  border:0;
+  border-radius:10px;
+
+  background:#8b6cf5;
+  color:white;
+
+  font-size:16px;
+  font-weight:1000;
+
+  box-shadow:
+    0 0 30px #8b6cf544;
+}
+
+.startButton:active{
+  transform:scale(.95);
+}
+
+/* ================= GAME OVER ================= */
+
+.gameOver{
+  position:absolute;
+
+  inset:0;
+
+  z-index:100;
+
+  display:none;
+
+  align-items:center;
+  justify-content:center;
+
+  flex-direction:column;
+
+  text-align:center;
+
+  background:#04060bed;
+}
+
+.gameOver.show{
+  display:flex;
+}
+
+.gameOver h2{
+  margin:0;
+
+  font-size:
+    clamp(45px,8vw,75px);
+
+  letter-spacing:-3px;
+}
+
+.gameOver p{
+  color:#8793a7;
+}
+
+.playAgain{
+  margin-top:14px;
+
+  padding:14px 23px;
+
+  border:0;
+  border-radius:10px;
+
+  background:#8b6cf5;
+
+  color:white;
+  font-weight:1000;
+}
+
+/* ================= JUMP ================= */
+
+.jumpButton{
+  position:absolute;
+
+  right:20px;
+  bottom:18px;
+
+  width:78px;
+  height:78px;
+
+  z-index:50;
+
+  border:0;
+  border-radius:50%;
+
+  background:#8b6cf5;
+
+  color:white;
+
+  font-weight:1000;
+
+  box-shadow:
+    0 0 35px #8b6cf544;
+}
+
+.jumpButton:active{
+  transform:scale(.93);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:650px){
+
+  .nav{
+    padding:0 4%;
+  }
+
+  .hero{
+    min-height:480px;
+    padding-top:55px;
+  }
+
+  .heroMoon{
+    width:80px;
+    height:80px;
+    right:7%;
+  }
+
+  .rocket{
+    right:22%;
+  }
+
+  .game{
+    height:390px;
+  }
+
+  .luna{
+    left:60px;
+  }
+
+  .jumpButton{
+    width:72px;
+    height:72px;
+  }
+
+  .heading .muted{
+    display:none;
+  }
+
+  .marketTop{
+    flex-wrap:wrap;
+  }
+
+  .search{
+    flex-basis:100%;
+  }
+
+  .refresh,
+  .bookmark{
+    height:43px;
+  }
 
 }
 
 </style>
-
 </head>
-
-
 
 <body>
 
+<nav class="nav">
 
-<!-- =========================================
-     NAVIGATION
-========================================= -->
+  <div class="logo">
+    LUNA<span>SCREEN</span>
+  </div>
 
-<nav class="navbar">
-
-    <div class="logo">
-        Crypto<span>Screen</span>
-    </div>
-
-
-    <div class="nav-links">
-
-        <a href="#markets">
-            Markets
-        </a>
-
-        <a href="#luna-run">
-            Luna Run
-        </a>
-
-        <a href="#about">
-            About
-        </a>
-
-    </div>
-
-
-    <button
-        class="wallet-button"
-        id="walletButton">
-
-        Connect Wallet
-
-    </button>
+  <button class="wallet" id="walletButton">
+    Connect Wallet
+  </button>
 
 </nav>
 
-
-
-<!-- =========================================
-     HERO
-========================================= -->
-
 <section class="hero">
 
-    <div class="stars"></div>
+  <div class="stars"></div>
 
+  <div class="heroContent">
 
-    <div class="hero-content">
+    <h1>
+      WELCOME<br>
+      TO LUNA
+    </h1>
 
+    <p>
+      Explore the market and help Luna
+      run through the night all the way to the moon.
+    </p>
 
-        <h1>
+    <div class="scene">
 
-            WELCOME<br>
-            TO LUNA
+      <div class="heroMoon"></div>
 
-        </h1>
+      <div class="rocket">
+        🚀
+      </div>
 
-
-        <p class="hero-description">
-
-            A community-first crypto dashboard
-            built for discovering markets,
-            tracking activity and having fun
-            on the way to the moon.
-
-        </p>
-
-
-        <div class="scene">
-
-            <div class="moon"></div>
-
-            <div class="rocket">
-                🚀
-            </div>
-
-            <div class="mountains"></div>
-
-        </div>
-
-
-        <div class="hero-buttons">
-
-            <a
-                href="#markets"
-                class="main-button">
-
-                Explore Markets
-
-            </a>
-
-
-            <button
-                class="secondary-button"
-                id="heroWallet">
-
-                Connect Phantom
-
-            </button>
-
-        </div>
-
+      <div class="heroMountains"></div>
 
     </div>
 
+  </div>
+
 </section>
-
-
-
-<!-- =========================================
-     MAIN
-========================================= -->
 
 <main class="container">
 
-
-<!-- =========================================
-     MARKET SECTION
-========================================= -->
-
 <section id="markets">
 
+  <div class="heading">
 
-    <div class="section-title">
+    <h2>
+      📊 Live Crypto Markets
+    </h2>
 
-        <h2>
-            📊 Market Overview
-        </h2>
+    <span class="muted" id="updated">
+      Connecting...
+    </span>
 
-        <span class="muted">
-            Demo interface
-        </span>
+  </div>
+
+  <div class="market">
+
+    <div class="marketTop">
+
+      <input
+        class="search"
+        id="search"
+        placeholder="Search BTC, ETH or SOL..."
+      >
+
+      <button class="refresh" id="refresh">
+        REFRESH
+      </button>
+
+      <button class="bookmark" id="bookmark">
+        ☆ BOOKMARK
+      </button>
 
     </div>
 
+    <div class="bookmarkInfo" id="bookmarkInfo">
+      ⭐ This page is bookmarked in this browser.
+    </div>
 
-    <div class="market-layout">
+    <div class="status" id="status">
+      Loading live market data...
+    </div>
 
+    <div class="tableWrap">
 
-        <div class="panel">
+      <table>
 
+        <thead>
 
-            <div class="toolbar">
+          <tr>
+            <th>Token</th>
+            <th>Price</th>
+            <th>24H</th>
+            <th>Volume</th>
+            <th>Liquidity</th>
+            <th>Market Cap</th>
+            <th>DEX</th>
+            <th></th>
+          </tr>
 
+        </thead>
 
-                <input
-                    class="search"
-                    id="search"
-                    placeholder="Search token or symbol..."
-                >
+        <tbody id="rows"></tbody>
 
-
-                <button
-                    class="bookmark"
-                    id="bookmark">
-
-                    ☆ Bookmark
-
-                </button>
-
-
-            </div>
-
-
-            <div class="chart">
-
-
-                <svg
-                    viewBox="0 0 800 250"
-                    preserveAspectRatio="none"
-                >
-
-                    <path
-                        d="
-                        M0 210
-                        C60 180 80 215 140 165
-                        S210 185 270 135
-                        S340 160 400 105
-                        S470 145 530 90
-                        S600 120 660 65
-                        S730 95 800 30
-                        "
-                        fill="none"
-                        stroke="#35e58a"
-                        stroke-width="4"
-                    />
-
-                </svg>
-
-
-            </div>
-
-
-            <table class="table">
-
-
-                <thead>
-
-                    <tr>
-
-                        <th>
-                            Token
-                        </th>
-
-                        <th>
-                            Price
-                        </th>
-
-                        <th>
-                            24h
-                        </th>
-
-                        <th>
-                            Volume
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-
-                <tbody id="marketRows">
-
-
-                    <tr>
-
-                        <td>
-                            ₿ Bitcoin
-                            <span class="muted">
-                                BTC
-                            </span>
-                        </td>
-
-                        <td>
-                            $104,250
-                        </td>
-
-                        <td class="green">
-                            +2.31%
-                        </td>
-
-                        <td>
-                            $42.1B
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            Ξ Ethereum
-                            <span class="muted">
-                                ETH
-                            </span>
-                        </td>
-
-                        <td>
-                            $3,820
-                        </td>
-
-                        <td class="green">
-                            +1.74%
-                        </td>
-
-                        <td>
-                            $18.4B
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>
-                            ◎ Solana
-                            <span class="muted">
-                                SOL
-                            </span>
-                        </td>
-
-                        <td>
-                            $188.20
-                        </td>
-
-                        <td class="green">
-                            +5.12%
-                        </td>
-
-                        <td>
-                            $6.7B
-                        </td>
-
-                    </tr>
-
-
-                </tbody>
-
-            </table>
-
-
-        </div>
-
-
-
-        <div class="panel stats">
-
-
-            <h3>
-                Market Stats
-            </h3>
-
-
-            <div class="stat">
-
-                <span class="muted">
-                    Market Cap
-                </span>
-
-                <b>
-                    $3.42T
-                </b>
-
-            </div>
-
-
-            <div class="stat">
-
-                <span class="muted">
-                    24h Volume
-                </span>
-
-                <b>
-                    $128.6B
-                </b>
-
-            </div>
-
-
-            <div class="stat">
-
-                <span class="muted">
-                    BTC Dominance
-                </span>
-
-                <b>
-                    61.2%
-                </b>
-
-            </div>
-
-
-            <div class="stat">
-
-                <span class="muted">
-                    Fear & Greed
-                </span>
-
-                <b class="green">
-                    72 • Greed
-                </b>
-
-            </div>
-
-
-        </div>
-
+      </table>
 
     </div>
 
+  </div>
 
 </section>
 
-
-
-<!-- =========================================
-     GAME SECTION
-========================================= -->
-
 <section
-    id="luna-run"
-    style="margin-top:65px"
+  id="luna-run"
+  style="margin-top:65px"
 >
 
+  <div class="heading">
 
-    <div class="section-title">
+    <h2>
+      🌙 Luna Run
+    </h2>
 
-        <h2>
-            🌙 Luna Run
-        </h2>
+    <span class="muted">
+      Run • Jump • Reach the Moon
+    </span>
 
-        <span class="muted">
-            Jump over the rocks!
-        </span>
+  </div>
+
+  <div class="game" id="game">
+
+    <div class="gameStars"></div>
+
+    <div class="gameMoon"></div>
+
+    <div class="mountainBack"></div>
+
+    <div class="mountainFront"></div>
+
+    <div class="ground"></div>
+
+    <div class="gameTitle">
+      LUNA RUN
+    </div>
+
+    <div class="score">
+      SCORE:
+      <span id="score">0</span>
+    </div>
+
+    <div class="best">
+      BEST:
+      <span id="best">0</span>
+    </div>
+
+    <div class="startScreen" id="startScreen">
+
+      <h2>
+        LUNA RUN 🌙
+      </h2>
+
+      <p>
+        Help Luna reach the moon!
+      </p>
+
+      <button
+        class="startButton"
+        id="startButton"
+      >
+        START GAME
+      </button>
 
     </div>
 
+    <div class="luna" id="luna">
 
+      <div class="body"></div>
 
-    <div class="game-layout">
+      <div class="head">
 
+        <div class="ear one"></div>
+        <div class="ear two"></div>
 
-        <!-- GAME -->
+        <div class="eye one"></div>
+        <div class="eye two"></div>
 
-        <div
-            class="game"
-            id="gameArea"
-        >
+        <div class="nose"></div>
 
+      </div>
 
-            <div class="game-stars"></div>
+      <div class="leg one"></div>
+      <div class="leg two"></div>
 
-
-            <div class="game-title">
-                LUNA RUN
-            </div>
-
-
-            <div class="score">
-
-                Score:
-                <span id="score">
-                    0
-                </span>
-
-            </div>
-
-
-            <!-- PIXEL CAT -->
-
-            <div
-                class="pixel-cat"
-                id="pixelCat"
-            ></div>
-
-
-            <div
-                class="pixel-tail"
-                id="pixelTail"
-            ></div>
-
-
-            <div class="ground"></div>
-
-
-
-            <!-- GAME OVER SCREEN -->
-
-            <div
-                class="game-over"
-                id="gameOverScreen"
-            >
-
-
-                <div class="oh-no">
-
-                    OH NOU! 😿
-
-                </div>
-
-
-                <div class="game-over-sub">
-
-                    Luna hit a rock!
-
-                </div>
-
-
-                <button
-                    class="play-again"
-                    id="restartButton"
-                >
-
-                    PLAY AGAIN 🔄
-
-                </button>
-
-
-            </div>
-
-
-
-            <!-- JUMP -->
-
-            <button
-                class="jump-button"
-                id="jumpButton"
-            >
-
-                JUMP
-
-            </button>
-
-
-            <div class="game-help">
-
-                SPACE / ↑ / JUMP
-
-            </div>
-
-
-        </div>
-
-
-
-        <!-- LEADERBOARD -->
-
-        <div class="panel leaderboard">
-
-
-            <h3>
-                🏆 Leaderboard
-            </h3>
-
-
-            <div class="rank">
-
-                <span>
-                    🥇 MoonWalker
-                </span>
-
-                <b>
-                    1280
-                </b>
-
-            </div>
-
-
-            <div class="rank">
-
-                <span>
-                    🥈 LunaFan
-                </span>
-
-                <b>
-                    940
-                </b>
-
-            </div>
-
-
-            <div class="rank">
-
-                <span>
-                    🥉 AstroCat
-                </span>
-
-                <b>
-                    720
-                </b>
-
-            </div>
-
-
-            <div class="rank">
-
-                <span>
-                    4. You
-                </span>
-
-                <b id="bestScore">
-                    0
-                </b>
-
-            </div>
-
-
-            <p class="muted">
-
-                Your best score is saved
-                in this browser.
-
-            </p>
-
-
-        </div>
-
+      <div class="tail"></div>
 
     </div>
 
+    <div class="gameOver" id="gameOver">
 
-</section>
+      <h2>
+        OH NOU! 😿
+      </h2>
 
+      <p>
+        Luna hit a rock!
+      </p>
 
+      <p>
+        SCORE:
+        <strong id="finalScore">0</strong>
+      </p>
 
-<!-- =========================================
-     ABOUT
-========================================= -->
-
-<section
-    id="about"
-    style="margin-top:65px"
->
-
-
-    <div class="section-title">
-
-        <h2>
-            🚀 Built for the Moon
-        </h2>
+      <button
+        class="playAgain"
+        id="playAgain"
+      >
+        PLAY AGAIN
+      </button>
 
     </div>
 
-
-    <div
-        class="panel"
-        style="padding:25px"
+    <button
+      class="jumpButton"
+      id="jumpButton"
     >
+      JUMP
+    </button>
 
-        <p class="muted">
-
-            Welcome to Luna.
-            A community-focused crypto
-            interface and mini game.
-
-        </p>
-
-
-        <p class="muted">
-
-            Market numbers shown here
-            are demo values for now.
-
-        </p>
-
-    </div>
-
+  </div>
 
 </section>
 
+<section style="margin-top:65px">
+
+  <div
+    style="
+      background:#0c1119;
+      border:1px solid #222c3a;
+      border-radius:15px;
+      padding:25px;
+    "
+  >
+
+    <h2>
+      🚀 Welcome to Luna
+    </h2>
+
+    <p class="muted">
+      Luna Screen combines live crypto market
+      information with a community mini game.
+    </p>
+
+  </div>
+
+</section>
 
 </main>
 
-
-
-<!-- =========================================
-     WALLET MODAL
-========================================= -->
-
-<div
-    class="wallet-modal"
-    id="walletModal"
->
-
-
-    <div class="wallet-box">
-
-
-        <button
-            class="close-wallet"
-            id="closeWallet">
-
-            ×
-
-        </button>
-
-
-        <h2>
-            Connect Wallet
-        </h2>
-
-
-        <p class="muted">
-
-            Select your Solana wallet.
-
-        </p>
-
-
-        <button
-            class="wallet-option"
-            id="phantomButton"
-        >
-
-            👻 Phantom
-
-        </button>
-
-
-        <button
-            class="wallet-option"
-            id="otherWallet"
-        >
-
-            ◎ Other Solana Wallet
-
-        </button>
-
-
-    </div>
-
-
-</div>
-
-
-
 <script>
 
+/* =========================================================
+   MARKET DATA
+========================================================= */
 
-/* =========================================
-   WALLET
-========================================= */
+const rows =
+  document.getElementById("rows");
 
-const walletModal =
-    document.getElementById(
-        "walletModal"
-    );
+const status =
+  document.getElementById("status");
 
+const updated =
+  document.getElementById("updated");
 
-function openWallet() {
+const search =
+  document.getElementById("search");
 
-    walletModal.classList.add(
-        "show"
+let currentPairs = [];
+
+function money(value){
+
+  if(value === null || value === undefined){
+    return "—";
+  }
+
+  const n = Number(value);
+
+  if(!Number.isFinite(n)){
+    return "—";
+  }
+
+  if(n >= 1000000000){
+    return "$" +
+      (n / 1000000000).toFixed(2) +
+      "B";
+  }
+
+  if(n >= 1000000){
+    return "$" +
+      (n / 1000000).toFixed(2) +
+      "M";
+  }
+
+  if(n >= 1000){
+    return "$" +
+      (n / 1000).toFixed(1) +
+      "K";
+  }
+
+  return "$" +
+    n.toLocaleString(
+      "en-US",
+      {
+        maximumFractionDigits:2
+      }
     );
 
 }
 
+function price(value){
 
-function closeWallet() {
+  if(!value){
+    return "—";
+  }
 
-    walletModal.classList.remove(
-        "show"
+  const n = Number(value);
+
+  if(n < 0.000001){
+    return "$" + n.toFixed(10);
+  }
+
+  if(n < 0.001){
+    return "$" + n.toFixed(7);
+  }
+
+  if(n < 1){
+    return "$" + n.toFixed(5);
+  }
+
+  return "$" +
+    n.toLocaleString(
+      "en-US",
+      {
+        maximumFractionDigits:4
+      }
     );
 
 }
 
+function change(value){
 
-document.getElementById(
-    "walletButton"
-).onclick = openWallet;
+  if(value === null || value === undefined){
+    return "—";
+  }
 
+  const n = Number(value);
 
-document.getElementById(
-    "heroWallet"
-).onclick = openWallet;
+  return `
+    <span class="${n >= 0 ? "green" : "red"}">
+      ${n >= 0 ? "+" : ""}
+      ${n.toFixed(2)}%
+    </span>
+  `;
 
+}
 
-document.getElementById(
-    "closeWallet"
-).onclick = closeWallet;
+function escapeHtml(value){
 
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
+}
 
-document.getElementById(
-    "otherWallet"
-).onclick = function() {
+function safeUrl(value){
 
-    alert(
-        "Open this website inside your Solana wallet browser to connect."
-    );
+  try{
 
-};
+    const url =
+      new URL(value);
 
+    if(
+      url.protocol === "https:" &&
+      url.hostname === "dexscreener.com"
+    ){
 
+      return url.href;
 
-document.getElementById(
-    "phantomButton"
-).onclick =
-async function() {
+    }
 
+  }catch(error){}
 
-    const provider =
-        window.phantom?.solana ||
-        window.solana;
+  return "#";
 
+}
 
-    if (!provider) {
+async function loadMarkets(){
 
-        alert(
-            "Phantom was not detected. Open this website in Phantom's browser or install Phantom."
+  status.textContent =
+    "Loading live market data...";
+
+  try{
+
+    const assets = [
+
+      {
+        name:"Bitcoin",
+        symbol:"BTC",
+        query:"BTC"
+      },
+
+      {
+        name:"Ethereum",
+        symbol:"ETH",
+        query:"ETH"
+      },
+
+      {
+        name:"Solana",
+        symbol:"SOL",
+        query:"SOL"
+      }
+
+    ];
+
+    const results =
+      await Promise.all(
+
+        assets.map(
+          async asset => {
+
+            const response =
+              await fetch(
+                "https://api.dexscreener.com/latest/dex/search?q=" +
+                encodeURIComponent(asset.query)
+              );
+
+            if(!response.ok){
+              throw new Error(
+                "Market API error"
+              );
+            }
+
+            const data =
+              await response.json();
+
+            const pairs =
+              (data.pairs || [])
+              .filter(
+                pair =>
+                  pair.baseToken?.symbol
+                    ?.toUpperCase() ===
+                  asset.symbol
+              )
+              .sort(
+                (a,b) =>
+                  Number(
+                    b.volume?.h24 || 0
+                  ) -
+                  Number(
+                    a.volume?.h24 || 0
+                  )
+              );
+
+            return pairs[0] || null;
+
+          }
+        )
+
+      );
+
+    currentPairs =
+      results.filter(Boolean);
+
+    renderMarkets();
+
+    updated.textContent =
+      "Live • " +
+      new Date().toLocaleTimeString(
+        "fi-FI"
+      );
+
+    status.textContent =
+      "LIVE • BTC • ETH • SOL";
+
+  }catch(error){
+
+    status.textContent =
+      "Could not load live data.";
+
+    rows.innerHTML = `
+      <tr>
+        <td colspan="8"
+            style="
+              padding:40px;
+              text-align:center;
+              color:#7f8a9c;
+            ">
+          Could not load market data.
+          <br><br>
+          Press REFRESH to try again.
+        </td>
+      </tr>
+    `;
+
+  }
+
+}
+
+function renderMarkets(){
+
+  const query =
+    search.value
+      .trim()
+      .toLowerCase();
+
+  const filtered =
+    currentPairs.filter(
+      pair => {
+
+        const name =
+          pair.baseToken?.name
+            ?.toLowerCase() || "";
+
+        const symbol =
+          pair.baseToken?.symbol
+            ?.toLowerCase() || "";
+
+        return (
+          !query ||
+          name.includes(query) ||
+          symbol.includes(query)
         );
 
-        return;
-
-    }
-
-
-    try {
-
-
-        const response =
-            await provider.connect();
-
-
-        const address =
-            response.publicKey.toString();
-
-
-        document.getElementById(
-            "walletButton"
-        ).textContent =
-
-            address.slice(0,5)
-            +
-            "..."
-            +
-            address.slice(-4);
-
-
-        document.getElementById(
-            "heroWallet"
-        ).textContent =
-            "✓ Phantom Connected";
-
-
-        closeWallet();
-
-
-    }
-
-    catch(error) {
-
-        /* User cancelled connection */
-
-    }
-
-};
-
-
-
-/* =========================================
-   BOOKMARK
-========================================= */
-
-const bookmark =
-    document.getElementById(
-        "bookmark"
+      }
     );
 
+  if(!filtered.length){
 
-let bookmarked =
-    localStorage.getItem(
-        "lunaBookmark"
-    ) === "true";
+    rows.innerHTML = `
+      <tr>
+        <td colspan="8"
+            style="
+              padding:40px;
+              text-align:center;
+              color:#7f8a9c;
+            ">
+          No matching token.
+        </td>
+      </tr>
+    `;
 
+    return;
 
-function updateBookmark() {
+  }
 
-    bookmark.textContent =
-        bookmarked
-        ?
-        "★ Bookmarked"
-        :
-        "☆ Bookmark";
+  rows.innerHTML =
+    filtered.map(pair => {
+
+      const token =
+        pair.baseToken || {};
+
+      return `
+
+        <tr>
+
+          <td>
+
+            <div class="token">
+              ${escapeHtml(
+                token.name || "Unknown"
+              )}
+            </div>
+
+            <div class="symbol">
+              ${escapeHtml(
+                token.symbol || ""
+              )}
+            </div>
+
+          </td>
+
+          <td>
+            ${price(pair.priceUsd)}
+          </td>
+
+          <td>
+            ${change(
+              pair.priceChange?.h24
+            )}
+          </td>
+
+          <td>
+            ${money(
+              pair.volume?.h24
+            )}
+          </td>
+
+          <td>
+            ${money(
+              pair.liquidity?.usd
+            )}
+          </td>
+
+          <td>
+            ${money(
+              pair.marketCap ||
+              pair.fdv
+            )}
+          </td>
+
+          <td>
+
+            <span class="dex">
+              ${escapeHtml(
+                pair.dexId || "DEX"
+              )}
+            </span>
+
+          </td>
+
+          <td>
+
+            <a
+              class="view"
+              href="${safeUrl(pair.url)}"
+              target="_blank"
+              rel="noopener"
+            >
+              VIEW
+            </a>
+
+          </td>
+
+        </tr>
+
+      `;
+
+    }).join("");
 
 }
 
+document
+  .getElementById("refresh")
+  .onclick =
+  loadMarkets;
+
+search.addEventListener(
+  "input",
+  renderMarkets
+);
+
+loadMarkets();
+
+setInterval(
+  loadMarkets,
+  15000
+);
+
+/* =========================================================
+   BOOKMARK
+========================================================= */
+
+const bookmark =
+  document.getElementById("bookmark");
+
+const bookmarkInfo =
+  document.getElementById(
+    "bookmarkInfo"
+  );
+
+let bookmarked =
+  localStorage.getItem(
+    "lunaBookmark"
+  ) === "true";
+
+function updateBookmark(){
+
+  if(bookmarked){
+
+    bookmark.textContent =
+      "★ BOOKMARKED";
+
+    bookmark.classList.add(
+      "active"
+    );
+
+    bookmarkInfo.classList.add(
+      "show"
+    );
+
+  }else{
+
+    bookmark.textContent =
+      "☆ BOOKMARK";
+
+    bookmark.classList.remove(
+      "active"
+    );
+
+    bookmarkInfo.classList.remove(
+      "show"
+    );
+
+  }
+
+}
 
 updateBookmark();
 
-
 bookmark.onclick =
-function() {
-
+  function(){
 
     bookmarked =
-        !bookmarked;
-
+      !bookmarked;
 
     localStorage.setItem(
-        "lunaBookmark",
-        bookmarked
+      "lunaBookmark",
+      bookmarked
     );
-
 
     updateBookmark();
 
-};
+  };
 
+/* =========================================================
+   PHANTOM WALLET
+========================================================= */
 
+async function connectWallet(){
 
-/* =========================================
-   SEARCH
-========================================= */
+  const provider =
+    window.phantom?.solana ||
+    window.solana;
 
-document.getElementById(
-    "search"
-).addEventListener(
-    "input",
-    function() {
+  if(!provider){
 
+    window.open(
+      "https://phantom.app/",
+      "_blank"
+    );
 
-        const query =
-            this.value.toLowerCase();
+    return;
 
+  }
 
-        document.querySelectorAll(
-            "#marketRows tr"
-        ).forEach(
-            function(row) {
+  try{
 
+    const response =
+      await provider.connect();
 
-                const text =
-                    row.textContent
-                    .toLowerCase();
+    const address =
+      response.publicKey.toString();
 
+    document
+      .getElementById(
+        "walletButton"
+      )
+      .textContent =
+        address.slice(0,5) +
+        "..." +
+        address.slice(-4);
 
-                row.style.display =
+  }catch(error){
 
-                    text.includes(query)
-                    ?
-                    ""
-                    :
-                    "none";
+    console.log(
+      "Wallet connection cancelled."
+    );
 
+  }
 
-            }
-        );
+}
 
-    }
-);
+document
+  .getElementById(
+    "walletButton"
+  )
+  .onclick =
+  connectWallet;
 
-
-
-/* =========================================
-   LUNA RUN GAME
-========================================= */
+/* =========================================================
+   LUNA RUN
+========================================================= */
 
 const game =
-    document.getElementById(
-        "gameArea"
-    );
+  document.getElementById("game");
 
+const luna =
+  document.getElementById("luna");
 
-const cat =
-    document.getElementById(
-        "pixelCat"
-    );
+const scoreElement =
+  document.getElementById("score");
 
+const bestElement =
+  document.getElementById("best");
 
-const tail =
-    document.getElementById(
-        "pixelTail"
-    );
+const startScreen =
+  document.getElementById(
+    "startScreen"
+  );
 
+const startButton =
+  document.getElementById(
+    "startButton"
+  );
 
-const scoreText =
-    document.getElementById(
-        "score"
-    );
+const gameOverElement =
+  document.getElementById(
+    "gameOver"
+  );
 
+const finalScoreElement =
+  document.getElementById(
+    "finalScore"
+  );
 
-const bestText =
-    document.getElementById(
-        "bestScore"
-    );
+const playAgain =
+  document.getElementById(
+    "playAgain"
+  );
 
+/* =========================
+   GAME STATE
+========================= */
 
-const gameOverScreen =
-    document.getElementById(
-        "gameOverScreen"
-    );
+let gameStarted = false;
 
+let dead = false;
 
-const restartButton =
-    document.getElementById(
-        "restartButton"
-    );
-
-
+let lastTime =
+  performance.now();
 
 let score = 0;
 
-
 let best =
-    Number(
-        localStorage.getItem(
-            "lunaBestScore"
-        ) || 0
-    );
+  Number(
+    localStorage.getItem(
+      "lunaBest"
+    ) || 0
+  );
 
+/*
+  Slightly faster than before.
+*/
+
+let speed = 210;
+
+let obstacleTimer = 0;
+
+/*
+  First rock:
+  around 3.5 seconds.
+*/
+
+let nextObstacle = 3500;
+
+let obstacles = [];
+
+/* =========================
+   PHYSICS
+========================= */
+
+let lunaX = 90;
+
+let lunaY = 0;
+
+let velocityY = 0;
 
 let jumping = false;
 
+const gravity = 1750;
 
-let gameOver = false;
+const jumpPower = 680;
 
+bestElement.textContent =
+  best;
 
-let rocks = [];
-
-
-let lastTime = 0;
-
-
-let rockTimer = 0;
-
-
-
-bestText.textContent =
-    best;
-
-
-
-/* =========================================
-   JUMP
-========================================= */
-
-function jump() {
-
-
-    if (gameOver) {
-
-        return;
-
-    }
-
-
-    if (jumping) {
-
-        return;
-
-    }
-
-
-    jumping = true;
-
-
-    cat.animate(
-
-        [
-
-            {
-                transform:
-                    "translateY(0)"
-            },
-
-            {
-                transform:
-                    "translateY(-135px)"
-            },
-
-            {
-                transform:
-                    "translateY(0)"
-            }
-
-        ],
-
-        {
-
-            duration: 620,
-
-            easing:
-                "ease-out"
-
-        }
-
-    ).finished.then(
-        function() {
-
-            jumping = false;
-
-        }
-    );
-
-
-
-    tail.animate(
-
-        [
-
-            {
-                transform:
-                    "translateY(0)"
-            },
-
-            {
-                transform:
-                    "translateY(-135px)"
-            },
-
-            {
-                transform:
-                    "translateY(0)"
-            }
-
-        ],
-
-        {
-
-            duration: 620,
-
-            easing:
-                "ease-out"
-
-        }
-
-    );
-
-}
-
-
-
-/* =========================================
-   CREATE ROCK
-========================================= */
-
-function createRock() {
-
-
-    const rock =
-        document.createElement(
-            "div"
-        );
-
-
-    rock.className =
-        "pixel-rock";
-
-
-    game.appendChild(
-        rock
-    );
-
-
-    rocks.push({
-
-        element: rock,
-
-        x:
-            game.clientWidth + 30
-
-    });
-
-
-}
-
-
-
-/* =========================================
-   GAME OVER
-========================================= */
-
-function endGame() {
-
-
-    gameOver = true;
-
-
-    if (score > best) {
-
-
-        best = score;
-
-
-        bestText.textContent =
-            best;
-
-
-        localStorage.setItem(
-            "lunaBestScore",
-            best
-        );
-
-
-    }
-
-
-    gameOverScreen.classList.add(
-        "show"
-    );
-
-
-}
-
-
-
-/* =========================================
+/* =========================================================
    START GAME
-========================================= */
+========================================================= */
 
-function startGame() {
+function startGame(){
 
+  obstacles.forEach(
+    obstacle => {
 
-    rocks.forEach(
-        function(rock) {
+      if(obstacle.element){
+        obstacle.element.remove();
+      }
 
-            rock.element.remove();
+    }
+  );
 
-        }
-    );
+  obstacles = [];
 
+  score = 0;
 
-    rocks = [];
+  /*
+    Start speed.
+  */
 
+  speed = 210;
 
-    score = 0;
+  obstacleTimer = 0;
 
+  /*
+    First rock appears sooner.
+  */
 
-    scoreText.textContent =
-        "0";
+  nextObstacle = 3500;
 
+  lunaX = 90;
 
-    gameOver = false;
+  lunaY = 0;
 
+  velocityY = 0;
 
-    jumping = false;
+  jumping = false;
 
+  dead = false;
 
-    gameOverScreen.classList.remove(
-        "show"
-    );
+  gameStarted = true;
 
+  scoreElement.textContent =
+    "0";
 
-    lastTime =
-        performance.now();
+  luna.style.left =
+    lunaX + "px";
 
+  luna.style.bottom =
+    "70px";
 
-    rockTimer = 0;
+  startScreen.style.display =
+    "none";
 
+  gameOverElement.classList.remove(
+    "show"
+  );
 
-    requestAnimationFrame(
-        gameLoop
-    );
-
+  lastTime =
+    performance.now();
 
 }
 
+/* =========================================================
+   JUMP
+========================================================= */
 
+function jump(){
 
-/* =========================================
-   GAME LOOP
-========================================= */
+  if(!gameStarted){
+    return;
+  }
 
-function gameLoop(time) {
+  if(dead){
+    return;
+  }
 
+  if(jumping){
+    return;
+  }
 
-    if (gameOver) {
+  jumping = true;
+
+  velocityY =
+    jumpPower;
+
+}
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+  "keydown",
+  function(event){
+
+    if(
+      event.code === "Space" ||
+      event.code === "ArrowUp"
+    ){
+
+      event.preventDefault();
+
+      if(!gameStarted){
+
+        startGame();
 
         return;
 
-    }
+      }
 
-
-    const delta =
-        Math.min(
-            40,
-            time - lastTime
-        );
-
-
-    lastTime =
-        time;
-
-
-    rockTimer +=
-        delta;
-
-
-
-    /*
-       FIRST ROCK AFTER
-       ABOUT 1.3 SECONDS
-    */
-
-    if (
-        rockTimer > 1300
-    ) {
-
-
-        rockTimer = 0;
-
-
-        createRock();
-
+      jump();
 
     }
 
+  }
+);
 
+/* =========================================================
+   MOBILE JUMP
+========================================================= */
 
-    const catRect =
-        cat.getBoundingClientRect();
-
-
-
-    rocks.forEach(
-        function(rock) {
-
-
-            /*
-               ROCK MOVES LEFT
-            */
-
-            rock.x -=
-                delta * 0.34;
-
-
-            rock.element.style.left =
-                rock.x + "px";
-
-
-
-            const rockRect =
-                rock.element
-                .getBoundingClientRect();
-
-
-
-            /*
-               ROCK PASSED CAT
-            */
-
-            if (
-                rockRect.right < 0
-            ) {
-
-
-                rock.element.remove();
-
-
-                rock.dead = true;
-
-
-                score++;
-
-
-                scoreText.textContent =
-                    score;
-
-
-            }
-
-
-
-            /*
-               COLLISION
-            */
-
-            const collision =
-
-                rockRect.left
-                    <
-                catRect.right
-
-                &&
-
-                rockRect.right
-                    >
-                catRect.left
-
-                &&
-
-                rockRect.top
-                    <
-                catRect.bottom
-
-                &&
-
-                rockRect.bottom
-                    >
-                catRect.top;
-
-
-
-            if (
-                collision &&
-                !jumping
-            ) {
-
-
-                endGame();
-
-
-            }
-
-
-        }
-    );
-
-
-
-    rocks =
-        rocks.filter(
-            function(rock) {
-
-                return !rock.dead;
-
-            }
-        );
-
-
-
-    requestAnimationFrame(
-        gameLoop
-    );
-
-}
-
-
-
-/* =========================================
-   JUMP BUTTON
-========================================= */
-
-document.getElementById(
+document
+  .getElementById(
     "jumpButton"
-).onclick = jump;
+  )
+  .addEventListener(
+    "pointerdown",
+    function(event){
 
+      event.preventDefault();
 
+      if(!gameStarted){
 
-/* =========================================
-   PLAY AGAIN
-========================================= */
+        startGame();
 
-restartButton.onclick =
-function() {
+        return;
+
+      }
+
+      jump();
+
+    }
+  );
+
+/* =========================================================
+   START BUTTON
+========================================================= */
+
+startButton.onclick =
+  function(){
 
     startGame();
 
-};
+  };
 
+/* =========================================================
+   PLAY AGAIN
+========================================================= */
 
+playAgain.onclick =
+  function(){
 
-/* =========================================
-   KEYBOARD
-========================================= */
+    startGame();
 
-document.addEventListener(
-    "keydown",
-    function(event) {
+  };
 
+/* =========================================================
+   CREATE ROCK
+========================================================= */
 
-        if (
+function createObstacle(){
 
-            event.code === "Space"
+  const rock =
+    document.createElement(
+      "div"
+    );
 
-            ||
+  const random =
+    Math.random();
 
-            event.code === "ArrowUp"
+  if(random > 0.88){
 
-        ) {
+    rock.className =
+      "rock bigRock";
 
+  }else if(random > 0.68){
 
-            event.preventDefault();
+    rock.className =
+      "rock smallRock";
 
+  }else{
 
-            jump();
+    rock.className =
+      "rock";
 
+  }
+
+  const startX =
+    game.clientWidth + 40;
+
+  rock.style.left =
+    startX + "px";
+
+  game.appendChild(
+    rock
+  );
+
+  return {
+
+    element:rock,
+
+    x:startX,
+
+    counted:false
+
+  };
+
+}
+
+/* =========================================================
+   COLLISION
+========================================================= */
+
+function collision(a,b){
+
+  const paddingX = 13;
+
+  const paddingY = 10;
+
+  return (
+
+    a.left + paddingX <
+    b.right - paddingX &&
+
+    a.right - paddingX >
+    b.left + paddingX &&
+
+    a.top + paddingY <
+    b.bottom - paddingY &&
+
+    a.bottom - paddingY >
+    b.top + paddingY
+
+  );
+
+}
+
+/* =========================================================
+   GAME OVER
+========================================================= */
+
+function endGame(){
+
+  if(dead){
+    return;
+  }
+
+  dead = true;
+
+  finalScoreElement.textContent =
+    Math.floor(score);
+
+  if(
+    Math.floor(score) >
+    best
+  ){
+
+    best =
+      Math.floor(score);
+
+    localStorage.setItem(
+      "lunaBest",
+      best
+    );
+
+    bestElement.textContent =
+      best;
+
+  }
+
+  gameOverElement.classList.add(
+    "show"
+  );
+
+}
+
+/* =========================================================
+   DIFFICULTY
+========================================================= */
+
+function updateDifficulty(){
+
+  /*
+    Slowly accelerates.
+
+    Early game is easy.
+    Later it gets faster.
+  */
+
+  const extra =
+    Math.min(
+      270,
+      Math.max(
+        0,
+        (score - 150) * 0.30
+      )
+    );
+
+  speed =
+    210 + extra;
+
+}
+
+/* =========================================================
+   OBSTACLE DISTANCE
+========================================================= */
+
+function getObstacleTime(){
+
+  /*
+    Rocks arrive a little faster
+    than in the previous version.
+  */
+
+  const difficulty =
+    Math.min(
+      1,
+      Math.max(
+        0,
+        (score - 100) / 1100
+      )
+    );
+
+  const minimum =
+    1600;
+
+  const maximum =
+    3300;
+
+  const base =
+    maximum -
+    (
+      maximum -
+      minimum
+    ) * difficulty;
+
+  return (
+    base +
+    Math.random() * 1000
+  );
+
+}
+
+/* =========================================================
+   MAIN LOOP
+========================================================= */
+
+function loop(time){
+
+  const delta =
+    Math.min(
+      (time - lastTime) / 1000,
+      0.035
+    );
+
+  lastTime =
+    time;
+
+  if(
+    gameStarted &&
+    !dead
+  ){
+
+    /* SCORE */
+
+    score +=
+      delta * 10;
+
+    scoreElement.textContent =
+      Math.floor(score);
+
+    /* DIFFICULTY */
+
+    updateDifficulty();
+
+    /* JUMP */
+
+    if(jumping){
+
+      velocityY -=
+        gravity * delta;
+
+      lunaY +=
+        velocityY * delta;
+
+      lunaX +=
+        38 * delta;
+
+      if(lunaY <= 0){
+
+        lunaY = 0;
+
+        velocityY = 0;
+
+        jumping = false;
+
+      }
+
+    }
+
+    lunaX =
+      Math.min(
+        lunaX,
+        145
+      );
+
+    luna.style.left =
+      lunaX + "px";
+
+    luna.style.bottom =
+      (70 + lunaY) + "px";
+
+    /* SPAWN ROCK */
+
+    obstacleTimer +=
+      delta * 1000;
+
+    if(
+      obstacleTimer >=
+      nextObstacle
+    ){
+
+      obstacleTimer = 0;
+
+      nextObstacle =
+        getObstacleTime();
+
+      obstacles.push(
+        createObstacle()
+      );
+
+    }
+
+    /* MOVE ROCKS */
+
+    const lunaRect =
+      luna.getBoundingClientRect();
+
+    obstacles.forEach(
+      obstacle => {
+
+        obstacle.x -=
+          speed * delta;
+
+        obstacle.element.style.left =
+          obstacle.x + "px";
+
+        const rockRect =
+          obstacle.element
+            .getBoundingClientRect();
+
+        /* SCORE FOR PASSING */
+
+        if(
+          !obstacle.counted &&
+          rockRect.right <
+          lunaRect.left
+        ){
+
+          obstacle.counted = true;
+
+          score += 10;
 
         }
 
+        /* COLLISION */
 
-    }
+        if(
+          collision(
+            lunaRect,
+            rockRect
+          )
+        ){
+
+          endGame();
+
+        }
+
+      }
+    );
+
+    /* DELETE OLD ROCKS */
+
+    obstacles =
+      obstacles.filter(
+        obstacle => {
+
+          if(
+            obstacle.x <
+            -120
+          ){
+
+            obstacle.element.remove();
+
+            return false;
+
+          }
+
+          return true;
+
+        }
+      );
+
+  }
+
+  requestAnimationFrame(
+    loop
+  );
+
+}
+
+/* =========================================================
+   START LOOP
+========================================================= */
+
+requestAnimationFrame(
+  loop
 );
-
-
-
-/* =========================================
-   START GAME
-========================================= */
-
-/*
-
-IMPORTANT:
-
-The game starts automatically.
-
-There is NO alert here.
-
-*/
-
-startGame();
-
 
 </script>
 
