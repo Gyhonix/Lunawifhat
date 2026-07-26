@@ -7,7 +7,6 @@
 <title>LUNA SCREEN</title>
 
 <style>
-
 *{
   box-sizing:border-box;
   -webkit-tap-highlight-color:transparent;
@@ -24,16 +23,13 @@ body{
   font-family:Arial,Helvetica,sans-serif;
 }
 
-button,
-input{
+button,input{
   font-family:inherit;
 }
 
 button{
   cursor:pointer;
 }
-
-/* ================= NAV ================= */
 
 .nav{
   height:68px;
@@ -61,41 +57,29 @@ button{
 .wallet{
   border:0;
   background:#7659ed;
-  color:white;
+  color:#fff;
   padding:11px 16px;
   border-radius:9px;
   font-weight:900;
 }
 
-/* ================= HERO ================= */
-
 .hero{
-  min-height:570px;
+  min-height:500px;
   text-align:center;
-  padding:70px 20px 30px;
+  padding:65px 20px 30px;
   overflow:hidden;
   position:relative;
-
   background:
-    radial-gradient(
-      circle at 50% 0%,
-      #293d68,
-      #0b1220 43%,
-      #05070d 82%
-    );
+    radial-gradient(circle at 50% 0%,#293d68,#0b1220 43%,#05070d 82%);
 }
 
-.stars{
+.stars,
+.gameStars{
   position:absolute;
   inset:0;
   opacity:.3;
-
   background-image:
-    radial-gradient(
-      white 1px,
-      transparent 1px
-    );
-
+    radial-gradient(white 1px,transparent 1px);
   background-size:68px 68px;
 }
 
@@ -106,21 +90,11 @@ button{
 
 .hero h1{
   margin:0;
-
-  font-size:
-    clamp(58px,12vw,135px);
-
+  font-size:clamp(58px,12vw,135px);
   line-height:.83;
   letter-spacing:-7px;
   font-weight:1000;
-
-  background:
-    linear-gradient(
-      white,
-      #ddd8ff,
-      #7658e5
-    );
-
+  background:linear-gradient(white,#ddd8ff,#7658e5);
   -webkit-background-clip:text;
   color:transparent;
 }
@@ -128,14 +102,13 @@ button{
 .hero p{
   max-width:650px;
   margin:30px auto;
-
   color:#a3aec0;
   line-height:1.6;
   font-size:17px;
 }
 
 .scene{
-  height:160px;
+  height:140px;
   max-width:950px;
   margin:auto;
   position:relative;
@@ -145,45 +118,27 @@ button{
   position:absolute;
   right:16%;
   top:0;
-
-  width:130px;
-  height:130px;
-
+  width:120px;
+  height:120px;
   border-radius:50%;
-
   background:
-    radial-gradient(
-      circle at 35% 30%,
-      #fff,
-      #dce1e9 60%,
-      #929aa7
-    );
-
-  box-shadow:
-    0 0 80px #dfe8ff66;
+    radial-gradient(circle at 35% 30%,#fff,#dce1e9 60%,#929aa7);
+  box-shadow:0 0 80px #dfe8ff66;
 }
 
 .rocket{
   position:absolute;
   right:31%;
-  top:85px;
-
+  top:80px;
   font-size:38px;
-
   transform:rotate(-28deg);
-
-  animation:
-    flyRocket 3s ease-in-out infinite;
+  animation:flyRocket 3s ease-in-out infinite;
 }
 
 @keyframes flyRocket{
-
   50%{
-    transform:
-      translate(-15px,-18px)
-      rotate(-28deg);
+    transform:translate(-15px,-18px) rotate(-28deg);
   }
-
 }
 
 .heroMountains{
@@ -191,27 +146,13 @@ button{
   left:-5%;
   right:-5%;
   bottom:0;
-  height:120px;
-
+  height:100px;
   background:#111a29;
-
-  clip-path:
-    polygon(
-      0 100%,
-      8% 65%,
-      19% 82%,
-      31% 32%,
-      43% 76%,
-      55% 20%,
-      68% 70%,
-      80% 38%,
-      92% 78%,
-      100% 53%,
-      100% 100%
-    );
+  clip-path:polygon(
+    0 100%,8% 65%,19% 82%,31% 32%,43% 76%,
+    55% 20%,68% 70%,80% 38%,92% 78%,100% 53%,100% 100%
+  );
 }
-
-/* ================= MAIN ================= */
 
 .container{
   width:min(1200px,94%);
@@ -253,15 +194,16 @@ button{
 .search{
   flex:1;
   min-width:0;
-
   background:#070b11;
   color:#fff;
-
   border:1px solid #303b4c;
   border-radius:9px;
-
   padding:12px;
   outline:none;
+}
+
+.search:focus{
+  border-color:#8b6cf5;
 }
 
 .refresh,
@@ -292,11 +234,9 @@ button{
   display:none;
   margin:15px;
   padding:13px;
-
   background:#111a27;
   border:1px solid #2d394b;
   border-radius:10px;
-
   color:#b7c0cf;
   font-size:13px;
 }
@@ -318,7 +258,7 @@ button{
 
 table{
   width:100%;
-  min-width:850px;
+  min-width:780px;
   border-collapse:collapse;
 }
 
@@ -361,154 +301,254 @@ th{
   font-size:11px;
 }
 
-.view{
-  color:#a28cff;
-  text-decoration:none;
+.selectToken{
+  background:#8b6cf5;
+  color:white;
+  border:0;
+  border-radius:7px;
+  padding:7px 10px;
+  font-size:11px;
   font-weight:900;
+}
+
+.selectToken.active{
+  background:#35e58a;
+  color:#041109;
+}
+
+/* ================= CHART ================= */
+
+.chartSection{
+  margin-top:60px;
+}
+
+.chartBox{
+  background:#090e16;
+  border:1px solid #273246;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.chartHeader{
+  min-height:64px;
+  padding:13px 15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  border-bottom:1px solid #202938;
+}
+
+.chartToken{
+  font-weight:1000;
+  font-size:18px;
+}
+
+.chartPrice{
+  margin-top:3px;
+  font-family:monospace;
+  color:#9da9ba;
+  font-size:13px;
+}
+
+.timeframes{
+  display:flex;
+  gap:6px;
+  flex-wrap:wrap;
+}
+
+.tf{
+  border:1px solid #344156;
+  background:#111927;
+  color:#aeb8c8;
+  border-radius:7px;
+  padding:8px 11px;
+  font-size:11px;
+  font-weight:900;
+}
+
+.tf.active{
+  background:#8b6cf5;
+  color:white;
+  border-color:#8b6cf5;
+}
+
+.chartCanvasWrap{
+  position:relative;
+  width:100%;
+  height:440px;
+  background:
+    linear-gradient(#090e16,#080d14);
+  overflow:hidden;
+  touch-action:none;
+}
+
+#chartCanvas{
+  width:100%;
+  height:100%;
+  display:block;
+}
+
+.chartHint{
+  position:absolute;
+  left:15px;
+  bottom:12px;
+  color:#647084;
+  font-size:10px;
+  pointer-events:none;
+}
+
+.chartControls{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 14px;
+  border-top:1px solid #202938;
+  color:#68758a;
+  font-size:11px;
+}
+
+.chartControls button{
+  background:#111927;
+  color:#c6cfdb;
+  border:1px solid #303d52;
+  border-radius:7px;
+  padding:6px 10px;
+  font-weight:900;
+}
+
+/* ================= SELECTED TOKENS ================= */
+
+.selectedSection{
+  margin-top:18px;
+}
+
+.selectedTitle{
+  color:#7f8b9e;
+  font-size:12px;
+  font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:9px;
+}
+
+.tokenCards{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:9px;
+}
+
+.tokenCard{
+  background:#0c1119;
+  border:1px solid #263247;
+  border-radius:10px;
+  padding:12px;
+  cursor:pointer;
+  transition:.15s;
+}
+
+.tokenCard:hover{
+  border-color:#8b6cf5;
+  transform:translateY(-1px);
+}
+
+.tokenCard.active{
+  border-color:#8b6cf5;
+  box-shadow:0 0 0 1px #8b6cf5;
+}
+
+.tokenCardName{
+  font-weight:1000;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.tokenCardPrice{
+  margin-top:5px;
+  color:#8d9aae;
+  font-family:monospace;
+  font-size:11px;
+}
+
+.emptyCard{
+  color:#59667a;
+  font-size:11px;
 }
 
 /* ================= GAME ================= */
 
+.gameSection{
+  margin-top:65px;
+}
+
 .game{
   width:100%;
   height:430px;
-
   position:relative;
   overflow:hidden;
-
   border-radius:18px;
   border:1px solid #29364a;
-
-  background:
-    linear-gradient(
-      #07101e 0%,
-      #0c192a 65%,
-      #101a27 100%
-    );
-
+  background:linear-gradient(#07101e 0%,#0c192a 65%,#101a27 100%);
   user-select:none;
   touch-action:manipulation;
 }
 
-.gameStars{
-  position:absolute;
-  inset:0;
-
-  opacity:.32;
-
-  background-image:
-    radial-gradient(
-      white 1px,
-      transparent 1px
-    );
-
-  background-size:64px 64px;
-}
-
 .gameMoon{
   position:absolute;
-
   right:8%;
   top:45px;
-
   width:88px;
   height:88px;
-
   border-radius:50%;
-
   background:
-    radial-gradient(
-      circle at 35% 30%,
-      #fff,
-      #dce1e9 60%,
-      #969eaa
-    );
-
-  box-shadow:
-    0 0 55px #e2eaff55;
+    radial-gradient(circle at 35% 30%,#fff,#dce1e9 60%,#969eaa);
+  box-shadow:0 0 55px #e2eaff55;
 }
 
 .mountainBack{
   position:absolute;
-
   left:-10%;
   bottom:70px;
-
   width:120%;
   height:180px;
-
   background:#121c2c;
-
-  clip-path:
-    polygon(
-      0 100%,
-      9% 60%,
-      19% 80%,
-      31% 35%,
-      41% 73%,
-      53% 22%,
-      66% 70%,
-      78% 39%,
-      91% 76%,
-      100% 50%,
-      100% 100%
-    );
+  clip-path:polygon(
+    0 100%,9% 60%,19% 80%,31% 35%,41% 73%,
+    53% 22%,66% 70%,78% 39%,91% 76%,100% 50%,100% 100%
+  );
 }
 
 .mountainFront{
   position:absolute;
-
   left:-10%;
   bottom:70px;
-
   width:120%;
   height:120px;
-
   background:#0d1623;
-
-  clip-path:
-    polygon(
-      0 100%,
-      12% 55%,
-      23% 83%,
-      38% 30%,
-      52% 72%,
-      67% 42%,
-      81% 80%,
-      94% 51%,
-      100% 70%,
-      100% 100%
-    );
+  clip-path:polygon(
+    0 100%,12% 55%,23% 83%,38% 30%,52% 72%,
+    67% 42%,81% 80%,94% 51%,100% 70%,100% 100%
+  );
 }
 
 .ground{
   position:absolute;
-
   left:0;
   right:0;
   bottom:0;
-
   height:70px;
-
   background:
     repeating-linear-gradient(
-      90deg,
-      #182231 0 35px,
-      #111925 35px 70px
+      90deg,#182231 0 35px,#111925 35px 70px
     );
-
   border-top:2px solid #344153;
 }
-
-/* ================= GAME UI ================= */
 
 .gameTitle{
   position:absolute;
   top:17px;
   left:20px;
-
   z-index:30;
-
   color:#a795ff;
   font-size:14px;
   font-weight:1000;
@@ -516,12 +556,9 @@ th{
 
 .score{
   position:absolute;
-
   top:17px;
   right:20px;
-
   z-index:30;
-
   color:#dce3ef;
   font-family:monospace;
   font-weight:900;
@@ -529,168 +566,103 @@ th{
 
 .best{
   position:absolute;
-
   top:42px;
   right:20px;
-
   z-index:30;
-
   color:#768398;
   font-size:11px;
 }
 
-/* ================= PIXEL LUNA ================= */
+/* ================= LUNA ================= */
 
 .luna{
   position:absolute;
-
   left:90px;
   bottom:70px;
-
   width:72px;
   height:65px;
-
   z-index:20;
-
   image-rendering:pixelated;
-
-  will-change:
-    left,
-    bottom,
-    transform;
+  will-change:left,bottom,transform;
 }
 
 .body{
   position:absolute;
-
   left:8px;
   top:23px;
-
   width:43px;
   height:28px;
-
   background:#e99a59;
-
   border-radius:8px;
-
-  box-shadow:
-    inset -5px -5px #bf703d;
+  box-shadow:inset -5px -5px #bf703d;
 }
 
 .head{
   position:absolute;
-
   left:34px;
   top:5px;
-
   width:35px;
   height:34px;
-
   background:#f0a15f;
-
   border-radius:9px;
-
-  box-shadow:
-    inset -4px -4px #c67640;
+  box-shadow:inset -4px -4px #c67640;
 }
 
 .ear{
   position:absolute;
-
   top:-9px;
-
   width:15px;
   height:15px;
-
   background:#f0a15f;
-
-  clip-path:
-    polygon(
-      0 100%,
-      30% 0,
-      100% 100%
-    );
+  clip-path:polygon(0 100%,30% 0,100% 100%);
 }
 
-.ear.one{
-  left:3px;
-}
-
-.ear.two{
-  right:3px;
-}
+.ear.one{left:3px}
+.ear.two{right:3px}
 
 .eye{
   position:absolute;
-
   top:12px;
-
   width:5px;
   height:6px;
-
   background:#17120f;
-
   border-radius:2px;
 }
 
-.eye.one{
-  left:8px;
-}
-
-.eye.two{
-  right:8px;
-}
+.eye.one{left:8px}
+.eye.two{right:8px}
 
 .nose{
   position:absolute;
-
   left:15px;
   bottom:6px;
-
   width:5px;
   height:4px;
-
   background:#682f2f;
 }
 
 .leg{
   position:absolute;
-
   bottom:-9px;
-
   width:10px;
   height:15px;
-
   background:#cc7941;
-
   border-radius:3px;
 }
 
-.leg.one{
-  left:12px;
-}
-
-.leg.two{
-  left:38px;
-}
+.leg.one{left:12px}
+.leg.two{left:38px}
 
 .tail{
   position:absolute;
-
   left:-12px;
   top:20px;
-
   width:26px;
   height:18px;
-
-  border:
-    6px solid #ee9e5d;
-
+  border:6px solid #ee9e5d;
   border-right:0;
   border-bottom:0;
-
   border-radius:20px 0 0 0;
-
   transform:rotate(-20deg);
 }
 
@@ -698,42 +670,25 @@ th{
 
 .rock{
   position:absolute;
-
   left:100%;
-
   bottom:70px;
-
   width:45px;
   height:42px;
-
   z-index:15;
-
   background:#778292;
-
-  clip-path:
-    polygon(
-      20% 100%,
-      0 57%,
-      18% 20%,
-      55% 0,
-      100% 30%,
-      90% 100%
-    );
-
+  clip-path:polygon(
+    20% 100%,0 57%,18% 20%,55% 0,100% 30%,90% 100%
+  );
   will-change:left;
 }
 
 .rock:after{
   content:"";
-
   position:absolute;
-
   left:16px;
   top:9px;
-
   width:11px;
   height:7px;
-
   background:#aab3bf;
 }
 
@@ -742,250 +697,90 @@ th{
   height:29px;
 }
 
-/* ================= START SCREEN ================= */
+/* ================= GAME SCREENS ================= */
 
-.startScreen{
-  position:absolute;
-
-  inset:0;
-
-  z-index:90;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  flex-direction:column;
-
-  text-align:center;
-
-  background:#04060bed;
-}
-
-.startScreen h2{
-  margin:0;
-
-  font-size:
-    clamp(45px,8vw,75px);
-
-  letter-spacing:-3px;
-}
-
-.startScreen p{
-  color:#8793a7;
-}
-
-.nameInput{
-  width:min(320px,85%);
-  margin-top:12px;
-
-  padding:14px 15px;
-
-  background:#0b111b;
-  color:#fff;
-
-  border:1px solid #354257;
-  border-radius:10px;
-
-  outline:none;
-
-  text-align:center;
-
-  font-size:16px;
-  font-weight:700;
-}
-
-.nameInput:focus{
-  border-color:#8b6cf5;
-  box-shadow:0 0 0 3px #8b6cf522;
-}
-
-.nameError{
-  min-height:20px;
-  margin-top:8px;
-
-  color:#ff6574;
-
-  font-size:12px;
-  font-weight:700;
-}
-
-.startButton{
-  margin-top:8px;
-
-  padding:15px 30px;
-
-  border:0;
-  border-radius:10px;
-
-  background:#8b6cf5;
-  color:white;
-
-  font-size:16px;
-  font-weight:1000;
-
-  box-shadow:
-    0 0 30px #8b6cf544;
-}
-
-.startButton:active{
-  transform:scale(.95);
-}
-
-/* ================= GAME OVER ================= */
-
+.startScreen,
 .gameOver{
   position:absolute;
-
   inset:0;
-
-  z-index:100;
-
-  display:none;
-
+  z-index:90;
+  display:flex;
   align-items:center;
   justify-content:center;
-
   flex-direction:column;
-
   text-align:center;
-
   background:#04060bed;
+}
+
+.gameOver{
+  display:none;
+  z-index:100;
 }
 
 .gameOver.show{
   display:flex;
 }
 
+.startScreen h2,
 .gameOver h2{
   margin:0;
-
-  font-size:
-    clamp(45px,8vw,75px);
-
+  font-size:clamp(45px,8vw,75px);
   letter-spacing:-3px;
 }
 
+.startScreen p,
 .gameOver p{
   color:#8793a7;
 }
 
+.startButton,
 .playAgain{
-  margin-top:14px;
-
-  padding:14px 23px;
-
+  margin-top:15px;
+  padding:15px 30px;
   border:0;
   border-radius:10px;
-
   background:#8b6cf5;
-
   color:white;
+  font-size:16px;
   font-weight:1000;
+  box-shadow:0 0 30px #8b6cf544;
 }
-
-/* ================= JUMP ================= */
 
 .jumpButton{
   position:absolute;
-
   right:20px;
   bottom:18px;
-
   width:78px;
   height:78px;
-
   z-index:50;
-
   border:0;
   border-radius:50%;
-
   background:#8b6cf5;
-
   color:white;
-
   font-weight:1000;
-
-  box-shadow:
-    0 0 35px #8b6cf544;
+  box-shadow:0 0 35px #8b6cf544;
 }
 
-.jumpButton:active{
-  transform:scale(.93);
-}
+/* ================= ABOUT ================= */
 
-/* ================= LEADERBOARD ================= */
-
-.leaderboard{
+.about{
   margin-top:65px;
-}
-
-.leaderboardBox{
   background:#0c1119;
   border:1px solid #222c3a;
   border-radius:15px;
-  overflow:hidden;
-}
-
-.leaderboardHeader{
-  display:grid;
-  grid-template-columns:70px 1fr 100px;
-  padding:13px 18px;
-
-  color:#727e91;
-  font-size:11px;
-  font-weight:900;
-
-  text-transform:uppercase;
-
-  border-bottom:1px solid #202938;
-}
-
-.leaderRow{
-  display:grid;
-  grid-template-columns:70px 1fr 100px;
-
-  padding:15px 18px;
-
-  border-bottom:1px solid #1d2633;
-}
-
-.leaderRow:last-child{
-  border-bottom:0;
-}
-
-.rank{
-  color:#a795ff;
-  font-weight:1000;
-}
-
-.playerName{
-  font-weight:900;
-}
-
-.playerScore{
-  text-align:right;
-  font-family:monospace;
-  font-weight:900;
-}
-
-.emptyLeaderboard{
-  padding:30px;
-  text-align:center;
-  color:#7f8b9e;
+  padding:25px;
 }
 
 /* ================= MOBILE ================= */
 
-@media(max-width:650px){
+@media(max-width:750px){
 
   .nav{
     padding:0 4%;
   }
 
   .hero{
-    min-height:480px;
+    min-height:450px;
     padding-top:55px;
   }
 
@@ -997,6 +792,36 @@ th{
 
   .rocket{
     right:22%;
+  }
+
+  .marketTop{
+    flex-wrap:wrap;
+  }
+
+  .search{
+    flex-basis:100%;
+  }
+
+  .refresh,
+  .bookmark{
+    height:43px;
+  }
+
+  .chartHeader{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .chartCanvasWrap{
+    height:380px;
+  }
+
+  .tokenCards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .tokenCard:last-child{
+    grid-column:span 2;
   }
 
   .game{
@@ -1015,51 +840,22 @@ th{
   .heading .muted{
     display:none;
   }
-
-  .marketTop{
-    flex-wrap:wrap;
-  }
-
-  .search{
-    flex-basis:100%;
-  }
-
-  .refresh,
-  .bookmark{
-    height:43px;
-  }
-
-  .leaderboardHeader,
-  .leaderRow{
-    grid-template-columns:55px 1fr 80px;
-  }
-
 }
-
 </style>
 </head>
 
 <body>
 
-<!-- ================= NAV ================= -->
-
 <nav class="nav">
-
   <div class="logo">
     LUNA<span>SCREEN</span>
   </div>
 
-  <button
-    class="wallet"
-    id="walletButton"
-  >
+  <button class="wallet" id="walletButton">
     Connect Wallet
   </button>
-
 </nav>
 
-
-<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -1073,12 +869,11 @@ th{
     </h1>
 
     <p>
-      Explore the market and help Luna
+      Explore crypto markets and help Luna
       run through the night all the way to the moon.
     </p>
 
     <div class="scene">
-
       <div class="heroMoon"></div>
 
       <div class="rocket">
@@ -1086,7 +881,6 @@ th{
       </div>
 
       <div class="heroMountains"></div>
-
     </div>
 
   </div>
@@ -1107,10 +901,7 @@ th{
       📊 Live Crypto Markets
     </h2>
 
-    <span
-      class="muted"
-      id="updated"
-    >
+    <span class="muted" id="updated">
       Connecting...
     </span>
 
@@ -1124,38 +915,27 @@ th{
       <input
         class="search"
         id="search"
-        placeholder="Search BTC, ETH or SOL..."
+        placeholder="Search token name, symbol or paste CA..."
+        autocomplete="off"
       >
 
-      <button
-        class="refresh"
-        id="refresh"
-      >
+      <button class="refresh" id="refresh">
         REFRESH
       </button>
 
-      <button
-        class="bookmark"
-        id="bookmark"
-      >
+      <button class="bookmark" id="bookmark">
         ☆ BOOKMARK
       </button>
 
     </div>
 
 
-    <div
-      class="bookmarkInfo"
-      id="bookmarkInfo"
-    >
+    <div class="bookmarkInfo" id="bookmarkInfo">
       ⭐ This page is bookmarked in this browser.
     </div>
 
 
-    <div
-      class="status"
-      id="status"
-    >
+    <div class="status" id="status">
       Loading live market data...
     </div>
 
@@ -1167,7 +947,6 @@ th{
         <thead>
 
           <tr>
-
             <th>Token</th>
             <th>Price</th>
             <th>24H</th>
@@ -1175,8 +954,7 @@ th{
             <th>Liquidity</th>
             <th>Market Cap</th>
             <th>DEX</th>
-            <th></th>
-
+            <th>Chart</th>
           </tr>
 
         </thead>
@@ -1192,12 +970,103 @@ th{
 </section>
 
 
+<!-- ================= CHART ================= -->
+
+<section class="chartSection">
+
+  <div class="heading">
+
+    <h2>
+      📈 Live Candlestick Chart
+    </h2>
+
+    <span class="muted">
+      Drag • Pinch • Scroll to zoom
+    </span>
+
+  </div>
+
+
+  <div class="chartBox">
+
+    <div class="chartHeader">
+
+      <div>
+
+        <div class="chartToken" id="chartToken">
+          Select a token
+        </div>
+
+        <div class="chartPrice" id="chartPrice">
+          —
+        </div>
+
+      </div>
+
+
+      <div class="timeframes">
+
+        <button class="tf active" data-tf="1">
+          1S
+        </button>
+
+        <button class="tf" data-tf="5">
+          5S
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="chartCanvasWrap" id="chartWrap">
+
+      <canvas id="chartCanvas"></canvas>
+
+      <div class="chartHint">
+        Drag to move • Pinch / wheel to zoom
+      </div>
+
+    </div>
+
+
+    <div class="chartControls">
+
+      <span id="candleInfo">
+        Waiting for price data...
+      </span>
+
+      <button id="resetChart">
+        RESET VIEW
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="selectedSection">
+
+    <div class="selectedTitle">
+      Selected tokens
+    </div>
+
+    <div class="tokenCards" id="tokenCards">
+
+      <div class="tokenCard emptyCard">
+        No token selected
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 <!-- ================= GAME ================= -->
 
-<section
-  id="gameSection"
-  style="margin-top:65px"
->
+<section class="gameSection">
 
   <div class="heading">
 
@@ -1212,10 +1081,7 @@ th{
   </div>
 
 
-  <div
-    class="game"
-    id="game"
-  >
+  <div class="game" id="game">
 
     <div class="gameStars"></div>
 
@@ -1235,65 +1101,34 @@ th{
 
     <div class="score">
       SCORE:
-      <span id="score">
-        0
-      </span>
+      <span id="score">0</span>
     </div>
 
 
     <div class="best">
       BEST:
-      <span id="best">
-        0
-      </span>
+      <span id="best">0</span>
     </div>
 
 
-    <!-- ================= START SCREEN ================= -->
-
-    <div
-      class="startScreen"
-      id="startScreen"
-    >
+    <div class="startScreen" id="startScreen">
 
       <h2>
         LUNA RUN 🌙
       </h2>
 
       <p>
-        Enter your name to play!
+        Help Luna reach the moon!
       </p>
 
-      <input
-        id="playerName"
-        class="nameInput"
-        type="text"
-        maxlength="16"
-        autocomplete="off"
-        placeholder="Type your name"
-      >
-
-      <div
-        class="nameError"
-        id="nameError"
-      ></div>
-
-      <button
-        class="startButton"
-        id="startButton"
-      >
+      <button class="startButton" id="startButton">
         START GAME
       </button>
 
     </div>
 
 
-    <!-- ================= LUNA ================= -->
-
-    <div
-      class="luna"
-      id="luna"
-    >
+    <div class="luna" id="luna">
 
       <div class="body"></div>
 
@@ -1317,12 +1152,7 @@ th{
     </div>
 
 
-    <!-- ================= GAME OVER ================= -->
-
-    <div
-      class="gameOver"
-      id="gameOver"
-    >
+    <div class="gameOver" id="gameOver">
 
       <h2>
         OH NOU! 😿
@@ -1333,35 +1163,18 @@ th{
       </p>
 
       <p>
-        PLAYER:
-        <strong id="finalName">
-          -
-        </strong>
-      </p>
-
-      <p>
         SCORE:
-        <strong id="finalScore">
-          0
-        </strong>
+        <strong id="finalScore">0</strong>
       </p>
 
-      <button
-        class="playAgain"
-        id="playAgain"
-      >
+      <button class="playAgain" id="playAgain">
         PLAY AGAIN
       </button>
 
     </div>
 
 
-    <!-- ================= JUMP ================= -->
-
-    <button
-      class="jumpButton"
-      id="jumpButton"
-    >
+    <button class="jumpButton" id="jumpButton">
       JUMP
     </button>
 
@@ -1370,73 +1183,16 @@ th{
 </section>
 
 
-<!-- ================= LEADERBOARD ================= -->
+<section class="about">
 
-<section class="leaderboard">
+  <h2>
+    🚀 Welcome to Luna
+  </h2>
 
-  <div class="heading">
-
-    <h2>
-      🏆 Luna Run Leaderboard
-    </h2>
-
-    <span class="muted">
-      Top scores on this browser
-    </span>
-
-  </div>
-
-
-  <div class="leaderboardBox">
-
-    <div class="leaderboardHeader">
-
-      <div>
-        #
-      </div>
-
-      <div>
-        PLAYER
-      </div>
-
-      <div style="text-align:right">
-        SCORE
-      </div>
-
-    </div>
-
-    <div id="leaderboardRows"></div>
-
-  </div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section
-  style="margin-top:65px"
->
-
-  <div
-    style="
-      background:#0c1119;
-      border:1px solid #222c3a;
-      border-radius:15px;
-      padding:25px;
-    "
-  >
-
-    <h2>
-      🚀 Welcome to Luna
-    </h2>
-
-    <p class="muted">
-      Luna Screen combines live crypto market
-      information with a community mini game.
-    </p>
-
-  </div>
+  <p class="muted">
+    Luna Screen combines live crypto market information,
+    live-style candlestick tracking and the Luna Run community game.
+  </p>
 
 </section>
 
@@ -1447,23 +1203,21 @@ th{
 <script>
 
 /* =========================================================
-   MARKET DATA
+   BASIC HELPERS
 ========================================================= */
 
-const rows =
-  document.getElementById("rows");
+const $ = id => document.getElementById(id);
 
-const status =
-  document.getElementById("status");
+function escapeHtml(value){
 
-const updated =
-  document.getElementById("updated");
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
-const search =
-  document.getElementById("search");
-
-let currentPairs = [];
-
+}
 
 function money(value){
 
@@ -1478,41 +1232,35 @@ function money(value){
   }
 
   if(n >= 1000000000){
-    return "$" +
-      (n / 1000000000).toFixed(2) +
-      "B";
+    return "$" + (n / 1000000000).toFixed(2) + "B";
   }
 
   if(n >= 1000000){
-    return "$" +
-      (n / 1000000).toFixed(2) +
-      "M";
+    return "$" + (n / 1000000).toFixed(2) + "M";
   }
 
   if(n >= 1000){
-    return "$" +
-      (n / 1000).toFixed(1) +
-      "K";
+    return "$" + (n / 1000).toFixed(1) + "K";
   }
 
   return "$" +
-    n.toLocaleString(
-      "en-US",
-      {
-        maximumFractionDigits:2
-      }
-    );
+    n.toLocaleString("en-US",{
+      maximumFractionDigits:2
+    });
 
 }
 
-
 function price(value){
 
-  if(!value){
+  if(value === null || value === undefined){
     return "—";
   }
 
   const n = Number(value);
+
+  if(!Number.isFinite(n)){
+    return "—";
+  }
 
   if(n < 0.000001){
     return "$" + n.toFixed(10);
@@ -1527,15 +1275,11 @@ function price(value){
   }
 
   return "$" +
-    n.toLocaleString(
-      "en-US",
-      {
-        maximumFractionDigits:4
-      }
-    );
+    n.toLocaleString("en-US",{
+      maximumFractionDigits:4
+    });
 
 }
-
 
 function change(value){
 
@@ -1544,6 +1288,10 @@ function change(value){
   }
 
   const n = Number(value);
+
+  if(!Number.isFinite(n)){
+    return "—";
+  }
 
   return `
     <span class="${n >= 0 ? "green" : "red"}">
@@ -1555,37 +1303,65 @@ function change(value){
 }
 
 
-function escapeHtml(value){
+/* =========================================================
+   MARKET
+========================================================= */
 
-  return String(value)
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+const rows = $("rows");
+const status = $("status");
+const updated = $("updated");
+const search = $("search");
 
+let currentPairs = [];
+let selectedTokens = [];
+let activeToken = null;
+
+
+/*
+  Default SOL pair.
+  This does NOT force every row to be SOL.
+  Searches can return any Solana token.
+*/
+
+async function fetchSearch(query){
+
+  const response = await fetch(
+    "https://api.dexscreener.com/latest/dex/search?q=" +
+    encodeURIComponent(query)
+  );
+
+  if(!response.ok){
+    throw new Error("DexScreener API error");
+  }
+
+  return await response.json();
 }
 
 
-function safeUrl(value){
+function chooseBestPair(pairs){
 
-  try{
+  if(!Array.isArray(pairs) || !pairs.length){
+    return null;
+  }
 
-    const url =
-      new URL(value);
+  /*
+    Prefer Solana.
+    Then prioritize liquidity.
+  */
 
-    if(
-      url.protocol === "https:" &&
-      url.hostname === "dexscreener.com"
-    ){
+  const solana =
+    pairs.filter(
+      p => p.chainId === "solana"
+    );
 
-      return url.href;
+  const list =
+    solana.length ? solana : pairs;
 
-    }
-
-  }catch(error){}
-
-  return "#";
+  return [...list].sort(
+    (a,b) =>
+      Number(b.liquidity?.usd || 0) -
+      Number(a.liquidity?.usd || 0)
+  )[0] || null;
 
 }
 
@@ -1593,116 +1369,76 @@ function safeUrl(value){
 async function loadMarkets(){
 
   status.textContent =
-    "Loading live market data...";
-
+    "Loading live Solana market data...";
 
   try{
 
-    const assets = [
+    /*
+      Search SOL so the market is not
+      hard-coded to BTC / ETH / SOL.
+    */
 
-      {
-        name:"Bitcoin",
-        symbol:"BTC",
-        query:"BTC"
-      },
+    const data =
+      await fetchSearch("SOL");
 
-      {
-        name:"Ethereum",
-        symbol:"ETH",
-        query:"ETH"
-      },
-
-      {
-        name:"Solana",
-        symbol:"SOL",
-        query:"SOL"
-      }
-
-    ];
-
-
-    const results =
-      await Promise.all(
-
-        assets.map(
-          async asset => {
-
-            const response =
-              await fetch(
-                "https://api.dexscreener.com/latest/dex/search?q=" +
-                encodeURIComponent(asset.query)
-              );
-
-
-            if(!response.ok){
-              throw new Error(
-                "Market API error"
-              );
-            }
-
-
-            const data =
-              await response.json();
-
-
-            const pairs =
-              (data.pairs || [])
-              .filter(
-                pair =>
-                  pair.baseToken?.symbol
-                    ?.toUpperCase() ===
-                  asset.symbol
-              )
-              .sort(
-                (a,b) =>
-                  Number(
-                    b.volume?.h24 || 0
-                  ) -
-                  Number(
-                    a.volume?.h24 || 0
-                  )
-              );
-
-
-            return pairs[0] || null;
-
-          }
-        )
-
+    const pairs =
+      (data.pairs || [])
+      .filter(
+        p => p.chainId === "solana"
+      )
+      .sort(
+        (a,b) =>
+          Number(b.volume?.h24 || 0) -
+          Number(a.volume?.h24 || 0)
       );
 
+    /*
+      Take five different token contracts.
+    */
 
-    currentPairs =
-      results.filter(Boolean);
+    const seen = new Set();
 
+    currentPairs = [];
+
+    for(const pair of pairs){
+
+      const address =
+        pair.baseToken?.address;
+
+      if(!address || seen.has(address)){
+        continue;
+      }
+
+      seen.add(address);
+
+      currentPairs.push(pair);
+
+      if(currentPairs.length >= 5){
+        break;
+      }
+
+    }
 
     renderMarkets();
 
-
     updated.textContent =
       "Live • " +
-      new Date().toLocaleTimeString(
-        "fi-FI"
-      );
-
+      new Date().toLocaleTimeString("fi-FI");
 
     status.textContent =
-      "LIVE • BTC • ETH • SOL";
-
+      "LIVE • SOLANA TOKENS • 5 PAIRS";
 
   }catch(error){
 
+    console.error(error);
+
     status.textContent =
-      "Could not load live data.";
+      "Could not load live market data.";
 
     rows.innerHTML = `
       <tr>
         <td colspan="8"
-            style="
-              padding:40px;
-              text-align:center;
-              color:#7f8a9c;
-            ">
+          style="padding:40px;text-align:center;color:#7f8a9c">
           Could not load market data.
           <br><br>
           Press REFRESH to try again.
@@ -1718,31 +1454,28 @@ async function loadMarkets(){
 function renderMarkets(){
 
   const query =
-    search.value
-      .trim()
-      .toLowerCase();
+    search.value.trim().toLowerCase();
 
+  let filtered =
+    currentPairs.filter(pair => {
 
-  const filtered =
-    currentPairs.filter(
-      pair => {
+      const name =
+        pair.baseToken?.name?.toLowerCase() || "";
 
-        const name =
-          pair.baseToken?.name
-            ?.toLowerCase() || "";
+      const symbol =
+        pair.baseToken?.symbol?.toLowerCase() || "";
 
-        const symbol =
-          pair.baseToken?.symbol
-            ?.toLowerCase() || "";
+      const address =
+        pair.baseToken?.address?.toLowerCase() || "";
 
-        return (
-          !query ||
-          name.includes(query) ||
-          symbol.includes(query)
-        );
+      return (
+        !query ||
+        name.includes(query) ||
+        symbol.includes(query) ||
+        address.includes(query)
+      );
 
-      }
-    );
+    });
 
 
   if(!filtered.length){
@@ -1750,12 +1483,10 @@ function renderMarkets(){
     rows.innerHTML = `
       <tr>
         <td colspan="8"
-            style="
-              padding:40px;
-              text-align:center;
-              color:#7f8a9c;
-            ">
+          style="padding:40px;text-align:center;color:#7f8a9c">
           No matching token.
+          <br><br>
+          You can paste a Solana CA into the search.
         </td>
       </tr>
     `;
@@ -1766,10 +1497,16 @@ function renderMarkets(){
 
 
   rows.innerHTML =
-    filtered.map(pair => {
+    filtered.slice(0,5).map(pair => {
 
       const token =
         pair.baseToken || {};
+
+      const address =
+        token.address || "";
+
+      const active =
+        activeToken?.baseToken?.address === address;
 
 
       return `
@@ -1779,75 +1516,49 @@ function renderMarkets(){
           <td>
 
             <div class="token">
-              ${escapeHtml(
-                token.name || "Unknown"
-              )}
+              ${escapeHtml(token.name || "Unknown")}
             </div>
 
             <div class="symbol">
-              ${escapeHtml(
-                token.symbol || ""
-              )}
+              ${escapeHtml(token.symbol || "")}
             </div>
 
           </td>
-
 
           <td>
             ${price(pair.priceUsd)}
           </td>
 
-
           <td>
-            ${change(
-              pair.priceChange?.h24
-            )}
+            ${change(pair.priceChange?.h24)}
           </td>
 
-
           <td>
-            ${money(
-              pair.volume?.h24
-            )}
+            ${money(pair.volume?.h24)}
           </td>
 
-
           <td>
-            ${money(
-              pair.liquidity?.usd
-            )}
+            ${money(pair.liquidity?.usd)}
           </td>
 
-
           <td>
-            ${money(
-              pair.marketCap ||
-              pair.fdv
-            )}
+            ${money(pair.marketCap || pair.fdv)}
           </td>
 
-
           <td>
-
             <span class="dex">
-              ${escapeHtml(
-                pair.dexId || "DEX"
-              )}
+              ${escapeHtml(pair.dexId || "DEX")}
             </span>
-
           </td>
-
 
           <td>
 
-            <a
-              class="view"
-              href="${safeUrl(pair.url)}"
-              target="_blank"
-              rel="noopener"
+            <button
+              class="selectToken ${active ? "active" : ""}"
+              data-address="${escapeHtml(address)}"
             >
-              VIEW
-            </a>
+              ${active ? "SELECTED" : "CHART"}
+            </button>
 
           </td>
 
@@ -1857,28 +1568,1696 @@ function renderMarkets(){
 
     }).join("");
 
+
+  document
+    .querySelectorAll(".selectToken")
+    .forEach(button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const address =
+            button.dataset.address;
+
+          const pair =
+            currentPairs.find(
+              p => p.baseToken?.address === address
+            );
+
+          if(pair){
+            selectToken(pair);
+          }
+
+        }
+      );
+
+    });
+
 }
 
 
-document
-  .getElementById("refresh")
-  .onclick =
-  loadMarkets;
+/* =========================================================
+   SEARCH BY TOKEN / CA
+========================================================= */
 
+let searchTimer = null;
 
 search.addEventListener(
   "input",
-  renderMarkets
+  function(){
+
+    clearTimeout(searchTimer);
+
+    const query =
+      search.value.trim();
+
+    /*
+      Normal local filtering.
+    */
+
+    renderMarkets();
+
+    /*
+      If something looks like a CA or
+      token search, ask DexScreener directly.
+    */
+
+    if(query.length < 3){
+      return;
+    }
+
+    searchTimer =
+      setTimeout(
+        async () => {
+
+          try{
+
+            const data =
+              await fetchSearch(query);
+
+            const pairs =
+              (data.pairs || [])
+              .filter(
+                p => p.chainId === "solana"
+              )
+              .sort(
+                (a,b) =>
+                  Number(b.liquidity?.usd || 0) -
+                  Number(a.liquidity?.usd || 0)
+              );
+
+            if(pairs.length){
+
+              const map =
+                new Map();
+
+              /*
+                Keep max five unique tokens.
+              */
+
+              [
+                ...pairs,
+                ...currentPairs
+              ].forEach(pair => {
+
+                const address =
+                  pair.baseToken?.address;
+
+                if(
+                  address &&
+                  !map.has(address) &&
+                  map.size < 5
+                ){
+                  map.set(address,pair);
+                }
+
+              });
+
+              currentPairs =
+                Array.from(map.values());
+
+              renderMarkets();
+
+            }
+
+          }catch(error){
+
+            console.log(
+              "Search failed:",
+              error
+            );
+
+          }
+
+        },
+        450
+      );
+
+  }
 );
 
 
-loadMarkets();
+$("refresh").onclick =
+  loadMarkets;
 
 
-setInterval(
-  loadMarkets,
-  15000
+/* =========================================================
+   TOKEN SELECTION
+========================================================= */
+
+function selectToken(pair){
+
+  if(!pair){
+    return;
+  }
+
+  activeToken = pair;
+
+  /*
+    Keep max five selected tokens.
+  */
+
+  const address =
+    pair.baseToken?.address;
+
+  selectedTokens =
+    selectedTokens.filter(
+      p => p.baseToken?.address !== address
+    );
+
+  selectedTokens.unshift(pair);
+
+  selectedTokens =
+    selectedTokens.slice(0,5);
+
+  renderTokenCards();
+
+  $("chartToken").textContent =
+    `${pair.baseToken?.symbol || "TOKEN"} / SOL`;
+
+  $("chartPrice").textContent =
+    price(pair.priceUsd);
+
+  /*
+    Start a new chart for this token.
+  */
+
+  chartState.candles = [];
+  chartState.lastPrice =
+    Number(pair.priceUsd || 0);
+
+  chartState.viewEnd = null;
+  chartState.viewCount = 65;
+
+  beginPriceTracking();
+
+  renderChart();
+
+  renderMarkets();
+
+}
+
+
+function renderTokenCards(){
+
+  const container =
+    $("tokenCards");
+
+  if(!selectedTokens.length){
+
+    container.innerHTML = `
+      <div class="tokenCard emptyCard">
+        Select a token from the market above.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    selectedTokens.map(pair => {
+
+      const address =
+        pair.baseToken?.address;
+
+      const active =
+        activeToken?.baseToken?.address === address;
+
+      return `
+
+        <div
+          class="tokenCard ${active ? "active" : ""}"
+          data-token="${escapeHtml(address)}"
+        >
+
+          <div class="tokenCardName">
+            ${escapeHtml(
+              pair.baseToken?.symbol ||
+              pair.baseToken?.name ||
+              "TOKEN"
+            )}
+          </div>
+
+          <div class="tokenCardPrice">
+            ${price(pair.priceUsd)}
+          </div>
+
+        </div>
+
+      `;
+
+    }).join("");
+
+
+  container
+    .querySelectorAll(".tokenCard")
+    .forEach(card => {
+
+      card.addEventListener(
+        "click",
+        () => {
+
+          const address =
+            card.dataset.token;
+
+          const pair =
+            selectedTokens.find(
+              p => p.baseToken?.address === address
+            );
+
+          if(pair){
+            selectToken(pair);
+          }
+
+        }
+      );
+
+    });
+
+}
+
+
+/* =========================================================
+   CANDLESTICK ENGINE
+========================================================= */
+
+/*
+  Important:
+  DexScreener's public endpoint gives current pair data,
+  not a native 1-second OHLC endpoint.
+
+  Therefore this browser chart creates true OHLC candles
+  from live price samples:
+    1S = one sample/second
+    5S = five-second aggregation
+
+  This means the chart is real candlestick rendering,
+  while OHLC is built from the live price stream.
+*/
+
+
+const canvas =
+  $("chartCanvas");
+
+const ctx =
+  canvas.getContext("2d");
+
+const chartWrap =
+  $("chartWrap");
+
+
+const chartState = {
+
+  candles:[],
+
+  lastPrice:0,
+
+  timeframe:1,
+
+  viewEnd:null,
+
+  viewCount:65,
+
+  drag:false,
+
+  dragX:0,
+
+  pinch:false,
+
+  pinchDistance:0,
+
+  hoverX:null
+
+};
+
+
+let priceTimer = null;
+let trackingToken = null;
+
+
+/* =========================
+   CANVAS SIZE
+========================= */
+
+function resizeCanvas(){
+
+  const rect =
+    canvas.getBoundingClientRect();
+
+  const dpr =
+    Math.max(
+      1,
+      window.devicePixelRatio || 1
+    );
+
+  canvas.width =
+    Math.floor(rect.width * dpr);
+
+  canvas.height =
+    Math.floor(rect.height * dpr);
+
+  ctx.setTransform(
+    dpr,0,0,dpr,0,0
+  );
+
+  renderChart();
+
+}
+
+
+window.addEventListener(
+  "resize",
+  resizeCanvas
 );
+
+
+/* =========================
+   GET LIVE PRICE
+========================= */
+
+async function getActivePrice(){
+
+  if(!activeToken){
+    return null;
+  }
+
+  const address =
+    activeToken.baseToken?.address;
+
+  if(!address){
+    return null;
+  }
+
+  try{
+
+    /*
+      Search by exact CA.
+    */
+
+    const data =
+      await fetchSearch(address);
+
+    const pair =
+      chooseBestPair(
+        data.pairs || []
+      );
+
+    if(!pair){
+      return null;
+    }
+
+    activeToken = pair;
+
+    const p =
+      Number(pair.priceUsd);
+
+    if(!Number.isFinite(p) || p <= 0){
+      return null;
+    }
+
+    $("chartPrice").textContent =
+      price(p);
+
+    /*
+      Update selected card price.
+    */
+
+    const card =
+      selectedTokens.find(
+        x =>
+          x.baseToken?.address ===
+          pair.baseToken?.address
+      );
+
+    if(card){
+      Object.assign(card,pair);
+    }
+
+    renderTokenCards();
+
+    return p;
+
+  }catch(error){
+
+    console.log(
+      "Price update failed",
+      error
+    );
+
+    return null;
+
+  }
+
+}
+
+
+/* =========================
+   CANDLE CREATION
+========================= */
+
+function addPriceSample(p){
+
+  if(!Number.isFinite(p) || p <= 0){
+    return;
+  }
+
+  chartState.lastPrice = p;
+
+  const now =
+    Date.now();
+
+  const interval =
+    chartState.timeframe * 1000;
+
+  const bucket =
+    Math.floor(now / interval) * interval;
+
+  let candle =
+    chartState.candles[
+      chartState.candles.length - 1
+    ];
+
+
+  if(
+    !candle ||
+    candle.time !== bucket
+  ){
+
+    candle = {
+
+      time:bucket,
+
+      open:p,
+      high:p,
+      low:p,
+      close:p
+
+    };
+
+    chartState.candles.push(candle);
+
+  }else{
+
+    candle.close = p;
+
+    candle.high =
+      Math.max(
+        candle.high,
+        p
+      );
+
+    candle.low =
+      Math.min(
+        candle.low,
+        p
+      );
+
+  }
+
+
+  /*
+    Keep enough candles for scrolling,
+    but don't let memory grow forever.
+  */
+
+  if(chartState.candles.length > 1500){
+
+    chartState.candles =
+      chartState.candles.slice(-1500);
+
+  }
+
+  renderChart();
+
+}
+
+
+/* =========================
+   TRACKING
+========================= */
+
+function stopPriceTracking(){
+
+  if(priceTimer){
+    clearInterval(priceTimer);
+    priceTimer = null;
+  }
+
+}
+
+
+function beginPriceTracking(){
+
+  stopPriceTracking();
+
+  if(!activeToken){
+    return;
+  }
+
+  trackingToken =
+    activeToken.baseToken?.address;
+
+
+  /*
+    Poll approximately once per second.
+  */
+
+  priceTimer =
+    setInterval(
+      async () => {
+
+        if(
+          !activeToken ||
+          activeToken.baseToken?.address !==
+          trackingToken
+        ){
+          return;
+        }
+
+        const p =
+          await getActivePrice();
+
+        if(p !== null){
+          addPriceSample(p);
+        }
+
+      },
+      1000
+    );
+
+
+  /*
+    Immediate sample.
+  */
+
+  getActivePrice()
+    .then(p => {
+
+      if(p !== null){
+        addPriceSample(p);
+      }
+
+    });
+
+}
+
+
+/* =========================================================
+   CHART MATH
+========================================================= */
+
+function getVisibleCandles(){
+
+  const all =
+    chartState.candles;
+
+  if(!all.length){
+    return [];
+  }
+
+  let end =
+    chartState.viewEnd;
+
+  if(
+    end === null ||
+    end > all.length
+  ){
+    end = all.length;
+  }
+
+  let start =
+    Math.max(
+      0,
+      end - chartState.viewCount
+    );
+
+  return all.slice(start,end);
+
+}
+
+
+function formatAxisPrice(v){
+
+  if(!Number.isFinite(v)){
+    return "—";
+  }
+
+  if(v === 0){
+    return "0";
+  }
+
+  if(v < 0.000001){
+    return v.toExponential(2);
+  }
+
+  if(v < 0.001){
+    return v.toFixed(7);
+  }
+
+  if(v < 1){
+    return v.toFixed(5);
+  }
+
+  if(v < 1000){
+    return v.toFixed(2);
+  }
+
+  return v.toLocaleString(
+    "en-US",
+    {
+      maximumFractionDigits:0
+    }
+  );
+
+}
+
+
+/* =========================
+   DRAW CHART
+========================= */
+
+function renderChart(){
+
+  if(!ctx){
+    return;
+  }
+
+  const rect =
+    canvas.getBoundingClientRect();
+
+  const W =
+    rect.width;
+
+  const H =
+    rect.height;
+
+  if(!W || !H){
+    return;
+  }
+
+
+  ctx.clearRect(
+    0,0,W,H
+  );
+
+
+  /*
+    Background.
+  */
+
+  ctx.fillStyle =
+    "#090e16";
+
+  ctx.fillRect(
+    0,0,W,H
+  );
+
+
+  const candles =
+    getVisibleCandles();
+
+
+  if(!candles.length){
+
+    ctx.fillStyle =
+      "#68758a";
+
+    ctx.font =
+      "13px Arial";
+
+    ctx.textAlign =
+      "center";
+
+    ctx.fillText(
+      activeToken
+        ? "Waiting for live price candles..."
+        : "Select a token below",
+      W / 2,
+      H / 2
+    );
+
+    return;
+
+  }
+
+
+  /*
+    Chart layout.
+  */
+
+  const left =
+    10;
+
+  const right =
+    65;
+
+  const top =
+    15;
+
+  const bottom =
+    28;
+
+  const chartW =
+    W - left - right;
+
+  const chartH =
+    H - top - bottom;
+
+
+  let min =
+    Math.min(
+      ...candles.map(c => c.low)
+    );
+
+  let max =
+    Math.max(
+      ...candles.map(c => c.high)
+    );
+
+
+  if(min === max){
+
+    min *= .999;
+
+    max *= 1.001;
+
+  }
+
+
+  /*
+    Add breathing room around price.
+  */
+
+  const range =
+    max - min;
+
+  min -= range * .08;
+  max += range * .08;
+
+
+  function y(priceValue){
+
+    return (
+      top +
+      (max - priceValue) /
+      (max - min) *
+      chartH
+    );
+
+  }
+
+
+  /*
+    Grid.
+  */
+
+  ctx.strokeStyle =
+    "#172131";
+
+  ctx.lineWidth =
+    1;
+
+  ctx.font =
+    "10px monospace";
+
+  ctx.textAlign =
+    "left";
+
+  ctx.fillStyle =
+    "#566277";
+
+
+  for(let i=0;i<=5;i++){
+
+    const yy =
+      top +
+      chartH * i / 5;
+
+    ctx.beginPath();
+
+    ctx.moveTo(
+      left,
+      yy
+    );
+
+    ctx.lineTo(
+      left + chartW,
+      yy
+    );
+
+    ctx.stroke();
+
+
+    const value =
+      max -
+      (max - min) * i / 5;
+
+    ctx.fillText(
+      formatAxisPrice(value),
+      left + chartW + 7,
+      yy + 3
+    );
+
+  }
+
+
+  /*
+    Candle spacing.
+  */
+
+  const slot =
+    chartW / candles.length;
+
+  const bodyWidth =
+    Math.max(
+      2,
+      Math.min(
+        14,
+        slot * .62
+      )
+    );
+
+
+  candles.forEach(
+    (candle,index) => {
+
+      const x =
+        left +
+        slot * index +
+        slot / 2;
+
+
+      const openY =
+        y(candle.open);
+
+      const closeY =
+        y(candle.close);
+
+      const highY =
+        y(candle.high);
+
+      const lowY =
+        y(candle.low);
+
+
+      const up =
+        candle.close >= candle.open;
+
+
+      /*
+        Wick.
+      */
+
+      ctx.strokeStyle =
+        up ? "#35e58a" : "#ff6574";
+
+      ctx.lineWidth =
+        1;
+
+      ctx.beginPath();
+
+      ctx.moveTo(
+        x,
+        highY
+      );
+
+      ctx.lineTo(
+        x,
+        lowY
+      );
+
+      ctx.stroke();
+
+
+      /*
+        Candle body.
+      */
+
+      const bodyTop =
+        Math.min(
+          openY,
+          closeY
+        );
+
+      const bodyBottom =
+        Math.max(
+          openY,
+          closeY
+        );
+
+
+      let bodyHeight =
+        bodyBottom - bodyTop;
+
+
+      if(bodyHeight < 1){
+        bodyHeight = 1;
+      }
+
+
+      ctx.fillStyle =
+        up ? "#35e58a" : "#ff6574";
+
+
+      ctx.fillRect(
+        x - bodyWidth / 2,
+        bodyTop,
+        bodyWidth,
+        bodyHeight
+      );
+
+    }
+  );
+
+
+  /*
+    Current price line.
+  */
+
+  const latest =
+    candles[candles.length - 1];
+
+  const current =
+    latest.close;
+
+  const currentY =
+    y(current);
+
+
+  ctx.strokeStyle =
+    "#a795ff";
+
+  ctx.setLineDash(
+    [4,4]
+  );
+
+  ctx.beginPath();
+
+  ctx.moveTo(
+    left,
+    currentY
+  );
+
+  ctx.lineTo(
+    left + chartW,
+    currentY
+  );
+
+  ctx.stroke();
+
+  ctx.setLineDash([]);
+
+
+  /*
+    Current price label.
+  */
+
+  ctx.fillStyle =
+    "#8b6cf5";
+
+  ctx.fillRect(
+    left + chartW,
+    currentY - 9,
+    right,
+    18
+  );
+
+  ctx.fillStyle =
+    "#fff";
+
+  ctx.font =
+    "10px monospace";
+
+  ctx.textAlign =
+    "center";
+
+  ctx.fillText(
+    formatAxisPrice(current),
+    left + chartW + right / 2,
+    currentY + 3
+  );
+
+
+  /*
+    Time labels.
+  */
+
+  ctx.fillStyle =
+    "#566277";
+
+  ctx.font =
+    "9px monospace";
+
+  ctx.textAlign =
+    "center";
+
+
+  const step =
+    Math.max(
+      1,
+      Math.floor(
+        candles.length / 6
+      )
+    );
+
+
+  for(
+    let i=0;
+    i<candles.length;
+    i+=step
+  ){
+
+    const x =
+      left +
+      slot * i +
+      slot / 2;
+
+    const date =
+      new Date(
+        candles[i].time
+      );
+
+    const label =
+      date.toLocaleTimeString(
+        "fi-FI",
+        {
+          hour:"2-digit",
+          minute:"2-digit",
+          second:"2-digit"
+        }
+      );
+
+    ctx.fillText(
+      label,
+      x,
+      H - 8
+    );
+
+  }
+
+
+  $("candleInfo").textContent =
+    `${candles.length} candles • ${chartState.timeframe}s • LIVE`;
+
+}
+
+
+/* =========================================================
+   CHART RESET
+========================================================= */
+
+$("resetChart").onclick =
+  function(){
+
+    chartState.viewEnd = null;
+
+    chartState.viewCount =
+      Math.min(
+        65,
+        Math.max(
+          20,
+          chartState.candles.length
+        )
+      );
+
+    renderChart();
+
+  };
+
+
+/* =========================================================
+   TIMEFRAME
+========================================================= */
+
+document
+  .querySelectorAll(".tf")
+  .forEach(button => {
+
+    button.addEventListener(
+      "click",
+      () => {
+
+        const tf =
+          Number(
+            button.dataset.tf
+          );
+
+        document
+          .querySelectorAll(".tf")
+          .forEach(
+            b => b.classList.remove("active")
+          );
+
+        button.classList.add("active");
+
+
+        /*
+          Rebuild chart from samples if
+          switching timeframe.
+
+          The current implementation collects
+          one-second live samples and aggregates
+          those into 5-second candles.
+        */
+
+        chartState.timeframe =
+          tf;
+
+        chartState.viewEnd =
+          null;
+
+        chartState.viewCount =
+          65;
+
+        rebuildCandles();
+
+      }
+    );
+
+  });
+
+
+function rebuildCandles(){
+
+  const samples =
+    rawSamples.slice();
+
+  chartState.candles = [];
+
+  if(!samples.length){
+
+    renderChart();
+
+    return;
+
+  }
+
+
+  const interval =
+    chartState.timeframe * 1000;
+
+  let current = null;
+
+
+  samples.forEach(sample => {
+
+    const bucket =
+      Math.floor(
+        sample.time / interval
+      ) * interval;
+
+
+    if(
+      !current ||
+      current.time !== bucket
+    ){
+
+      current = {
+
+        time:bucket,
+
+        open:sample.price,
+        high:sample.price,
+        low:sample.price,
+        close:sample.price
+
+      };
+
+      chartState.candles.push(current);
+
+    }else{
+
+      current.close =
+        sample.price;
+
+      current.high =
+        Math.max(
+          current.high,
+          sample.price
+        );
+
+      current.low =
+        Math.min(
+          current.low,
+          sample.price
+        );
+
+    }
+
+  });
+
+
+  renderChart();
+
+}
+
+
+/*
+  Keep raw 1-second samples so 5S
+  can be generated correctly.
+*/
+
+let rawSamples = [];
+
+
+/*
+  Replace addPriceSample with a version
+  that stores the raw sample too.
+*/
+
+const originalAddPriceSample =
+  addPriceSample;
+
+
+function addRawPriceSample(p){
+
+  const now =
+    Date.now();
+
+  rawSamples.push({
+    time:now,
+    price:p
+  });
+
+
+  /*
+    Keep last 30 minutes.
+  */
+
+  const cutoff =
+    now - 30 * 60 * 1000;
+
+  rawSamples =
+    rawSamples.filter(
+      s => s.time >= cutoff
+    );
+
+
+  rebuildCandles();
+
+}
+
+
+/*
+  Override tracking sample behavior.
+*/
+
+function addPriceSampleFinal(p){
+
+  if(!Number.isFinite(p) || p <= 0){
+    return;
+  }
+
+  chartState.lastPrice = p;
+
+  addRawPriceSample(p);
+
+  $("chartPrice").textContent =
+    price(p);
+
+}
+
+
+/*
+  Use final function in live tracker.
+*/
+
+function updateChartWithPrice(p){
+
+  addPriceSampleFinal(p);
+
+}
+
+
+/* =========================================================
+   CHART MOUSE / TOUCH ZOOM + PAN
+========================================================= */
+
+let pointerStartX = 0;
+let pointerStartCount = 65;
+let pointerStartEnd = null;
+
+
+chartWrap.addEventListener(
+  "pointerdown",
+  event => {
+
+    chartState.drag = true;
+
+    pointerStartX =
+      event.clientX;
+
+    pointerStartCount =
+      chartState.viewCount;
+
+    pointerStartEnd =
+      chartState.viewEnd === null
+        ? chartState.candles.length
+        : chartState.viewEnd;
+
+    chartWrap.setPointerCapture(
+      event.pointerId
+    );
+
+  }
+);
+
+
+chartWrap.addEventListener(
+  "pointermove",
+  event => {
+
+    if(!chartState.drag){
+      return;
+    }
+
+    const dx =
+      event.clientX -
+      pointerStartX;
+
+    const width =
+      chartWrap.clientWidth;
+
+    const candlesPerPixel =
+      pointerStartCount /
+      Math.max(1,width);
+
+
+    /*
+      Drag left = move forward.
+      Drag right = move backwards.
+    */
+
+    const movement =
+      Math.round(
+        -dx * candlesPerPixel
+      );
+
+
+    let end =
+      pointerStartEnd +
+      movement;
+
+
+    end =
+      Math.max(
+        1,
+        Math.min(
+          chartState.candles.length,
+          end
+        )
+      );
+
+
+    chartState.viewEnd =
+      end;
+
+
+    renderChart();
+
+  }
+);
+
+
+chartWrap.addEventListener(
+  "pointerup",
+  event => {
+
+    chartState.drag = false;
+
+    try{
+      chartWrap.releasePointerCapture(
+        event.pointerId
+      );
+    }catch(e){}
+
+  }
+);
+
+
+chartWrap.addEventListener(
+  "pointercancel",
+  () => {
+    chartState.drag = false;
+  }
+);
+
+
+/*
+  Mouse wheel zoom.
+*/
+
+chartWrap.addEventListener(
+  "wheel",
+  event => {
+
+    event.preventDefault();
+
+    const oldCount =
+      chartState.viewCount;
+
+    const direction =
+      event.deltaY > 0 ? 1 : -1;
+
+    let newCount =
+      oldCount +
+      direction *
+      Math.max(
+        3,
+        Math.round(oldCount * .12)
+      );
+
+
+    newCount =
+      Math.max(
+        12,
+        Math.min(
+          300,
+          newCount
+        )
+      );
+
+
+    /*
+      Keep right side anchored when
+      zooming near the current chart.
+    */
+
+    const end =
+      chartState.viewEnd === null
+        ? chartState.candles.length
+        : chartState.viewEnd;
+
+
+    const rect =
+      chartWrap.getBoundingClientRect();
+
+    const ratio =
+      Math.max(
+        0,
+        Math.min(
+          1,
+          (event.clientX - rect.left) /
+          rect.width
+        )
+      );
+
+
+    const oldStart =
+      end - oldCount;
+
+    const anchorIndex =
+      oldStart +
+      Math.round(
+        oldCount * ratio
+      );
+
+
+    let newStart =
+      anchorIndex -
+      Math.round(
+        newCount * ratio
+      );
+
+
+    newStart =
+      Math.max(
+        0,
+        Math.min(
+          chartState.candles.length - 1,
+          newStart
+        )
+      );
+
+
+    chartState.viewCount =
+      newCount;
+
+    chartState.viewEnd =
+      Math.min(
+        chartState.candles.length,
+        newStart + newCount
+      );
+
+
+    renderChart();
+
+  },
+  {passive:false}
+);
+
+
+/*
+  Pinch zoom on mobile.
+*/
+
+let touchA = null;
+let touchB = null;
+let pinchStartDistance = 0;
+let pinchStartCount = 65;
+
+
+chartWrap.addEventListener(
+  "touchstart",
+  event => {
+
+    if(event.touches.length === 2){
+
+      touchA =
+        event.touches[0];
+
+      touchB =
+        event.touches[1];
+
+      pinchStartDistance =
+        Math.hypot(
+          touchA.clientX - touchB.clientX,
+          touchA.clientY - touchB.clientY
+        );
+
+      pinchStartCount =
+        chartState.viewCount;
+
+    }
+
+  },
+  {passive:false}
+);
+
+
+chartWrap.addEventListener(
+  "touchmove",
+  event => {
+
+    if(event.touches.length !== 2){
+      return;
+    }
+
+    event.preventDefault();
+
+    const a =
+      event.touches[0];
+
+    const b =
+      event.touches[1];
+
+    const distance =
+      Math.hypot(
+        a.clientX - b.clientX,
+        a.clientY - b.clientY
+      );
+
+
+    if(!pinchStartDistance){
+      return;
+    }
+
+
+    const scale =
+      pinchStartDistance /
+      distance;
+
+
+    let count =
+      Math.round(
+        pinchStartCount * scale
+      );
+
+
+    count =
+      Math.max(
+        12,
+        Math.min(
+          300,
+          count
+        )
+      );
+
+
+    chartState.viewCount =
+      count;
+
+
+    if(
+      chartState.viewEnd === null
+    ){
+
+      chartState.viewEnd =
+        chartState.candles.length;
+
+    }
+
+
+    renderChart();
+
+  },
+  {passive:false}
+);
+
+
+chartWrap.addEventListener(
+  "touchend",
+  () => {
+
+    if(
+      event?.touches?.length < 2
+    ){
+
+      pinchStartDistance = 0;
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   INITIAL TOKEN
+========================================================= */
+
+async function initializeMarket(){
+
+  await loadMarkets();
+
+  /*
+    Automatically select first token.
+  */
+
+  if(
+    currentPairs.length &&
+    !activeToken
+  ){
+
+    selectToken(
+      currentPairs[0]
+    );
+
+  }
+
+}
 
 
 /* =========================================================
@@ -1886,12 +3265,10 @@ setInterval(
 ========================================================= */
 
 const bookmark =
-  document.getElementById("bookmark");
+  $("bookmark");
 
 const bookmarkInfo =
-  document.getElementById(
-    "bookmarkInfo"
-  );
+  $("bookmarkInfo");
 
 
 let bookmarked =
@@ -1942,12 +3319,10 @@ bookmark.onclick =
     bookmarked =
       !bookmarked;
 
-
     localStorage.setItem(
       "lunaBookmark",
       bookmarked
     );
-
 
     updateBookmark();
 
@@ -1987,14 +3362,10 @@ async function connectWallet(){
       response.publicKey.toString();
 
 
-    document
-      .getElementById(
-        "walletButton"
-      )
-      .textContent =
-        address.slice(0,5) +
-        "..." +
-        address.slice(-4);
+    $("walletButton").textContent =
+      address.slice(0,5) +
+      "..." +
+      address.slice(-4);
 
 
   }catch(error){
@@ -2008,11 +3379,7 @@ async function connectWallet(){
 }
 
 
-document
-  .getElementById(
-    "walletButton"
-  )
-  .onclick =
+$("walletButton").onclick =
   connectWallet;
 
 
@@ -2021,77 +3388,40 @@ document
 ========================================================= */
 
 const game =
-  document.getElementById("game");
+  $("game");
 
 const luna =
-  document.getElementById("luna");
+  $("luna");
 
 const scoreElement =
-  document.getElementById("score");
+  $("score");
 
 const bestElement =
-  document.getElementById("best");
+  $("best");
 
 const startScreen =
-  document.getElementById(
-    "startScreen"
-  );
+  $("startScreen");
 
 const startButton =
-  document.getElementById(
-    "startButton"
-  );
+  $("startButton");
 
 const gameOverElement =
-  document.getElementById(
-    "gameOver"
-  );
+  $("gameOver");
 
 const finalScoreElement =
-  document.getElementById(
-    "finalScore"
-  );
-
-const finalNameElement =
-  document.getElementById(
-    "finalName"
-  );
+  $("finalScore");
 
 const playAgain =
-  document.getElementById(
-    "playAgain"
-  );
+  $("playAgain");
 
-const playerNameInput =
-  document.getElementById(
-    "playerName"
-  );
-
-const nameError =
-  document.getElementById(
-    "nameError"
-  );
-
-const leaderboardRows =
-  document.getElementById(
-    "leaderboardRows"
-  );
-
-
-/* =========================
-   GAME STATE
-========================= */
 
 let gameStarted = false;
-
 let dead = false;
 
 let lastTime =
   performance.now();
 
 let score = 0;
-
-let playerName = "";
 
 let best =
   Number(
@@ -2100,8 +3430,7 @@ let best =
     ) || 0
   );
 
-
-let speed = 245;
+let speed = 235;
 
 let obstacleTimer = 0;
 
@@ -2110,294 +3439,40 @@ let nextObstacle = 2300;
 let obstacles = [];
 
 
-/* =========================
-   LUNA PHYSICS
-========================= */
-
 let lunaX = 90;
-
 let lunaY = 0;
-
 let velocityY = 0;
-
 let jumping = false;
 
 
 const gravity = 1750;
-
 const jumpPower = 680;
 
-
-/* =========================
-   BEST SCORE
-========================= */
 
 bestElement.textContent =
   best;
 
 
-/* =========================================================
-   BAD WORD FILTER
-========================================================= */
-
-const bannedWords = [
-
-  "fuck",
-  "fucking",
-  "shit",
-  "sh1t",
-  "bitch",
-  "b1tch",
-  "asshole",
-  "dick",
-  "d1ck",
-  "pussy",
-  "cunt",
-  "nigger",
-  "n1gger",
-  "faggot",
-  "f4ggot",
-  "whore",
-  "slut",
-  "rape",
-  "kill",
-  "nazi",
-  "porn"
-
-];
-
-
-function cleanName(name){
-
-  return name
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g,"");
-
-}
-
-
-function isNameAllowed(name){
-
-  const cleaned =
-    cleanName(name);
-
-
-  if(cleaned.length < 2){
-    return false;
-  }
-
-
-  if(cleaned.length > 16){
-    return false;
-  }
-
-
-  for(
-    const word of bannedWords
-  ){
-
-    if(
-      cleaned.includes(
-        cleanName(word)
-      )
-    ){
-
-      return false;
-
-    }
-
-  }
-
-
-  return true;
-
-}
-
-
-/* =========================================================
-   LEADERBOARD
-========================================================= */
-
-function getLeaderboard(){
-
-  try{
-
-    return JSON.parse(
-      localStorage.getItem(
-        "lunaLeaderboard"
-      ) || "[]"
-    );
-
-  }catch(error){
-
-    return [];
-
-  }
-
-}
-
-
-function saveLeaderboard(){
-
-  localStorage.setItem(
-    "lunaLeaderboard",
-    JSON.stringify(
-      getLeaderboard()
-    )
-  );
-
-}
-
-
-function addScoreToLeaderboard(
-  name,
-  finalScore
-){
-
-  const leaderboard =
-    getLeaderboard();
-
-
-  leaderboard.push({
-
-    name:name,
-
-    score:finalScore,
-
-    date:Date.now()
-
-  });
-
-
-  leaderboard.sort(
-    (a,b) =>
-      b.score - a.score
-  );
-
-
-  const top =
-    leaderboard.slice(
-      0,
-      50
-    );
-
-
-  localStorage.setItem(
-    "lunaLeaderboard",
-    JSON.stringify(top)
-  );
-
-
-  renderLeaderboard();
-
-}
-
-
-function renderLeaderboard(){
-
-  const leaderboard =
-    getLeaderboard();
-
-
-  if(!leaderboard.length){
-
-    leaderboardRows.innerHTML = `
-      <div class="emptyLeaderboard">
-        No scores yet. Be the first Luna runner! 🌙
-      </div>
-    `;
-
-    return;
-
-  }
-
-
-  leaderboardRows.innerHTML =
-    leaderboard
-      .slice(0,20)
-      .map(
-        (entry,index) => `
-
-          <div class="leaderRow">
-
-            <div class="rank">
-              #${index + 1}
-            </div>
-
-            <div class="playerName">
-              ${escapeHtml(
-                entry.name
-              )}
-            </div>
-
-            <div class="playerScore">
-              ${Number(
-                entry.score
-              )}
-            </div>
-
-          </div>
-
-        `
-      )
-      .join("");
-
-}
-
-
-renderLeaderboard();
-
-
-/* =========================================================
-   START GAME
-========================================================= */
-
 function startGame(){
-
-  const enteredName =
-    playerNameInput.value
-      .trim();
-
-
-  if(!isNameAllowed(enteredName)){
-
-    nameError.textContent =
-      "Please enter a valid name. No inappropriate words.";
-
-    playerNameInput.focus();
-
-    return;
-
-  }
-
-
-  nameError.textContent = "";
-
-  playerName =
-    enteredName;
-
-
-  /*
-  Remove old rocks.
-  */
 
   obstacles.forEach(
     obstacle =>
       obstacle.element.remove()
   );
 
-
   obstacles = [];
-
 
   score = 0;
 
-  speed = 245;
+  speed = 235;
 
   obstacleTimer = 0;
 
-  nextObstacle = 2300;
+  /*
+    Faster than the original version.
+  */
 
+  nextObstacle = 2300;
 
   lunaX = 90;
 
@@ -2411,27 +3486,21 @@ function startGame(){
 
   gameStarted = true;
 
-
   scoreElement.textContent =
     "0";
-
 
   luna.style.left =
     lunaX + "px";
 
-
   luna.style.bottom =
     "70px";
-
 
   startScreen.style.display =
     "none";
 
-
   gameOverElement.classList.remove(
     "show"
   );
-
 
   lastTime =
     performance.now();
@@ -2439,24 +3508,15 @@ function startGame(){
 }
 
 
-/* =========================================================
-   JUMP
-========================================================= */
-
 function jump(){
 
-  if(!gameStarted){
-    return;
-  }
-
-  if(dead){
+  if(!gameStarted || dead){
     return;
   }
 
   if(jumping){
     return;
   }
-
 
   jumping = true;
 
@@ -2466,33 +3526,16 @@ function jump(){
 }
 
 
-/* =========================================================
-   KEYBOARD
-========================================================= */
-
 document.addEventListener(
   "keydown",
-  function(event){
+  event => {
 
     if(
       event.code === "Space" ||
       event.code === "ArrowUp"
     ){
 
-      if(
-        document.activeElement ===
-        playerNameInput
-      ){
-
-        if(event.code === "Space"){
-          return;
-        }
-
-      }
-
-
       event.preventDefault();
-
 
       if(!gameStarted){
 
@@ -2502,7 +3545,6 @@ document.addEventListener(
 
       }
 
-
       jump();
 
     }
@@ -2511,26 +3553,20 @@ document.addEventListener(
 );
 
 
-/* =========================================================
-   JUMP BUTTON
-========================================================= */
-
-document
-  .getElementById(
-    "jumpButton"
-  )
+$("jumpButton")
   .addEventListener(
     "pointerdown",
-    function(event){
+    event => {
 
       event.preventDefault();
 
       if(!gameStarted){
 
+        startGame();
+
         return;
 
       }
-
 
       jump();
 
@@ -2538,86 +3574,33 @@ document
   );
 
 
-/* =========================================================
-   START BUTTON
-========================================================= */
-
 startButton.onclick =
-  function(){
+  startGame;
 
-    startGame();
-
-  };
-
-
-/* =========================================================
-   ENTER KEY FOR NAME
-========================================================= */
-
-playerNameInput.addEventListener(
-  "keydown",
-  function(event){
-
-    if(
-      event.key === "Enter"
-    ){
-
-      event.preventDefault();
-
-      startGame();
-
-    }
-
-  }
-);
-
-
-/* =========================================================
-   PLAY AGAIN
-========================================================= */
 
 playAgain.onclick =
-  function(){
+  startGame;
 
-    /*
-    Keep the same player's name.
-    */
-
-    startGame();
-
-  };
-
-
-/* =========================================================
-   CREATE ROCK
-========================================================= */
 
 function createObstacle(){
 
   const rock =
-    document.createElement(
-      "div"
-    );
-
+    document.createElement("div");
 
   rock.className =
     Math.random() > .7
       ? "rock smallRock"
       : "rock";
 
-
   const startX =
     game.clientWidth + 60;
-
 
   rock.style.left =
     startX + "px";
 
-
   game.appendChild(
     rock
   );
-
 
   return {
 
@@ -2632,16 +3615,10 @@ function createObstacle(){
 }
 
 
-/* =========================================================
-   COLLISION
-========================================================= */
-
 function collision(a,b){
 
   const paddingX = 10;
-
   const paddingY = 9;
-
 
   return (
 
@@ -2662,58 +3639,35 @@ function collision(a,b){
 }
 
 
-/* =========================================================
-   GAME OVER
-========================================================= */
-
 function endGame(){
 
   if(dead){
     return;
   }
 
-
   dead = true;
 
-
-  const final =
+  finalScoreElement.textContent =
     Math.floor(score);
 
 
-  finalScoreElement.textContent =
-    final;
+  if(
+    Math.floor(score) >
+    best
+  ){
 
-
-  finalNameElement.textContent =
-    playerName;
-
-
-  if(final > best){
-
-    best = final;
-
+    best =
+      Math.floor(score);
 
     localStorage.setItem(
       "lunaBest",
       best
     );
 
-
     bestElement.textContent =
       best;
 
   }
-
-
-  /*
-  Add score to leaderboard.
-  */
-
-  addScoreToLeaderboard(
-    playerName,
-    final
-  );
-
 
   gameOverElement.classList.add(
     "show"
@@ -2722,46 +3676,34 @@ function endGame(){
 }
 
 
-/* =========================================================
-   DIFFICULTY
-========================================================= */
-
 function updateDifficulty(){
 
   /*
-  Slow acceleration.
-  The beginning remains easy.
+    Gentle acceleration.
+    Starts easy and gets harder.
   */
 
   const extra =
     Math.min(
       285,
-      score * 0.035
+      score * .035
     );
 
-
   speed =
-    245 + extra;
+    235 + extra;
 
-
-  if(speed > 530){
-
-    speed = 530;
-
+  if(speed > 520){
+    speed = 520;
   }
 
 }
 
 
-/* =========================================================
-   OBSTACLE DISTANCE
-========================================================= */
-
 function getObstacleTime(){
 
   /*
-  Rocks appear a little faster
-  than the previous version.
+    Rocks arrive a little faster.
+    Still leaves enough time to react.
   */
 
   const difficulty =
@@ -2770,13 +3712,11 @@ function getObstacleTime(){
       score / 1000
     );
 
-
-  const minimum =
-    1250;
-
   const maximum =
     2300;
 
+  const minimum =
+    1250;
 
   return (
 
@@ -2787,23 +3727,18 @@ function getObstacleTime(){
     ) * difficulty
 
   ) +
-  Math.random() * 450;
+  Math.random() * 400;
 
 }
 
-
-/* =========================================================
-   MAIN LOOP
-========================================================= */
 
 function loop(time){
 
   const delta =
     Math.min(
       (time - lastTime) / 1000,
-      0.035
+      .035
     );
-
 
   lastTime =
     time;
@@ -2814,42 +3749,22 @@ function loop(time){
     !dead
   ){
 
-    /* =====================
-       SCORE
-    ===================== */
-
     score +=
       delta * 10;
-
 
     scoreElement.textContent =
       Math.floor(score);
 
-
-    /* =====================
-       DIFFICULTY
-    ===================== */
-
     updateDifficulty();
 
-
-    /* =====================
-       JUMP PHYSICS
-    ===================== */
 
     if(jumping){
 
       velocityY -=
         gravity * delta;
 
-
       lunaY +=
         velocityY * delta;
-
-
-      /*
-      Small forward movement.
-      */
 
       lunaX +=
         38 * delta;
@@ -2878,14 +3793,9 @@ function loop(time){
     luna.style.left =
       lunaX + "px";
 
-
     luna.style.bottom =
       (70 + lunaY) + "px";
 
-
-    /* =====================
-       SPAWN ROCK
-    ===================== */
 
     obstacleTimer +=
       delta * 1000;
@@ -2901,17 +3811,12 @@ function loop(time){
       nextObstacle =
         getObstacleTime();
 
-
       obstacles.push(
         createObstacle()
       );
 
     }
 
-
-    /* =====================
-       ROCKS
-    ===================== */
 
     const lunaRect =
       luna.getBoundingClientRect();
@@ -2923,7 +3828,6 @@ function loop(time){
         obstacle.x -=
           speed * delta;
 
-
         obstacle.element.style.left =
           obstacle.x + "px";
 
@@ -2932,11 +3836,6 @@ function loop(time){
           obstacle.element
             .getBoundingClientRect();
 
-
-        /*
-        Bonus points for passing
-        a rock.
-        */
 
         if(
           !obstacle.counted &&
@@ -2950,10 +3849,6 @@ function loop(time){
 
         }
 
-
-        /*
-        Collision.
-        */
 
         if(
           collision(
@@ -2969,11 +3864,6 @@ function loop(time){
       }
     );
 
-
-    /*
-    Delete rocks that
-    left the screen.
-    */
 
     obstacles =
       obstacles.filter(
@@ -3005,11 +3895,26 @@ function loop(time){
 
 
 /* =========================================================
-   START LOOP
+   START
 ========================================================= */
+
+resizeCanvas();
+
+initializeMarket();
 
 requestAnimationFrame(
   loop
+);
+
+
+/*
+  Refresh market list periodically.
+  Chart keeps its own 1-second tracking.
+*/
+
+setInterval(
+  loadMarkets,
+  15000
 );
 
 </script>
